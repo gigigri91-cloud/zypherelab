@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ZypheroLab</title>
+
+<link rel="stylesheet" href="css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="loader-logo">ZypheroLab</div>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="logo">ZypheroLab</div>
+
+  <nav>
+    <a href="#">Home</a>
+    <a href="#services">Services</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#simulator">Simulator</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>We Build Websites That Bring You Clients</h1>
+  <p>Modern, fast and conversion-focused websites</p>
+  <button class="btn">Get Your Website</button>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="services reveal">
+  <h2>Our Services</h2>
+
+  <div class="cards">
+    <div class="card">
+      <h3>Fast Websites</h3>
+      <p>Optimized for speed</p>
+    </div>
+
+    <div class="card">
+      <h3>Modern Design</h3>
+      <p>Premium UI & UX</p>
+    </div>
+
+    <div class="card">
+      <h3>Instant Preview</h3>
+      <p>See your site before buying</p>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio" class="portfolio reveal">
+  <h2>Portfolio</h2>
+
+  <div class="portfolio-grid">
+    <div class="portfolio-item"></div>
+    <div class="portfolio-item"></div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials reveal">
+  <h2>What Clients Say</h2>
+  <p>"Amazing results! Highly recommend."</p>
+</section>
+
+<!-- SIMULATOR -->
+<section id="simulator" class="simulator reveal">
+  <h2>Create Your Website Preview</h2>
+
+  <input type="text" id="siteName" placeholder="Business Name">
+
+  <select id="siteType">
+    <option>Business</option>
+    <option>Restaurant</option>
+  </select>
+
+  <button class="btn" onclick="generateSite()">Generate Preview</button>
+
+  <div id="previewBox"></div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact reveal">
+  <h2>Contact</h2>
+
+  <form>
+    <input type="text" placeholder="Name">
+    <input type="email" placeholder="Email">
+    <textarea placeholder="Project"></textarea>
+    <button class="btn">Send</button>
+  </form>
+</section>
+
+<!-- WHATSAPP -->
+<a href="#" class="whatsapp">💬</a>
+
+<!-- CTA -->
+<div class="floating-cta">Start Now</div>
+
+<script src="js/simulator.js"></script>
+
+</body>
+</html>
