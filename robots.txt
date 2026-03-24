@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://zypherolab.com/sitemap.xml
