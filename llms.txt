@@ -1,0 +1,22 @@
+ZypheroLab
+
+Summary:
+- ZypheroLab builds high-performance, conversion-focused websites for small and medium businesses.
+- Core services: web design, technical SEO, AI-search optimization, conversion optimization.
+- Primary market: Romania (RO), with Romanian-first content.
+
+Key facts:
+- Typical launch window: 7-14 business days for standard projects.
+- Focus metrics: qualified leads, conversion rate, Core Web Vitals, organic visibility.
+- Contact paths: website form and WhatsApp.
+
+Canonical URL:
+- https://zypherolab.com/
+
+Primary sections:
+- Hero: value proposition for business growth.
+- Services: web design, SEO+AI visibility, conversion architecture.
+- Offer: starter package details.
+- Results: case-study style outcomes.
+- FAQ: implementation timeline, AI-search visibility, post-launch support.
+- Contact: lead qualification form.
