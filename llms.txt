@@ -3,12 +3,16 @@ ZypheroLab
 Summary:
 - ZypheroLab builds high-performance, conversion-focused websites for small and medium businesses.
 - Core services: web design, technical SEO, AI-search optimization, conversion optimization.
-- Primary market: Romania (RO), with Romanian-first content.
+- Primary market: Romania (RO), with Romanian-first content; English version at https://zypherolab.com/en/
+- Typography is self-hosted (WOFF2); no third-party font CDN required for normal page loads.
 
 Key facts:
 - Typical launch window: 7-14 business days for standard projects.
 - Focus metrics: qualified leads, conversion rate, Core Web Vitals, organic visibility.
 - Contact paths: website form and WhatsApp.
+
+Implementation (for humans and coding assistants):
+- Static HTML/CSS/JS; no build step. Optional extended notes may live in a local `docs/` folder (not published to the public repo). Root `AGENTS.md` in the repo is a short pointer only.
 
 Canonical URL:
 - https://zypherolab.com/

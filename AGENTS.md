@@ -1,23 +1,16 @@
-## Cursor Cloud specific instructions
+## Cursor / AI agent instructions — ZypheroLab
 
-This is a **static website** (HTML/CSS/vanilla JS) with zero build dependencies, no package manager, and no backend. There is no `package.json`, no bundler, and no transpiler.
+Documentația detaliată (handoff RO + ghid tehnic EN) stă în **`docs/`**:
 
-### Running the dev server
+- `docs/AGENTS.md` — instrucțiuni agenți (engleză)
+- `docs/PENTRU-CHATURI-VIITOARE.md` — context complet (română)
 
-Serve the site locally with Python's built-in HTTP server:
+**Folderul `docs/` este în `.gitignore`** — nu se comite și nu se publică în repo; păstrează aceste fișiere **doar local** sau copiază-le unde ai nevoie.
 
-```
-python3 -m http.server 8080
-```
+### Referință minimă (când `docs/` lipsește)
 
-Then open `http://localhost:8080` in Chrome. The page loader animates briefly, then the full site is visible.
-
-### Key interactive feature
-
-The **Website Simulator** (`js/simulator.js`) generates a simple preview card when a business name is entered and "Generate Preview" is clicked. This is the primary testable user interaction.
-
-### Notes
-
-- No lint, test, or build commands exist — the codebase has no tooling beyond a browser.
-- Google Fonts (`Inter`) is loaded from CDN; without internet the page falls back to system sans-serif but remains functional.
-- The site is deployed via GitHub Pages (see `CNAME` → `zypherolab.com`).
+- Site **static**: HTML, CSS, vanilla JS — fără `package.json` / build / backend.
+- Local: `python3 -m http.server 8080` → `/` (RO), `/en/` (EN).
+- Scripturi: `js/i18n.js` apoi `js/simulator.js`. Preview simulator: `#previewBox`, `generateSite()` în `simulator.js`.
+- Deploy: GitHub Pages, domeniu în `CNAME` → `zypherolab.com`.
+- Nu înlocui `index.html` cu un prototip gol fără i18n, `en/index.html`, meta SEO și căi root-relative (`/css/`, `/js/`).
