@@ -3,7 +3,8 @@ ZypheroLab
 Summary:
 - ZypheroLab builds high-performance, conversion-focused websites for small and medium businesses.
 - Core services: web design, technical SEO, AI-search optimization, conversion optimization.
-- Primary market: Romania (RO), with Romanian-first content.
+- Primary market: Romania (RO), with Romanian-first content; English version at https://zypherolab.com/en/
+- Typography is self-hosted (WOFF2); no third-party font CDN required for normal page loads.
 
 Key facts:
 - Typical launch window: 7-14 business days for standard projects.

@@ -13,21 +13,9 @@
     <priority>0.95</priority>
   </url>
   <url>
-    <loc>https://zypherolab.com/#services</loc>
-    <lastmod>2026-03-30</lastmod>
+    <loc>https://zypherolab.com/llms.txt</loc>
+    <lastmod>2026-04-10</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://zypherolab.com/#results</loc>
-    <lastmod>2026-03-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://zypherolab.com/#faq</loc>
-    <lastmod>2026-03-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.4</priority>
   </url>
 </urlset>
