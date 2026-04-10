@@ -8,6 +8,15 @@ function tt(path) {
   return path;
 }
 
+function waPhoneDigits() {
+  const i = window.ZypheroI18n;
+  if (i && typeof i.waPhoneDigits === "function") {
+    return i.waPhoneDigits();
+  }
+  const c = typeof window !== "undefined" && window.ZypheroConfig && window.ZypheroConfig.waPhoneE164;
+  return typeof c === "string" && /^\d{8,15}$/.test(c.trim()) ? c.trim() : "40747821384";
+}
+
 function getSelectedStyle() {
   const active = document.querySelector(".style-options button.active");
   return active && active.dataset.style ? active.dataset.style : STYLE_DEFAULT;
@@ -249,7 +258,7 @@ function setupLeadForm() {
           `Obiectiv: ${goal}`
         ].join("\n");
 
-    const whatsappUrl = `https://wa.me/40700000000?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = `https://wa.me/${waPhoneDigits()}?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, "_blank", "noopener");
     formStatus.textContent = tt("form.success");
     form.reset();
