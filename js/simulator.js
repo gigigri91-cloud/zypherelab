@@ -9,7 +9,7 @@ function tt(path) {
 }
 
 function getSelectedStyle() {
-  const active = document.querySelector(".style-pill.is-active");
+  const active = document.querySelector(".style-options button.active");
   return active && active.dataset.style ? active.dataset.style : STYLE_DEFAULT;
 }
 
@@ -23,6 +23,20 @@ function taglineForType(type) {
   const key = `preview.tagline.${type}`;
   const text = tt(key);
   return text === key ? tt("preview.tagline.default") : text;
+}
+
+const PREVIEW_CARD_SUFFIXES = ["a", "b", "c"];
+
+function serviceCardLabels(type) {
+  const keys = PREVIEW_CARD_SUFFIXES.map((s) => `preview.cards.${type}.${s}`);
+  const fallbackKeys = PREVIEW_CARD_SUFFIXES.map((s) => `preview.cards.default.${s}`);
+  return keys.map((key, i) => {
+    const label = tt(key);
+    if (label !== key) {
+      return label;
+    }
+    return tt(fallbackKeys[i]);
+  });
 }
 
 function typeLabelForPill(type) {
@@ -60,6 +74,15 @@ function createPreviewCard(name, type, style, hue) {
 
   hero.append(title, sub, cta);
 
+  const cardsRow = document.createElement("div");
+  cardsRow.className = "preview-cards";
+  serviceCardLabels(type).forEach((text) => {
+    const card = document.createElement("div");
+    card.className = "preview-card";
+    card.textContent = text;
+    cardsRow.appendChild(card);
+  });
+
   const body = document.createElement("div");
   body.className = "preview-site-body";
   const strong = document.createElement("strong");
@@ -72,7 +95,7 @@ function createPreviewCard(name, type, style, hue) {
   });
   body.append(strong, ul);
 
-  wrap.append(nav, hero, body);
+  wrap.append(nav, hero, cardsRow, body);
   return wrap;
 }
 
@@ -106,11 +129,11 @@ function generateSite() {
 }
 
 function setupStylePills() {
-  const pills = document.querySelectorAll(".style-pill");
+  const pills = document.querySelectorAll(".style-options button");
   pills.forEach((pill) => {
     pill.addEventListener("click", () => {
-      pills.forEach((p) => p.classList.remove("is-active"));
-      pill.classList.add("is-active");
+      pills.forEach((p) => p.classList.remove("active"));
+      pill.classList.add("active");
     });
   });
 }

@@ -73,6 +73,7 @@
         colorHint: "Alege nuanța culorii accent pentru preview, de la 0 la 360 grade.",
         labelStyle: "Stil",
         btnGenerate: "Generează preview site",
+        previewRegion: "Previzualizare concept site",
         phPreview: "Apasă „Generează preview” pentru a vedea conceptul.",
         footText: "Vezi cum arată site-ul în câteva secunde. Preview instant pentru business-ul tău.",
         footCta: "Vreau acest site",
@@ -139,18 +140,26 @@
           services: "Soluții clare, livrare rapidă și suport dedicat.",
           ecommerce: "Magazin rapid, plăți sigure și experiență fluidă pe mobil.",
           default: "Mesaj clar, viteză mare și conversii mai bune."
+        },
+        cards: {
+          restaurant: { a: "Meniu", b: "Rezervări", c: "Livrare" },
+          barber: { a: "Tunsoare", b: "Barbă", c: "Programare" },
+          agency: { a: "Web design", b: "Dezvoltare", c: "SEO" },
+          services: { a: "Consultanță", b: "Implementare", c: "Suport" },
+          ecommerce: { a: "Catalog", b: "Livrare", c: "Plăți" },
+          default: { a: "Servicii", b: "Portofoliu", c: "Contact" }
         }
       }
     },
     en: {
       meta: {
-        title: "ZypheroLab | Web design that wins clients",
+        title: "ZypheroLab | Web design that brings you clients",
         description:
           "ZypheroLab builds fast, conversion-focused websites with SEO and AI search visibility. Modern design, performance, and real leads.",
         ogTitle: "ZypheroLab | Websites that bring you clients",
         ogDescription:
           "Fast, clear, conversion-focused websites optimized for Google and AI-assisted search.",
-        twitterTitle: "ZypheroLab | Growth-focused websites",
+        twitterTitle: "ZypheroLab | Websites built for growth",
         twitterDescription: "SEO, performance, and UX for more qualified leads."
       },
       skip: "Skip to content",
@@ -213,6 +222,7 @@
         colorHint: "Pick the accent hue for the preview, from 0 to 360 degrees.",
         labelStyle: "Style",
         btnGenerate: "Generate website preview",
+        previewRegion: "Live website preview",
         phPreview: "Click “Generate preview” to see the concept.",
         footText: "See how your site could look in seconds. An instant preview for your business.",
         footCta: "I want this website",
@@ -279,6 +289,14 @@
           services: "Clear solutions, fast delivery, and dedicated support.",
           ecommerce: "A fast store, secure payments, and a smooth mobile flow.",
           default: "A clear message, high speed, and stronger conversions."
+        },
+        cards: {
+          restaurant: { a: "Menu", b: "Reservations", c: "Delivery" },
+          barber: { a: "Haircut", b: "Beard trim", c: "Book appointment" },
+          agency: { a: "Web design", b: "Development", c: "SEO" },
+          services: { a: "Consulting", b: "Delivery", c: "Support" },
+          ecommerce: { a: "Catalog", b: "Shipping", c: "Checkout" },
+          default: { a: "Services", b: "Portfolio", c: "Contact" }
         }
       }
     }
@@ -373,6 +391,8 @@
     setMeta('meta[property="og:description"]', "content", t("meta.ogDescription"));
     setMeta('meta[name="twitter:title"]', "content", t("meta.twitterTitle"));
     setMeta('meta[name="twitter:description"]', "content", t("meta.twitterDescription"));
+    setMeta('meta[property="og:locale"]', "content", currentLang === "en" ? "en_US" : "ro_RO");
+    setMeta('meta[property="og:locale:alternate"]', "content", currentLang === "en" ? "ro_RO" : "en_US");
   }
 
   function normalizeUrlToPathLang() {

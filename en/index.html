@@ -3,25 +3,34 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ZypheroLab | Web design that wins clients</title>
+<title>ZypheroLab | Web design that brings you clients</title>
 <meta name="description" content="ZypheroLab builds fast, conversion-focused websites with SEO and AI search visibility. Modern design, performance, and real leads.">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="author" content="ZypheroLab">
 <meta name="theme-color" content="#020617">
+<link rel="preload" href="/img/brand/zypherolab-logo-header@2x.png" as="image" type="image/png">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="/favicon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="canonical" href="https://zypherolab.com/en/">
 <link rel="alternate" hreflang="ro" href="https://zypherolab.com/">
 <link rel="alternate" hreflang="en" href="https://zypherolab.com/en/">
 <link rel="alternate" hreflang="x-default" href="https://zypherolab.com/">
 <meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="ro_RO">
 <meta property="og:title" content="ZypheroLab | Websites that bring you clients">
 <meta property="og:description" content="Fast, clear, conversion-focused websites optimized for Google and AI-assisted search.">
 <meta property="og:url" content="https://zypherolab.com/en/">
 <meta property="og:site_name" content="ZypheroLab">
-<meta property="og:image" content="https://zypherolab.com/favicon.ico">
+<meta property="og:image" content="https://zypherolab.com/img/brand/zypherolab-logo.png">
+<meta property="og:image:width" content="1024">
+<meta property="og:image:height" content="354">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="ZypheroLab | Growth-focused websites">
+<meta name="twitter:title" content="ZypheroLab | Websites built for growth">
 <meta name="twitter:description" content="SEO, performance, and UX for more qualified leads.">
-<meta name="twitter:image" content="https://zypherolab.com/favicon.ico">
+<meta name="twitter:image" content="https://zypherolab.com/img/brand/zypherolab-logo.png">
 <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/inter-latin-ext.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/montserrat-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -41,8 +50,7 @@
       "name": "ZypheroLab",
       "url": "https://zypherolab.com/",
       "description": "Conversion-focused web design agency with technical SEO and AI search visibility.",
-      "logo": "https://zypherolab.com/favicon.ico",
-      "sameAs": ["https://zypherolab.com/"],
+      "logo": "https://zypherolab.com/img/brand/zypherolab-logo.png",
       "contactPoint": {
         "@type": "ContactPoint",
         "contactType": "sales",
@@ -56,7 +64,21 @@
       "url": "https://zypherolab.com/en/",
       "name": "ZypheroLab",
       "publisher": { "@id": "https://zypherolab.com/#organization" },
-      "inLanguage": "en"
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://zypherolab.com/en/#webpage",
+      "url": "https://zypherolab.com/en/",
+      "name": "ZypheroLab | Web design that brings you clients",
+      "description": "ZypheroLab builds fast, conversion-focused websites with SEO and AI search visibility. Modern design, performance, and real leads.",
+      "isPartOf": { "@id": "https://zypherolab.com/en/#website" },
+      "about": { "@id": "https://zypherolab.com/#organization" },
+      "inLanguage": "en-US",
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://zypherolab.com/img/brand/zypherolab-logo.png"
+      }
     },
     {
       "@type": "ProfessionalService",
@@ -101,41 +123,30 @@
 </script>
 </head>
 <body>
-<a class="skip-link" href="#main-content" data-i18n="skip">Sari la conținut</a>
+<a class="skip-link" href="#main-content" data-i18n="skip">Skip to content</a>
 
 <div id="loader" aria-hidden="true">
-  <div class="loader-logo">ZypheroLab</div>
+  <div class="loader-logo">
+    <img src="/img/brand/zypherolab-logo-header@2x.png" alt="" width="231" height="80" decoding="async">
+  </div>
 </div>
 
 <header>
   <div class="header-inner">
-    <a href="#home" class="brand" data-i18n-aria="brand.aria" aria-label="ZypheroLab — Acasă">
-      <span class="brand-mark" aria-hidden="true">
-        <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="zg" x1="6" y1="6" x2="30" y2="30" gradientUnits="userSpaceOnUse">
-              <stop stop-color="#38bdf8"/>
-              <stop offset="0.5" stop-color="#a78bfa"/>
-              <stop offset="1" stop-color="#f472b6"/>
-            </linearGradient>
-          </defs>
-          <rect x="1" y="1" width="34" height="34" rx="9" stroke="url(#zg)" stroke-width="1.5" fill="rgba(15,23,42,0.5)"/>
-          <path d="M11 10h14L12 26h13" stroke="url(#zg)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </span>
-      <span class="brand-name">ZypheroLab</span>
+    <a href="#home" class="brand" data-i18n-aria="brand.aria" aria-label="ZypheroLab — Home">
+      <img class="brand-logo" src="/img/brand/zypherolab-logo-header@2x.png" width="231" height="80" alt="" decoding="async">
     </a>
-    <nav class="nav-main" data-i18n-aria="nav.aria" aria-label="Navigare principală">
-      <a href="#home" data-nav-target="home" class="is-active" data-i18n="nav.home">Acasă</a>
-      <a href="#services" data-nav-target="services" data-i18n="nav.services">Servicii</a>
-      <a href="#results" data-nav-target="results" data-i18n="nav.portfolio">Portofoliu</a>
+    <nav class="nav-main" data-i18n-aria="nav.aria" aria-label="Main navigation">
+      <a href="#home" data-nav-target="home" class="is-active" data-i18n="nav.home">Home</a>
+      <a href="#services" data-nav-target="services" data-i18n="nav.services">Services</a>
+      <a href="#results" data-nav-target="results" data-i18n="nav.portfolio">Portfolio</a>
       <a href="#simulator" data-nav-target="simulator" data-i18n="nav.simulator">Simulator</a>
     </nav>
     <div class="lang-switch" role="group">
       <button type="button" class="lang-btn" data-lang="ro" aria-pressed="false">RO</button>
       <button type="button" class="lang-btn is-active" data-lang="en" aria-pressed="true">EN</button>
     </div>
-    <a class="header-cta" href="#contact" data-i18n="header.cta">Cere ofertă</a>
+    <a class="header-cta" href="#contact" data-i18n="header.cta">Get a quote</a>
   </div>
 </header>
 
@@ -143,12 +154,12 @@
   <section id="home" class="hero">
     <div class="hero-inner">
       <div class="hero-copy">
-        <h1 data-i18n="hero.title">Construim website-uri care îți aduc clienți</h1>
-        <p class="hero-tagline" data-i18n="hero.tagline">Preview instant. Rezultate reale.</p>
-        <p class="hero-lead" data-i18n="hero.lead">Pagini rapide, mesaj clar și optimizare pentru Google și căutări AI — pentru lead-uri constante.</p>
+        <h1 data-i18n="hero.title">We build websites that bring you clients</h1>
+        <p class="hero-tagline" data-i18n="hero.tagline">Instant previews. Real results.</p>
+        <p class="hero-lead" data-i18n="hero.lead">Fast pages, a clear message, and optimization for Google and AI search — so you get steady leads.</p>
         <div class="hero-actions">
-          <a class="btn" href="#simulator" data-i18n="hero.ctaSim">Încearcă simulatorul live</a>
-          <a class="btn btn-secondary" href="#contact" data-i18n="hero.ctaQuote">Cere ofertă</a>
+          <a class="btn" href="#simulator" data-i18n="hero.ctaSim">Try live simulator</a>
+          <a class="btn btn-secondary" href="#contact" data-i18n="hero.ctaQuote">Get a quote</a>
         </div>
       </div>
       <div class="hero-visual" aria-hidden="true">
@@ -164,166 +175,166 @@
   </section>
 
   <section class="facts reveal" aria-labelledby="facts-title">
-    <h2 id="facts-title" data-i18n="facts.title">Date rapide pentru Google și motoare AI</h2>
+    <h2 id="facts-title" data-i18n="facts.title">Quick signals for Google and AI engines</h2>
     <ul class="facts-list">
-      <li data-i18n="facts.li1">ZypheroLab proiectează website-uri orientate pe conversie pentru IMM-uri.</li>
-      <li data-i18n="facts.li2">Stack-ul urmărește performanța, accesibilitatea și conținut ușor de citat.</li>
-      <li data-i18n="facts.li3">Optimizăm HTML semantic, schema markup, FAQ și claritatea mesajului.</li>
-      <li data-i18n="facts.li4">CTA-urile sunt construite pentru contact direct: formular + WhatsApp.</li>
+      <li data-i18n="facts.li1">ZypheroLab designs conversion-focused websites for SMBs.</li>
+      <li data-i18n="facts.li2">Our stack prioritizes performance, accessibility, and easy-to-quote content.</li>
+      <li data-i18n="facts.li3">We optimize semantic HTML, schema markup, FAQs, and message clarity.</li>
+      <li data-i18n="facts.li4">CTAs are built for direct contact: form + WhatsApp.</li>
     </ul>
   </section>
 
   <section id="services" class="services reveal" aria-labelledby="services-title">
-    <h2 id="services-title" data-i18n="services.title">Servicii</h2>
+    <h2 id="services-title" data-i18n="services.title">Services</h2>
     <div class="cards">
       <article class="card">
-        <h3 data-i18n="services.c1t">Website rapid</h3>
-        <p data-i18n="services.c1p">Structură modernă, încărcare rapidă și experiență impecabilă pe mobil.</p>
+        <h3 data-i18n="services.c1t">Fast websites</h3>
+        <p data-i18n="services.c1p">Modern structure, quick load times, and a polished mobile experience.</p>
       </article>
       <article class="card">
-        <h3 data-i18n="services.c2t">SEO + vizibilitate AI</h3>
-        <p data-i18n="services.c2p">Meta, schema, FAQ și conținut clar pentru căutări clasice și asistate de AI.</p>
+        <h3 data-i18n="services.c2t">SEO + AI visibility</h3>
+        <p data-i18n="services.c2p">Meta, schema, FAQs, and clear copy for classic and AI-assisted search.</p>
       </article>
       <article class="card">
-        <h3 data-i18n="services.c3t">Conversie</h3>
-        <p data-i18n="services.c3p">CTA-uri testabile, formular orientat pe lead-uri și mesaje care reduc fricțiunea.</p>
+        <h3 data-i18n="services.c3t">Conversion</h3>
+        <p data-i18n="services.c3p">Testable CTAs, lead-focused forms, and copy that reduces friction.</p>
       </article>
     </div>
   </section>
 
   <section id="offer" class="offer reveal" aria-labelledby="offer-title">
-    <h2 id="offer-title" data-i18n="offer.title">Ofertă clară pentru start rapid</h2>
-    <p class="offer-lead" data-i18n="offer.lead">Pachet Start: landing page + formular lead + setup SEO de bază + analytics.</p>
+    <h2 id="offer-title" data-i18n="offer.title">A clear offer for a fast start</h2>
+    <p class="offer-lead" data-i18n="offer.lead">Starter pack: landing page + lead form + baseline SEO setup + analytics.</p>
     <ul class="offer-list">
-      <li data-i18n="offer.li1">Audit de business și mesaj principal</li>
-      <li data-i18n="offer.li2">Design orientat pe conversie</li>
-      <li data-i18n="offer.li3">Implementare tehnică + indexare</li>
-      <li data-i18n="offer.li4">Recomandări pentru iterații lunare</li>
+      <li data-i18n="offer.li1">Business audit and core message</li>
+      <li data-i18n="offer.li2">Conversion-oriented design</li>
+      <li data-i18n="offer.li3">Technical build + indexing</li>
+      <li data-i18n="offer.li4">Recommendations for monthly iterations</li>
     </ul>
-    <a class="btn" href="#contact" data-i18n="offer.cta">Vreau pachetul Start</a>
+    <a class="btn" href="#contact" data-i18n="offer.cta">I want the Starter pack</a>
   </section>
 
   <section id="results" class="portfolio reveal" aria-labelledby="results-title">
-    <h2 id="results-title" data-i18n="portfolio.title">Portofoliu — studii de caz</h2>
+    <h2 id="results-title" data-i18n="portfolio.title">Portfolio — case studies</h2>
     <div class="portfolio-grid">
       <article class="portfolio-item">
-        <h3 data-i18n="portfolio.c1t">Firmă servicii locale</h3>
-        <p data-i18n="portfolio.c1p">Redesign + SEO on-page. Rezultat: creștere trafic organic și lead-uri mai calificate.</p>
-        <p class="result-metric" data-i18n="portfolio.c1m">+68% cereri în 90 zile</p>
+        <h3 data-i18n="portfolio.c1t">Local services company</h3>
+        <p data-i18n="portfolio.c1p">Redesign + on-page SEO. Result: more organic traffic and better-qualified leads.</p>
+        <p class="result-metric" data-i18n="portfolio.c1m">+68% inquiries in 90 days</p>
       </article>
       <article class="portfolio-item">
-        <h3 data-i18n="portfolio.c2t">Restaurant urban</h3>
-        <p data-i18n="portfolio.c2p">Landing orientat pe rezervări mobile și viteză ridicată.</p>
-        <p class="result-metric" data-i18n="portfolio.c2m">+41% rezervări online</p>
+        <h3 data-i18n="portfolio.c2t">Urban restaurant</h3>
+        <p data-i18n="portfolio.c2p">Mobile-first landing focused on reservations and speed.</p>
+        <p class="result-metric" data-i18n="portfolio.c2m">+41% online reservations</p>
       </article>
     </div>
   </section>
 
   <section class="testimonials reveal" aria-labelledby="testimonials-title">
-    <h2 id="testimonials-title" data-i18n="testimonials.title">Ce spun clienții</h2>
+    <h2 id="testimonials-title" data-i18n="testimonials.title">What clients say</h2>
     <blockquote>
-      <p data-i18n="testimonials.quote">„Mesajul e clar, site-ul e rapid, iar lead-urile au crescut în prima lună.”</p>
-      <cite data-i18n="testimonials.cite">— Andrei, antreprenor local</cite>
+      <p data-i18n="testimonials.quote">“The message is clear, the site is fast, and leads grew in the first month.”</p>
+      <cite data-i18n="testimonials.cite">— Andrei, local business owner</cite>
     </blockquote>
   </section>
 
   <section id="simulator" class="generator-section reveal" aria-labelledby="generator-title">
-    <div class="generator-card">
+    <div class="generator-card simulator-box">
       <div class="generator-card-head">
-        <h2 id="generator-title" data-i18n="gen.title">Generator website AI</h2>
+        <h2 id="generator-title" data-i18n="gen.title">AI website generator</h2>
       </div>
       <div class="generator-grid">
-        <div class="generator-form-column">
+        <div class="generator-form-column inputs">
           <div class="field-group">
-            <label for="siteName" data-i18n="gen.labelName">Nume business</label>
-            <input type="text" id="siteName" data-i18n-placeholder="gen.phName" placeholder="Introdu numele" required autocomplete="organization">
+            <label for="siteName" data-i18n="gen.labelName">Business name</label>
+            <input type="text" id="siteName" data-i18n-placeholder="gen.phName" placeholder="Enter your name" required autocomplete="organization">
           </div>
           <div class="field-group">
-            <label for="siteType" data-i18n="gen.labelType">Tip business</label>
+            <label for="siteType" data-i18n="gen.labelType">Business type</label>
             <select id="siteType" data-i18n-options>
               <option value="restaurant" data-i18n="gen.opt.restaurant">Restaurant</option>
-              <option value="barber" data-i18n="gen.opt.barber">Frizerie</option>
-              <option value="agency" data-i18n="gen.opt.agency">Agenție</option>
-              <option value="services" data-i18n="gen.opt.services">Servicii</option>
+              <option value="barber" data-i18n="gen.opt.barber">Barber shop</option>
+              <option value="agency" data-i18n="gen.opt.agency">Agency</option>
+              <option value="services" data-i18n="gen.opt.services">Services</option>
               <option value="ecommerce" data-i18n="gen.opt.ecommerce">E-commerce</option>
             </select>
           </div>
           <div class="field-group">
-            <label for="siteColor"><span data-i18n="gen.labelColor">Culoare principală</span> <span class="color-value" id="siteColorValue" aria-hidden="true">220°</span></label>
-            <input type="range" id="siteColor" min="0" max="360" value="220" aria-describedby="siteColorHint">
-            <span id="siteColorHint" class="sr-only" data-i18n="gen.colorHint">Alege nuanța culorii accent pentru preview, de la 0 la 360 grade.</span>
+            <label for="siteColor"><span data-i18n="gen.labelColor">Primary color</span> <span class="color-value" id="siteColorValue" aria-hidden="true">220°</span></label>
+            <input type="range" id="siteColor" class="color-picker" min="0" max="360" value="220" aria-describedby="siteColorHint">
+            <span id="siteColorHint" class="sr-only" data-i18n="gen.colorHint">Pick the accent hue for the preview, from 0 to 360 degrees.</span>
           </div>
           <div class="field-group field-group--styles">
-            <span class="field-label-like" id="style-label" data-i18n="gen.labelStyle">Stil</span>
-            <div class="style-toggles" role="group" aria-labelledby="style-label">
-              <button type="button" class="style-pill is-active" data-style="modern">Modern</button>
-              <button type="button" class="style-pill" data-style="minimal">Minimal</button>
-              <button type="button" class="style-pill" data-style="luxury">Luxury</button>
+            <span class="field-label-like" id="style-label" data-i18n="gen.labelStyle">Style</span>
+            <div class="style-toggles style-options" role="group" aria-labelledby="style-label">
+              <button type="button" class="active" data-style="modern">Modern</button>
+              <button type="button" data-style="minimal">Minimal</button>
+              <button type="button" data-style="luxury">Luxury</button>
             </div>
           </div>
-          <button class="btn btn-generate" id="generatePreviewBtn" type="button" data-i18n="gen.btnGenerate">Generează preview site</button>
+          <button class="btn btn-generate" id="generatePreviewBtn" type="button" data-i18n="gen.btnGenerate">Generate website preview</button>
         </div>
-        <div class="generator-preview-column">
+        <div class="generator-preview-column preview">
           <div class="preview-chrome" aria-hidden="true">
             <span></span><span></span><span></span>
           </div>
-          <div id="previewBox" class="preview-mount" aria-live="polite">
-            <p class="preview-placeholder" data-i18n="gen.phPreview">Apasă „Generează preview” pentru a vedea conceptul.</p>
+          <div id="previewBox" class="preview-mount" role="region" aria-live="polite" data-i18n-aria="gen.previewRegion" aria-label="Live website preview">
+            <p class="preview-placeholder" data-i18n="gen.phPreview">Click “Generate preview” to see the concept.</p>
           </div>
         </div>
       </div>
       <div class="generator-card-foot">
-        <p data-i18n="gen.footText">Vezi cum arată site-ul în câteva secunde. Preview instant pentru business-ul tău.</p>
-        <a class="btn" href="#contact" data-i18n="gen.footCta">Vreau acest site</a>
+        <p data-i18n="gen.footText">See how your site could look in seconds. An instant preview for your business.</p>
+        <a class="btn" href="#contact" data-i18n="gen.footCta">I want this website</a>
       </div>
     </div>
   </section>
 
   <section id="faq" class="faq reveal" aria-labelledby="faq-title">
-    <h2 id="faq-title" data-i18n="faq.title">Întrebări frecvente</h2>
+    <h2 id="faq-title" data-i18n="faq.title">Frequently asked questions</h2>
     <details>
-      <summary data-i18n="faq.q1">În cât timp primesc prima versiune?</summary>
-      <p data-i18n="faq.a1">În mod normal în 3–5 zile lucrătoare pentru un draft funcțional.</p>
+      <summary data-i18n="faq.q1">How soon do I get the first version?</summary>
+      <p data-i18n="faq.a1">Typically within 3–5 business days for a functional draft.</p>
     </details>
     <details>
-      <summary data-i18n="faq.q2">Pot fi găsit mai bine în căutări AI?</summary>
-      <p data-i18n="faq.a2">Da, prin structură semantică, date clare despre business, schema și conținut ușor de referit.</p>
+      <summary data-i18n="faq.q2">Can I rank better in AI search results?</summary>
+      <p data-i18n="faq.a2">Yes—through semantic structure, clear business facts, schema, and easy-to-reference content.</p>
     </details>
     <details>
-      <summary data-i18n="faq.q3">Ce primesc după lansare?</summary>
-      <p data-i18n="faq.a3">Checklist de optimizare continuă, monitorizare KPI și recomandări de creștere.</p>
+      <summary data-i18n="faq.q3">What do I get after launch?</summary>
+      <p data-i18n="faq.a3">A continuous optimization checklist, KPI monitoring, and growth recommendations.</p>
     </details>
   </section>
 
   <section id="contact" class="contact reveal" aria-labelledby="contact-title">
-    <h2 id="contact-title" data-i18n="contact.title">Solicită o discuție gratuită</h2>
+    <h2 id="contact-title" data-i18n="contact.title">Book a free call</h2>
     <form id="leadForm" novalidate>
       <div class="field-group">
-        <label for="name" data-i18n="contact.name">Nume</label>
-        <input id="name" name="name" type="text" data-i18n-placeholder="contact.phName" placeholder="Numele tău" required>
+        <label for="name" data-i18n="contact.name">Name</label>
+        <input id="name" name="name" type="text" data-i18n-placeholder="contact.phName" placeholder="Your name" required>
       </div>
       <div class="field-group">
         <label for="email" data-i18n="contact.email">Email</label>
-        <input id="email" name="email" type="email" data-i18n-placeholder="contact.phEmail" placeholder="email@firma.ro" required>
+        <input id="email" name="email" type="email" data-i18n-placeholder="contact.phEmail" placeholder="you@company.com" required>
       </div>
       <div class="field-group">
         <label for="business" data-i18n="contact.business">Business</label>
-        <input id="business" name="business" type="text" data-i18n-placeholder="contact.phBusiness" placeholder="Numele business-ului" required>
+        <input id="business" name="business" type="text" data-i18n-placeholder="contact.phBusiness" placeholder="Business name" required>
       </div>
       <div class="field-group">
-        <label for="goal" data-i18n="contact.goal">Obiectiv principal</label>
-        <textarea id="goal" name="goal" data-i18n-placeholder="contact.phGoal" placeholder="Ex: mai multe lead-uri din Google" required></textarea>
+        <label for="goal" data-i18n="contact.goal">Main goal</label>
+        <textarea id="goal" name="goal" data-i18n-placeholder="contact.phGoal" placeholder="e.g. more leads from Google" required></textarea>
       </div>
-      <button class="btn" type="submit" data-i18n="contact.submit">Trimite cererea</button>
+      <button class="btn" type="submit" data-i18n="contact.submit">Send request</button>
     </form>
     <p id="formStatus" class="form-status" aria-live="polite"></p>
   </section>
 </main>
 
 <footer>
-  <p><strong>ZypheroLab</strong> — <span data-i18n="footer.line">Website-uri de creștere pentru business-uri locale.</span></p>
+  <p><strong>ZypheroLab</strong> — <span data-i18n="footer.line">Growth websites for local businesses.</span></p>
   <p class="footer-links">
-    <a href="#faq" data-i18n="footer.faq">Întrebări frecvente</a>
+    <a href="#faq" data-i18n="footer.faq">FAQ</a>
     <span aria-hidden="true"> · </span>
     <a href="#contact" data-i18n="footer.contact">Contact</a>
     <span aria-hidden="true"> · </span>
@@ -331,14 +342,14 @@
   </p>
 </footer>
 
-<a href="https://wa.me/40700000000?text=Buna%2C%20vreau%20o%20oferta%20pentru%20website." class="whatsapp" data-i18n-aria="float.wa" aria-label="Discuție pe WhatsApp">
+<a href="https://wa.me/40700000000?text=Hi%2C%20I%E2%80%99d%20like%20a%20quote%20for%20a%20website." class="whatsapp" data-i18n-aria="float.wa" aria-label="Chat on WhatsApp">
   <span class="whatsapp-icon" aria-hidden="true"></span>
 </a>
-<a href="#contact" class="floating-cta" data-i18n-aria="float.chat" aria-label="Solicită ofertă">
-  <span class="floating-cta-icon" aria-hidden="true"></span>
+<a href="#contact" class="chat-ai" data-i18n-aria="float.chat" aria-label="Request a quote">
+  <span class="chat-ai-icon" aria-hidden="true"></span>
 </a>
 
-<noscript data-i18n="noscript">Acest website funcționează mai bine cu JavaScript activat.</noscript>
+<noscript data-i18n="noscript">This site works best with JavaScript enabled.</noscript>
 <script src="/js/i18n.js" defer></script>
 <script src="/js/simulator.js" defer></script>
 </body>
