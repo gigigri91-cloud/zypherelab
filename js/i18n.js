@@ -1,6 +1,11 @@
 (function () {
   const STORAGE_KEY = "zyphero-lang";
 
+  function waPhoneDigits() {
+    const c = typeof window !== "undefined" && window.ZypheroConfig && window.ZypheroConfig.waPhoneE164;
+    return typeof c === "string" && /^\d{8,15}$/.test(c.trim()) ? c.trim() : "40747821384";
+  }
+
   const STRINGS = {
     ro: {
       meta: {
@@ -15,15 +20,22 @@
       },
       skip: "Sari la conținut",
       brand: { aria: "ZypheroLab — Acasă" },
-      nav: { aria: "Navigare principală", home: "Acasă", services: "Servicii", portfolio: "Portofoliu", simulator: "Simulator" },
+      nav: {
+        aria: "Navigare principală",
+        home: "Acasă",
+        services: "Servicii",
+        portfolio: "Portofoliu",
+        simulator: "Simulator",
+        contact: "Contact"
+      },
       lang: { switchAria: "Limba site-ului", ro: "Română", en: "Engleză" },
       header: { cta: "Cere ofertă" },
       hero: {
         title: "Construim website-uri care îți aduc clienți",
         tagline: "Preview instant. Rezultate reale.",
-        lead: "Pagini rapide, mesaj clar și optimizare pentru Google și căutări AI — pentru lead-uri constante.",
+        lead: "",
         ctaSim: "Încearcă simulatorul live",
-        ctaQuote: "Cere ofertă"
+        ctaStart: "Începe acum"
       },
       facts: {
         title: "Date rapide pentru Google și motoare AI",
@@ -74,8 +86,8 @@
         labelStyle: "Stil",
         btnGenerate: "Generează preview site",
         previewRegion: "Previzualizare concept site",
-        phPreview: "Apasă „Generează preview” pentru a vedea conceptul.",
-        footText: "Vezi cum arată site-ul în câteva secunde. Preview instant pentru business-ul tău.",
+        phPreview: "Apasă „Generează preview site” pentru a vedea conceptul.",
+        footText: "Vezi cum arată site-ul în ~30 de secunde — preview AI instant pentru business-ul tău.",
         footCta: "Vreau acest site",
         errorName: "Te rugăm să introduci numele business-ului.",
         opt: {
@@ -166,13 +178,13 @@
       brand: { aria: "ZypheroLab — Home" },
       nav: { aria: "Main navigation", home: "Home", services: "Services", portfolio: "Portfolio", simulator: "Simulator" },
       lang: { switchAria: "Site language", ro: "Romanian", en: "English" },
-      header: { cta: "Get a quote" },
+      header: { cta: "Get a Quote" },
       hero: {
-        title: "We build websites that bring you clients",
+        title: "We Build Websites That Bring You Clients",
         tagline: "Instant previews. Real results.",
         lead: "Fast pages, a clear message, and optimization for Google and AI search — so you get steady leads.",
-        ctaSim: "Try live simulator",
-        ctaQuote: "Get a quote"
+        ctaSim: "Try Live Simulator",
+        ctaQuote: "Get a Quote"
       },
       facts: {
         title: "Quick signals for Google and AI engines",
@@ -224,7 +236,7 @@
         btnGenerate: "Generate website preview",
         previewRegion: "Live website preview",
         phPreview: "Click “Generate preview” to see the concept.",
-        footText: "See how your site could look in seconds. An instant preview for your business.",
+        footText: "See your site in ~30 seconds — an instant AI preview for your business.",
         footCta: "I want this website",
         errorName: "Please enter your business name.",
         opt: {
@@ -443,7 +455,7 @@
     const wa = document.querySelector("a.whatsapp");
     if (wa) {
       const text = t("wa.preset");
-      wa.href = `https://wa.me/40700000000?text=${encodeURIComponent(text)}`;
+      wa.href = `https://wa.me/${waPhoneDigits()}?text=${encodeURIComponent(text)}`;
     }
 
     document.querySelectorAll("select[data-i18n-options] option").forEach((opt) => {
@@ -517,6 +529,7 @@
   window.ZypheroI18n = {
     init,
     setLang,
+    waPhoneDigits,
     get lang() {
       return currentLang;
     },

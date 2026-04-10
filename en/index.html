@@ -7,8 +7,8 @@
 <meta name="description" content="ZypheroLab builds fast, conversion-focused websites with SEO and AI search visibility. Modern design, performance, and real leads.">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="author" content="ZypheroLab">
-<meta name="theme-color" content="#020617">
-<link rel="preload" href="/img/brand/zypherolab-logo-header@2x.png" as="image" type="image/png">
+<meta name="theme-color" content="#050508">
+<link rel="preload" href="/img/brand/zypherolab-mark@2x.png" as="image" type="image/png">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
 <link rel="icon" href="/favicon-192.png" type="image/png" sizes="192x192">
@@ -24,13 +24,13 @@
 <meta property="og:description" content="Fast, clear, conversion-focused websites optimized for Google and AI-assisted search.">
 <meta property="og:url" content="https://zypherolab.com/en/">
 <meta property="og:site_name" content="ZypheroLab">
-<meta property="og:image" content="https://zypherolab.com/img/brand/zypherolab-logo.png">
-<meta property="og:image:width" content="1024">
-<meta property="og:image:height" content="354">
+<meta property="og:image" content="https://zypherolab.com/img/brand/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="ZypheroLab | Websites built for growth">
 <meta name="twitter:description" content="SEO, performance, and UX for more qualified leads.">
-<meta name="twitter:image" content="https://zypherolab.com/img/brand/zypherolab-logo.png">
+<meta name="twitter:image" content="https://zypherolab.com/img/brand/og-image.png">
 <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/inter-latin-ext.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/montserrat-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -50,10 +50,11 @@
       "name": "ZypheroLab",
       "url": "https://zypherolab.com/",
       "description": "Conversion-focused web design agency with technical SEO and AI search visibility.",
-      "logo": "https://zypherolab.com/img/brand/zypherolab-logo.png",
+      "logo": "https://zypherolab.com/img/brand/zypherolab-mark.png",
       "contactPoint": {
         "@type": "ContactPoint",
         "contactType": "sales",
+        "telephone": "+40747821384",
         "url": "https://zypherolab.com/en/#contact",
         "availableLanguage": ["ro", "en"]
       }
@@ -77,7 +78,7 @@
       "inLanguage": "en-US",
       "primaryImageOfPage": {
         "@type": "ImageObject",
-        "url": "https://zypherolab.com/img/brand/zypherolab-logo.png"
+        "url": "https://zypherolab.com/img/brand/og-image.png"
       }
     },
     {
@@ -127,14 +128,17 @@
 
 <div id="loader" aria-hidden="true">
   <div class="loader-logo">
-    <img src="/img/brand/zypherolab-logo-header@2x.png" alt="" width="231" height="80" decoding="async">
+    <img src="/img/brand/zypherolab-mark@2x.png" alt="" width="80" height="80" decoding="async">
   </div>
 </div>
 
 <header>
   <div class="header-inner">
     <a href="#home" class="brand" data-i18n-aria="brand.aria" aria-label="ZypheroLab — Home">
-      <img class="brand-logo" src="/img/brand/zypherolab-logo-header@2x.png" width="231" height="80" alt="" decoding="async">
+      <span class="brand-mark-hex" aria-hidden="true">
+        <img class="brand-mark-img" src="/img/brand/zypherolab-mark@2x.png" width="80" height="80" alt="" decoding="async">
+      </span>
+      <span class="brand-wordmark">Zyphero<span class="brand-wordmark-accent">Lab</span></span>
     </a>
     <nav class="nav-main" data-i18n-aria="nav.aria" aria-label="Main navigation">
       <a href="#home" data-nav-target="home" class="is-active" data-i18n="nav.home">Home</a>
@@ -154,15 +158,14 @@
   <section id="home" class="hero">
     <div class="hero-inner">
       <div class="hero-copy">
-        <h1 data-i18n="hero.title">We build websites that bring you clients</h1>
+        <h1 data-i18n="hero.title">We Build Websites That Bring You Clients</h1>
         <p class="hero-tagline" data-i18n="hero.tagline">Instant previews. Real results.</p>
-        <p class="hero-lead" data-i18n="hero.lead">Fast pages, a clear message, and optimization for Google and AI search — so you get steady leads.</p>
         <div class="hero-actions">
-          <a class="btn" href="#simulator" data-i18n="hero.ctaSim">Try live simulator</a>
-          <a class="btn btn-secondary" href="#contact" data-i18n="hero.ctaQuote">Get a quote</a>
+          <a class="btn" href="#simulator" data-i18n="hero.ctaSim">Try Live Simulator</a>
         </div>
       </div>
       <div class="hero-visual" aria-hidden="true">
+        <div class="hero-planet-glow"></div>
         <div class="hero-orb">
           <div class="hero-orb-glow"></div>
           <div class="hero-orb-core"></div>
@@ -274,17 +277,23 @@
           </div>
           <button class="btn btn-generate" id="generatePreviewBtn" type="button" data-i18n="gen.btnGenerate">Generate website preview</button>
         </div>
-        <div class="generator-preview-column preview">
-          <div class="preview-chrome" aria-hidden="true">
-            <span></span><span></span><span></span>
-          </div>
-          <div id="previewBox" class="preview-mount" role="region" aria-live="polite" data-i18n-aria="gen.previewRegion" aria-label="Live website preview">
-            <p class="preview-placeholder" data-i18n="gen.phPreview">Click “Generate preview” to see the concept.</p>
+        <div class="generator-preview-column">
+          <div class="preview-laptop">
+            <div class="preview-laptop-bezel">
+              <div class="preview-laptop-screen">
+                <div class="preview-chrome" aria-hidden="true">
+                  <span></span><span></span><span></span>
+                </div>
+                <div id="previewBox" class="preview-mount" role="region" aria-live="polite" data-i18n-aria="gen.previewRegion" aria-label="Live website preview">
+                  <p class="preview-placeholder" data-i18n="gen.phPreview">Click “Generate preview” to see the concept.</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
       <div class="generator-card-foot">
-        <p data-i18n="gen.footText">See how your site could look in seconds. An instant preview for your business.</p>
+        <p data-i18n="gen.footText">See your site in ~30 seconds — an instant AI preview for your business.</p>
         <a class="btn" href="#contact" data-i18n="gen.footCta">I want this website</a>
       </div>
     </div>
@@ -342,7 +351,7 @@
   </p>
 </footer>
 
-<a href="https://wa.me/40700000000?text=Hi%2C%20I%E2%80%99d%20like%20a%20quote%20for%20a%20website." class="whatsapp" data-i18n-aria="float.wa" aria-label="Chat on WhatsApp">
+<a href="https://wa.me/40747821384?text=Hi%2C%20I%E2%80%99d%20like%20a%20quote%20for%20a%20website." class="whatsapp" data-i18n-aria="float.wa" aria-label="Chat on WhatsApp">
   <span class="whatsapp-icon" aria-hidden="true"></span>
 </a>
 <a href="#contact" class="chat-ai" data-i18n-aria="float.chat" aria-label="Request a quote">
@@ -350,6 +359,7 @@
 </a>
 
 <noscript data-i18n="noscript">This site works best with JavaScript enabled.</noscript>
+<script src="/js/config.js"></script>
 <script src="/js/i18n.js" defer></script>
 <script src="/js/simulator.js" defer></script>
 </body>

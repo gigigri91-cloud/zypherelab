@@ -7,9 +7,9 @@ Summary:
 - Typography is self-hosted (WOFF2); no third-party font CDN required for normal page loads.
 
 Key facts:
-- Typical launch window: 7-14 business days for standard projects.
+- First functional site draft is often delivered in 3-5 business days (see on-page FAQ); fuller launches vary by scope.
 - Focus metrics: qualified leads, conversion rate, Core Web Vitals, organic visibility.
-- Contact paths: website form and WhatsApp.
+- Contact paths: lead form on /#contact, WhatsApp +40 747 821 384 (links use https://wa.me/40747821384).
 
 Implementation (for humans and coding assistants):
 - Static HTML/CSS/JS; no build step. Optional extended notes may live in a local `docs/` folder (not published to the public repo). Root `AGENTS.md` in the repo is a short pointer only.
@@ -18,9 +18,10 @@ Canonical URL:
 - https://zypherolab.com/
 
 Primary sections:
-- Hero: value proposition for business growth.
+- Hero: value proposition for business growth; CTA to live website simulator (#simulator).
 - Services: web design, SEO+AI visibility, conversion architecture.
 - Offer: starter package details.
 - Results: case-study style outcomes.
+- Simulator (#simulator): interactive “AI website generator” — business name, type, accent color, style; generates an in-page preview (no backend; client-side JS).
 - FAQ: implementation timeline, AI-search visibility, post-launch support.
-- Contact: lead qualification form.
+- Contact: lead qualification form (submits by opening WhatsApp with a prefilled message).

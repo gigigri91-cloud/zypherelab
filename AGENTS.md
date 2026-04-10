@@ -11,6 +11,6 @@ Documentația detaliată (handoff RO + ghid tehnic EN) stă în **`docs/`**:
 
 - Site **static**: HTML, CSS, vanilla JS — fără `package.json` / build / backend.
 - Local: `python3 -m http.server 8080` → `/` (RO), `/en/` (EN).
-- Scripturi: `js/i18n.js` apoi `js/simulator.js`. Preview simulator: `#previewBox`, `generateSite()` în `simulator.js`.
+- Scripturi: `js/config.js` (constantă WhatsApp și altele), apoi `js/i18n.js` și `js/simulator.js`. Preview simulator: `#previewBox`, `generateSite()` în `simulator.js`.
 - Deploy: GitHub Pages, domeniu în `CNAME` → `zypherolab.com`.
 - Nu înlocui `index.html` cu un prototip gol fără i18n, `en/index.html`, meta SEO și căi root-relative (`/css/`, `/js/`).
