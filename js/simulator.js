@@ -242,7 +242,7 @@ function setupLangRefreshPreview() {
   });
 }
 
-window.addEventListener("load", () => {
+function boot() {
   const loader = document.getElementById("loader");
   if (loader) {
     loader.style.display = "none";
@@ -259,4 +259,10 @@ window.addEventListener("load", () => {
   if (generatePreviewButton) {
     generatePreviewButton.addEventListener("click", generateSite);
   }
-});
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", boot);
+} else {
+  boot();
+}
