@@ -19,7 +19,12 @@
         twitterDescription: "SEO, performanță și UX pentru mai multe lead-uri."
       },
       skip: "Sari la conținut",
-      brand: { aria: "ZypheroLab — Acasă" },
+      brand: {
+        aria: "ZypheroLab — Acasă"
+      },
+      darkMode: {
+        aria: "Comută dark mode"
+      },
       nav: {
         aria: "Navigare principală",
         home: "Acasă",
@@ -35,7 +40,8 @@
         tagline: "Preview instant. Rezultate reale.",
         lead: "",
         ctaSim: "Încearcă simulatorul live",
-        ctaStart: "Începe acum"
+        ctaStart: "Vezi portofoliu",
+        visualPlaceholder: "Simulatorul va apărea aici"
       },
       facts: {
         title: "Date rapide pentru Google și motoare AI",
@@ -61,6 +67,40 @@
         li3: "Implementare tehnică + indexare",
         li4: "Recomandări pentru iterații lunare",
         cta: "Vreau pachetul Start"
+      },
+      pricing: {
+        title: "Preturi transparente",
+        popular: "Cel mai popular",
+        start: {
+          title: "Pachet Start",
+          price: "1.500 RON",
+          f1: "Landing page completă",
+          f2: "SEO tehnic de bază",
+          f3: "Formular lead + WhatsApp",
+          f4: "Lansat în 3-5 zile",
+          f5: "Suport email 30 zile",
+          cta: "Vreau pachetul Start"
+        },
+        growth: {
+          title: "Pachet Growth",
+          price: "3.500 RON",
+          f1: "Website multi-pagină",
+          f2: "SEO tehnic avansat",
+          f3: "Analytics + rapoarte lunare",
+          f4: "Lansat în 5-7 zile",
+          f5: "Suport prioritar 3 luni",
+          cta: "Vreau pachetul Growth"
+        },
+        custom: {
+          title: "Proiect Custom",
+          price: "La cerere",
+          f1: "Soluție personalizată",
+          f2: "E-commerce sau aplicație",
+          f3: "Integrări API",
+          f4: "Timeline flexibil",
+          f5: "Suport dedicat",
+          cta: "Cere ofertă"
+        }
       },
       portfolio: {
         title: "Portofoliu — studii de caz",
@@ -176,6 +216,9 @@
       },
       skip: "Skip to content",
       brand: { aria: "ZypheroLab — Home" },
+      darkMode: {
+        aria: "Toggle dark mode"
+      },
       nav: { aria: "Main navigation", home: "Home", services: "Services", portfolio: "Portfolio", simulator: "Simulator" },
       lang: { switchAria: "Site language", ro: "Romanian", en: "English" },
       header: { cta: "Get a Quote" },
@@ -184,7 +227,8 @@
         tagline: "Instant previews. Real results.",
         lead: "Fast pages, a clear message, and optimization for Google and AI search — so you get steady leads.",
         ctaSim: "Try Live Simulator",
-        ctaQuote: "Get a Quote"
+        ctaStart: "View Portfolio",
+        visualPlaceholder: "Simulator will appear here"
       },
       facts: {
         title: "Quick signals for Google and AI engines",
@@ -210,6 +254,40 @@
         li3: "Technical build + indexing",
         li4: "Recommendations for monthly iterations",
         cta: "I want the Starter pack"
+      },
+      pricing: {
+        title: "Transparent Pricing",
+        popular: "Most Popular",
+        start: {
+          title: "Starter Pack",
+          price: "1,500 RON",
+          f1: "Complete landing page",
+          f2: "Baseline technical SEO",
+          f3: "Lead form + WhatsApp",
+          f4: "Launched in 3-5 days",
+          f5: "Email support 30 days",
+          cta: "I want the Starter pack"
+        },
+        growth: {
+          title: "Growth Pack",
+          price: "3,500 RON",
+          f1: "Multi-page website",
+          f2: "Advanced technical SEO",
+          f3: "Analytics + monthly reports",
+          f4: "Launched in 5-7 days",
+          f5: "Priority support 3 months",
+          cta: "I want the Growth pack"
+        },
+        custom: {
+          title: "Custom Project",
+          price: "On request",
+          f1: "Custom solution",
+          f2: "E-commerce or application",
+          f3: "API integrations",
+          f4: "Flexible timeline",
+          f5: "Dedicated support",
+          cta: "Get a quote"
+        }
       },
       portfolio: {
         title: "Portfolio — case studies",

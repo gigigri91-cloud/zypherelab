@@ -7,8 +7,8 @@
 <meta name="description" content="ZypheroLab builds fast, conversion-focused websites with SEO and AI search visibility. Modern design, performance, and real leads.">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="author" content="ZypheroLab">
-<meta name="theme-color" content="#050508">
-<link rel="preload" href="/img/brand/zypherolab-mark@2x.png" as="image" type="image/png">
+<meta name="theme-color" content="#667eea">
+<link rel="preload" href="/img/brand/zypherolab-logo.png" as="image" type="image/png">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
 <link rel="icon" href="/favicon-192.png" type="image/png" sizes="192x192">
@@ -50,7 +50,7 @@
       "name": "ZypheroLab",
       "url": "https://zypherolab.com/",
       "description": "Conversion-focused web design agency with technical SEO and AI search visibility.",
-      "logo": "https://zypherolab.com/img/brand/zypherolab-mark.png",
+      "logo": "https://zypherolab.com/img/brand/zypherolab-logo.png",
       "contactPoint": {
         "@type": "ContactPoint",
         "contactType": "sales",
@@ -128,7 +128,7 @@
 
 <div id="loader" aria-hidden="true">
   <div class="loader-logo">
-    <img src="/img/brand/zypherolab-mark@2x.png" alt="" width="80" height="80" decoding="async">
+    <img src="/img/brand/zypherolab-logo.png" alt="" width="80" height="80" decoding="async">
   </div>
 </div>
 
@@ -136,7 +136,7 @@
   <div class="header-inner">
     <a href="#home" class="brand" data-i18n-aria="brand.aria" aria-label="ZypheroLab — Home">
       <span class="brand-mark-hex" aria-hidden="true">
-        <img class="brand-mark-img" src="/img/brand/zypherolab-mark@2x.png" width="80" height="80" alt="" decoding="async">
+        <img class="brand-mark-img" src="/img/brand/zypherolab-logo.png" width="80" height="80" alt="" decoding="async">
       </span>
       <span class="brand-wordmark">Zyphero<span class="brand-wordmark-accent">Lab</span></span>
     </a>
@@ -150,12 +150,18 @@
       <button type="button" class="lang-btn" data-lang="ro" aria-pressed="false">RO</button>
       <button type="button" class="lang-btn is-active" data-lang="en" aria-pressed="true">EN</button>
     </div>
+    <button type="button" class="dark-mode-toggle" aria-label="Toggle dark mode" data-i18n-aria="darkMode.aria">
+      <span class="dark-mode-toggle-icon" aria-hidden="true">🌙</span>
+    </button>
     <a class="header-cta" href="#contact" data-i18n="header.cta">Get a quote</a>
   </div>
 </header>
 
 <main id="main-content">
   <section id="home" class="hero">
+    <div class="floating-shape floating-shape--circle-1" aria-hidden="true"></div>
+    <div class="floating-shape floating-shape--circle-2" aria-hidden="true"></div>
+    <div class="floating-shape floating-shape--circle-3" aria-hidden="true"></div>
     <div class="hero-inner">
       <div class="hero-copy">
         <h1 data-i18n="hero.title">We Build Websites That Bring You Clients</h1>
@@ -219,6 +225,9 @@
   </section>
 
   <section id="pricing" class="pricing reveal" aria-labelledby="pricing-title">
+    <div class="floating-shape floating-shape--circle-1" aria-hidden="true"></div>
+    <div class="floating-shape floating-shape--circle-2" aria-hidden="true"></div>
+    <div class="floating-shape floating-shape--circle-3" aria-hidden="true"></div>
     <h2 id="pricing-title" data-i18n="pricing.title">Transparent Pricing</h2>
     <div class="pricing-grid">
       <div class="pricing-card">
@@ -404,7 +413,8 @@
 
 <noscript data-i18n="noscript">This site works best with JavaScript enabled.</noscript>
 <script src="/js/config.js"></script>
-<script src="/js/i18n.js" defer></script>
-<script src="/js/simulator.js" defer></script>
+<script src="/js/i18n.js"></script>
+<script src="/js/dark-mode.js"></script>
+<script src="/js/simulator.js"></script>
 </body>
 </html>
