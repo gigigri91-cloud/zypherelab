@@ -8,6 +8,14 @@
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="author" content="ZypheroLab">
 <meta name="theme-color" content="#667eea">
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JRPX0T1X3S"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-JRPX0T1X3S');
+</script>
 <link rel="preload" href="/img/brand/zypherolab-logo.png" as="image" type="image/png">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
@@ -37,8 +45,7 @@
 <link rel="preload" href="/fonts/montserrat-latin-ext.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/css/fonts.css" as="style">
 <link rel="stylesheet" href="/css/fonts.css">
-<link rel="preload" href="/css/style.css" as="style">
-<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/style.min.css">
 <link rel="alternate" type="text/plain" href="/llms.txt" title="LLMs summary">
 <script type="application/ld+json">
 {
@@ -151,6 +158,11 @@
       </span>
       <span class="brand-wordmark">Zyphero<span class="brand-wordmark-accent">Lab</span></span>
     </a>
+    <button type="button" class="hamburger" aria-label="Deschide meniu" aria-expanded="false" aria-controls="mobile-menu">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
     <nav class="nav-main" data-i18n-aria="nav.aria" aria-label="Navigare principală">
       <a href="#home" data-nav-target="home" class="is-active" data-i18n="nav.home">Acasă</a>
       <a href="#services" data-nav-target="services" data-i18n="nav.services">Servicii</a>
@@ -167,6 +179,37 @@
     <a class="header-cta" href="#contact" data-i18n="header.cta">Cere ofertă</a>
   </div>
 </header>
+
+<div class="mobile-menu-overlay" aria-hidden="true"></div>
+<div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+  <div class="mobile-menu-header">
+    <a href="#home" class="brand" data-i18n-aria="brand.aria" aria-label="ZypheroLab — Acasă">
+      <span class="brand-mark-hex" aria-hidden="true">
+        <img class="brand-mark-img" src="/img/brand/zypherolab-logo.png" width="80" height="80" alt="" decoding="async">
+      </span>
+      <span class="brand-wordmark">Zyphero<span class="brand-wordmark-accent">Lab</span></span>
+    </a>
+    <button type="button" class="mobile-menu-close" aria-label="Închide meniu">
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+  <nav class="mobile-menu-nav" data-i18n-aria="nav.aria" aria-label="Navigare principală">
+    <a href="#home" data-nav-target="home" class="is-active" data-i18n="nav.home">Acasă</a>
+    <a href="#services" data-nav-target="services" data-i18n="nav.services">Servicii</a>
+    <a href="#results" data-nav-target="results" data-i18n="nav.portfolio">Portofoliu</a>
+    <a href="#simulator" data-nav-target="simulator" data-i18n="nav.simulator">Simulator</a>
+    <a href="#contact" data-nav-target="contact" data-i18n="nav.contact">Contact</a>
+  </nav>
+  <div class="mobile-menu-footer">
+    <div class="lang-switch" role="group">
+      <button type="button" class="lang-btn is-active" data-lang="ro" aria-pressed="true">RO</button>
+      <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+    <button type="button" class="dark-mode-toggle" aria-label="Comută dark mode" data-i18n-aria="darkMode.aria">
+      <span class="dark-mode-toggle-icon" aria-hidden="true">🌙</span>
+    </button>
+  </div>
+</div>
 
 <main id="main-content">
   <section id="home" class="hero">
@@ -282,27 +325,78 @@
   </section>
 
   <section id="results" class="portfolio reveal" aria-labelledby="results-title">
-    <h2 id="results-title" data-i18n="portfolio.title">Portofoliu — studii de caz</h2>
+    <h2 id="results-title" data-i18n="portfolio.title">Portofoliu — proiectele noastre</h2>
     <div class="portfolio-grid">
       <article class="portfolio-item">
-        <h3 data-i18n="portfolio.c1t">Firmă servicii locale</h3>
-        <p data-i18n="portfolio.c1p">Redesign + SEO on-page. Rezultat: creștere trafic organic și lead-uri mai calificate.</p>
-        <p class="result-metric" data-i18n="portfolio.c1m">+68% cereri în 90 zile</p>
+        <h3>ConvertGo.net</h3>
+        <p>Platformă de conversie fișiere online (audio, video, documente, imagini). Rapidă, sigură, fără instalare software.</p>
+        <a href="https://convertgo.net" target="_blank" rel="noopener noreferrer" class="portfolio-link">Vezi proiectul →</a>
       </article>
       <article class="portfolio-item">
-        <h3 data-i18n="portfolio.c2t">Restaurant urban</h3>
-        <p data-i18n="portfolio.c2p">Landing orientat pe rezervări mobile și viteză ridicată.</p>
-        <p class="result-metric" data-i18n="portfolio.c2m">+41% rezervări online</p>
+        <h3>iCalculator.ro</h3>
+        <p>Platformă cu peste 80 de calculatoare fiscale și financiare actualizate 2026. Salarii, taxe, TVA, credite.</p>
+        <a href="https://icalculator.ro/" target="_blank" rel="noopener noreferrer" class="portfolio-link">Vezi proiectul →</a>
+      </article>
+      <article class="portfolio-item">
+        <h3>calculateyourpregnancy.com</h3>
+        <p>Calculator sarcină online. Estimează data nașterii, săptămânile de sarcină, integrare Google Calendar.</p>
+        <a href="https://calculateyourpregnancy.com" target="_blank" rel="noopener noreferrer" class="portfolio-link">Vezi proiectul →</a>
+      </article>
+      <article class="portfolio-item">
+        <h3>Qrcody.net</h3>
+        <p>Generator QR code gratuit pentru URL, WiFi, vCard, WhatsApp, PDF, Crypto. Generare locală pentru confidențialitate.</p>
+        <a href="https://qrcody.net" target="_blank" rel="noopener noreferrer" class="portfolio-link">Vezi proiectul →</a>
+      </article>
+      <article class="portfolio-item">
+        <h3>watermarkfree.net</h3>
+        <p>Instrument gratuit pentru watermark batch pe poze. Crop, resize, text/logo watermark, download ZIP. Browser-only.</p>
+        <a href="https://watermarkfree.net" target="_blank" rel="noopener noreferrer" class="portfolio-link">Vezi proiectul →</a>
       </article>
     </div>
   </section>
 
   <section class="testimonials reveal" aria-labelledby="testimonials-title">
     <h2 id="testimonials-title" data-i18n="testimonials.title">Ce spun clienții</h2>
-    <blockquote>
-      <p data-i18n="testimonials.quote">„Mesajul e clar, site-ul e rapid, iar lead-urile au crescut în prima lună.”</p>
-      <cite data-i18n="testimonials.cite">— Andrei, antreprenor local</cite>
-    </blockquote>
+    <div class="testimonials-grid">
+      <blockquote>
+        <p>„Mesajul e clar, site-ul e rapid, iar lead-urile au crescut în prima lună."</p>
+        <cite>— Andrei, antreprenor local</cite>
+      </blockquote>
+      <blockquote>
+        <p>„Echipa a înțeles nevoile noastre de la prima discuție. Rezultatul e exact ce ne-am dorit."</p>
+        <cite>— Maria, proprietară restaurant</cite>
+      </blockquote>
+      <blockquote>
+        <p>„Performanța site-ului s-a îmbunătățit semnificativ. Traficul organic a crescut cu 40%."</p>
+        <cite>— George, manager e-commerce</cite>
+      </blockquote>
+    </div>
+  </section>
+
+  <section class="faq reveal" aria-labelledby="faq-title">
+    <h2 id="faq-title">Întrebări frecvente</h2>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>Cât durează să livrez un website?</summary>
+        <p>În funcție de complexitate, un website standard este gata în 2-4 săptămâni. Proiectele mai complexe pot dura până la 6-8 săptămâni.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Ce include prețul?</summary>
+        <p>Design, dezvoltare, SEO on-page, optimizare performanță, și 3 luni de suport tehnic inclus.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Site-ul va fi optimizat pentru mobil?</summary>
+        <p>Da, toate site-urile sunt responsive și optimizate pentru toate dispozitivele.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Includeți optimizare SEO?</summary>
+        <p>Da, includem SEO on-page: meta tags, structură semantică, și optimizare pentru căutări AI.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Ce se întâmplă după livrare?</summary>
+        <p>Oferim 3 luni de suport tehnic gratuit. După aceea, putem oferi un pachet de mentenanță lunar.</p>
+      </details>
+    </div>
   </section>
 
   <section id="simulator" class="generator-section reveal" aria-labelledby="generator-title">
@@ -334,12 +428,12 @@
           <div class="field-group field-group--styles">
             <span class="field-label-like" id="style-label" data-i18n="gen.labelStyle">Stil</span>
             <div class="style-toggles style-options" role="group" aria-labelledby="style-label">
-              <button type="button" class="active" data-style="modern">Modern</button>
-              <button type="button" data-style="minimal">Minimal</button>
-              <button type="button" data-style="luxury">Luxury</button>
+              <button type="button" class="active" data-style="modern" aria-label="Modern style">Modern</button>
+              <button type="button" data-style="minimal" aria-label="Minimal style">Minimal</button>
+              <button type="button" data-style="luxury" aria-label="Luxury style">Luxury</button>
             </div>
           </div>
-          <button class="btn btn-generate" id="generatePreviewBtn" type="button" data-i18n="gen.btnGenerate">Generează preview site</button>
+          <button class="btn btn-generate" id="generatePreviewBtn" type="button" data-i18n="gen.btnGenerate" aria-label="Generează preview site">Generează preview site</button>
         </div>
         <div class="generator-preview-column">
           <div class="preview-laptop">
@@ -425,7 +519,9 @@
 <noscript data-i18n="noscript">Acest website funcționează mai bine cu JavaScript activat.</noscript>
 <script src="/js/config.js"></script>
 <script src="/js/i18n.js"></script>
+<script src="/js/mobile-menu.js"></script>
 <script src="/js/dark-mode.js"></script>
+<script src="/js/analytics.js"></script>
 <script src="/js/simulator.js"></script>
 </body>
 </html>

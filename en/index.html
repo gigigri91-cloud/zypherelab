@@ -8,6 +8,14 @@
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="author" content="ZypheroLab">
 <meta name="theme-color" content="#667eea">
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JRPX0T1X3S"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-JRPX0T1X3S');
+</script>
 <link rel="preload" href="/img/brand/zypherolab-logo.png" as="image" type="image/png">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
@@ -37,8 +45,8 @@
 <link rel="preload" href="/fonts/montserrat-latin-ext.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/css/fonts.css" as="style">
 <link rel="stylesheet" href="/css/fonts.css">
-<link rel="preload" href="/css/style.css" as="style">
-<link rel="stylesheet" href="/css/style.css">
+<link rel="preload" href="/css/style.min.css" as="style">
+<link rel="stylesheet" href="/css/style.min.css">
 <link rel="alternate" type="text/plain" href="/llms.txt" title="LLMs summary">
 <script type="application/ld+json">
 {
@@ -140,6 +148,11 @@
       </span>
       <span class="brand-wordmark">Zyphero<span class="brand-wordmark-accent">Lab</span></span>
     </a>
+    <button type="button" class="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
     <nav class="nav-main" data-i18n-aria="nav.aria" aria-label="Main navigation">
       <a href="#home" data-nav-target="home" class="is-active" data-i18n="nav.home">Home</a>
       <a href="#services" data-nav-target="services" data-i18n="nav.services">Services</a>
@@ -156,6 +169,37 @@
     <a class="header-cta" href="#contact" data-i18n="header.cta">Get a quote</a>
   </div>
 </header>
+
+<div class="mobile-menu-overlay" aria-hidden="true"></div>
+<div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+  <div class="mobile-menu-header">
+    <a href="#home" class="brand" data-i18n-aria="brand.aria" aria-label="ZypheroLab — Home">
+      <span class="brand-mark-hex" aria-hidden="true">
+        <img class="brand-mark-img" src="/img/brand/zypherolab-logo.png" width="80" height="80" alt="" decoding="async">
+      </span>
+      <span class="brand-wordmark">Zyphero<span class="brand-wordmark-accent">Lab</span></span>
+    </a>
+    <button type="button" class="mobile-menu-close" aria-label="Close menu">
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+  <nav class="mobile-menu-nav" data-i18n-aria="nav.aria" aria-label="Main navigation">
+    <a href="#home" data-nav-target="home" class="is-active" data-i18n="nav.home">Home</a>
+    <a href="#services" data-nav-target="services" data-i18n="nav.services">Services</a>
+    <a href="#results" data-nav-target="results" data-i18n="nav.portfolio">Portfolio</a>
+    <a href="#simulator" data-nav-target="simulator" data-i18n="nav.simulator">Simulator</a>
+    <a href="#contact" data-nav-target="contact" data-i18n="nav.contact">Contact</a>
+  </nav>
+  <div class="mobile-menu-footer">
+    <div class="lang-switch" role="group">
+      <button type="button" class="lang-btn" data-lang="ro" aria-pressed="false">RO</button>
+      <button type="button" class="lang-btn is-active" data-lang="en" aria-pressed="true">EN</button>
+    </div>
+    <button type="button" class="dark-mode-toggle" aria-label="Toggle dark mode" data-i18n-aria="darkMode.aria">
+      <span class="dark-mode-toggle-icon" aria-hidden="true">🌙</span>
+    </button>
+  </div>
+</div>
 
 <main id="main-content">
   <section id="home" class="hero">
@@ -271,27 +315,78 @@
   </section>
 
   <section id="results" class="portfolio reveal" aria-labelledby="results-title">
-    <h2 id="results-title" data-i18n="portfolio.title">Portfolio — case studies</h2>
+    <h2 id="results-title" data-i18n="portfolio.title">Portfolio — Our Projects</h2>
     <div class="portfolio-grid">
       <article class="portfolio-item">
-        <h3 data-i18n="portfolio.c1t">Local services company</h3>
-        <p data-i18n="portfolio.c1p">Redesign + on-page SEO. Result: more organic traffic and better-qualified leads.</p>
-        <p class="result-metric" data-i18n="portfolio.c1m">+68% inquiries in 90 days</p>
+        <h3>ConvertGo.net</h3>
+        <p>Online file conversion platform (audio, video, documents, images). Fast, secure, no software installation required.</p>
+        <a href="https://convertgo.net" target="_blank" rel="noopener noreferrer" class="portfolio-link">View project →</a>
       </article>
       <article class="portfolio-item">
-        <h3 data-i18n="portfolio.c2t">Urban restaurant</h3>
-        <p data-i18n="portfolio.c2p">Mobile-first landing focused on reservations and speed.</p>
-        <p class="result-metric" data-i18n="portfolio.c2m">+41% online reservations</p>
+        <h3>iCalculator.ro</h3>
+        <p>Platform with 80+ updated 2026 fiscal and financial calculators. Salaries, taxes, VAT, credits, personal budgets.</p>
+        <a href="https://icalculator.ro/" target="_blank" rel="noopener noreferrer" class="portfolio-link">View project →</a>
+      </article>
+      <article class="portfolio-item">
+        <h3>calculateyourpregnancy.com</h3>
+        <p>Online pregnancy calculator. Estimate due date from LMP or conception, track pregnancy weeks, Google Calendar integration.</p>
+        <a href="https://calculateyourpregnancy.com" target="_blank" rel="noopener noreferrer" class="portfolio-link">View project →</a>
+      </article>
+      <article class="portfolio-item">
+        <h3>Qrcody.net</h3>
+        <p>Free QR code generator for URL, WiFi, vCard, WhatsApp, PDF, Crypto. Browser-only generation for privacy.</p>
+        <a href="https://qrcody.net" target="_blank" rel="noopener noreferrer" class="portfolio-link">View project →</a>
+      </article>
+      <article class="portfolio-item">
+        <h3>watermarkfree.net</h3>
+        <p>Free batch photo watermarking tool. Crop, resize, add text/logo watermark, download ZIP. Browser-only, private.</p>
+        <a href="https://watermarkfree.net" target="_blank" rel="noopener noreferrer" class="portfolio-link">View project →</a>
       </article>
     </div>
   </section>
 
   <section class="testimonials reveal" aria-labelledby="testimonials-title">
     <h2 id="testimonials-title" data-i18n="testimonials.title">What clients say</h2>
-    <blockquote>
-      <p data-i18n="testimonials.quote">“The message is clear, the site is fast, and leads grew in the first month.”</p>
-      <cite data-i18n="testimonials.cite">— Andrei, local business owner</cite>
-    </blockquote>
+    <div class="testimonials-grid">
+      <blockquote>
+        <p>"The message is clear, the site is fast, and leads grew in the first month."</p>
+        <cite>— Andrei, local business owner</cite>
+      </blockquote>
+      <blockquote>
+        <p>"The team understood our needs from the first discussion. The result is exactly what we wanted."</p>
+        <cite>— Maria, restaurant owner</cite>
+      </blockquote>
+      <blockquote>
+        <p>"Site performance improved significantly. Organic traffic increased by 40%."</p>
+        <cite>— George, e-commerce manager</cite>
+      </blockquote>
+    </div>
+  </section>
+
+  <section class="faq reveal" aria-labelledby="faq-title">
+    <h2 id="faq-title">Frequently Asked Questions</h2>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>How long does it take to deliver a website?</summary>
+        <p>Depending on complexity, a standard website is ready in 2-4 weeks. More complex projects can take up to 6-8 weeks.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What does the price include?</summary>
+        <p>Design, development, SEO on-page, performance optimization, and 3 months of technical support included.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Will the site be optimized for mobile?</summary>
+        <p>Yes, all websites are responsive and optimized for all devices.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Do you include SEO optimization?</summary>
+        <p>Yes, we include SEO on-page: meta tags, semantic structure, and optimization for AI searches.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What happens after delivery?</summary>
+        <p>We offer 3 months of free technical support. After that, we can provide a monthly maintenance package.</p>
+      </details>
+    </div>
   </section>
 
   <section id="simulator" class="generator-section reveal" aria-labelledby="generator-title">
@@ -323,12 +418,12 @@
           <div class="field-group field-group--styles">
             <span class="field-label-like" id="style-label" data-i18n="gen.labelStyle">Style</span>
             <div class="style-toggles style-options" role="group" aria-labelledby="style-label">
-              <button type="button" class="active" data-style="modern">Modern</button>
-              <button type="button" data-style="minimal">Minimal</button>
-              <button type="button" data-style="luxury">Luxury</button>
+              <button type="button" class="active" data-style="modern" aria-label="Modern style">Modern</button>
+              <button type="button" data-style="minimal" aria-label="Minimal style">Minimal</button>
+              <button type="button" data-style="luxury" aria-label="Luxury style">Luxury</button>
             </div>
           </div>
-          <button class="btn btn-generate" id="generatePreviewBtn" type="button" data-i18n="gen.btnGenerate">Generate website preview</button>
+          <button class="btn btn-generate" id="generatePreviewBtn" type="button" data-i18n="gen.btnGenerate" aria-label="Generate website preview">Generate website preview</button>
         </div>
         <div class="generator-preview-column">
           <div class="preview-laptop">
@@ -414,7 +509,9 @@
 <noscript data-i18n="noscript">This site works best with JavaScript enabled.</noscript>
 <script src="/js/config.js"></script>
 <script src="/js/i18n.js"></script>
+<script src="/js/mobile-menu.js"></script>
 <script src="/js/dark-mode.js"></script>
+<script src="/js/analytics.js"></script>
 <script src="/js/simulator.js"></script>
 </body>
 </html>
