@@ -171,19 +171,18 @@
       <div class="hero-copy">
         <h1 data-i18n="hero.title">Construim website-uri care îți aduc clienți</h1>
         <p class="hero-tagline" data-i18n="hero.tagline">Preview instant. Rezultate reale.</p>
-        <div class="trust-badges">
-          <span class="trust-badge">✓ Lansat în 3-5 zile</span>
-          <span class="trust-badge">✓ SEO tehnic inclus</span>
-          <span class="trust-badge">✓ Suport lunar</span>
-        </div>
         <div class="hero-actions">
           <a class="btn" href="#simulator" data-i18n="hero.ctaSim">Încearcă simulatorul live</a>
-          <a class="btn btn-secondary" href="#portfolio" data-i18n="hero.ctaStart">Vezi portofoliu</a>
         </div>
       </div>
       <div class="hero-visual" aria-hidden="true">
-        <div class="hero-placeholder">
-          <p data-i18n="hero.visualPlaceholder">Simulatorul va apărea aici</p>
+        <div class="hero-planet-glow"></div>
+        <div class="hero-orb">
+          <div class="hero-orb-glow"></div>
+          <div class="hero-orb-core"></div>
+          <div class="hero-orb-ring hero-orb-ring--1"></div>
+          <div class="hero-orb-ring hero-orb-ring--2"></div>
+          <div class="hero-orb-particles"></div>
         </div>
       </div>
     </div>
@@ -227,49 +226,6 @@
       <li data-i18n="offer.li4">Recomandări pentru iterații lunare</li>
     </ul>
     <a class="btn" href="#contact" data-i18n="offer.cta">Vreau pachetul Start</a>
-  </section>
-
-  <section id="pricing" class="pricing reveal" aria-labelledby="pricing-title">
-    <h2 id="pricing-title" data-i18n="pricing.title">Preturi transparente</h2>
-    <div class="pricing-grid">
-      <div class="pricing-card">
-        <h3 data-i18n="pricing.start.title">Pachet Start</h3>
-        <div class="pricing-price" data-i18n="pricing.start.price">1.500 RON</div>
-        <ul class="pricing-features">
-          <li data-i18n="pricing.start.f1">Landing page completă</li>
-          <li data-i18n="pricing.start.f2">SEO tehnic de bază</li>
-          <li data-i18n="pricing.start.f3">Formular lead + WhatsApp</li>
-          <li data-i18n="pricing.start.f4">Lansare în 3-5 zile</li>
-          <li data-i18n="pricing.start.f5">Suport email 30 zile</li>
-        </ul>
-        <a class="btn" href="#contact" data-i18n="pricing.start.cta">Vreau pachetul Start</a>
-      </div>
-      <div class="pricing-card pricing-card--featured">
-        <div class="pricing-badge" data-i18n="pricing.popular">Cel mai popular</div>
-        <h3 data-i18n="pricing.growth.title">Pachet Growth</h3>
-        <div class="pricing-price" data-i18n="pricing.growth.price">3.500 RON</div>
-        <ul class="pricing-features">
-          <li data-i18n="pricing.growth.f1">Website multi-pagină</li>
-          <li data-i18n="pricing.growth.f2">SEO tehnic avansat</li>
-          <li data-i18n="pricing.growth.f3">Analytics + rapoarte lunare</li>
-          <li data-i18n="pricing.growth.f4">Lansare în 5-7 zile</li>
-          <li data-i18n="pricing.growth.f5">Suport prioritar 3 luni</li>
-        </ul>
-        <a class="btn" href="#contact" data-i18n="pricing.growth.cta">Vreau pachetul Growth</a>
-      </div>
-      <div class="pricing-card">
-        <h3 data-i18n="pricing.custom.title">Proiect Custom</h3>
-        <div class="pricing-price" data-i18n="pricing.custom.price">La cerere</div>
-        <ul class="pricing-features">
-          <li data-i18n="pricing.custom.f1">Soluție personalizată</li>
-          <li data-i18n="pricing.custom.f2">E-commerce sau aplicație</li>
-          <li data-i18n="pricing.custom.f3">Integrări API</li>
-          <li data-i18n="pricing.custom.f4">Timeline flexibil</li>
-          <li data-i18n="pricing.custom.f5">Suport dedicat</li>
-        </ul>
-        <a class="btn btn-secondary" href="#contact" data-i18n="pricing.custom.cta">Cere ofertă</a>
-      </div>
-    </div>
   </section>
 
   <section id="results" class="portfolio reveal" aria-labelledby="results-title">
