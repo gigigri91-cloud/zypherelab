@@ -73,7 +73,7 @@
         popular: "Cel mai popular",
         start: {
           title: "Pachet Start",
-          price: "1.500 RON",
+          price: "300 €",
           f1: "Landing page completă",
           f2: "SEO tehnic de bază",
           f3: "Formular lead + WhatsApp",
@@ -83,7 +83,7 @@
         },
         growth: {
           title: "Pachet Growth",
-          price: "3.500 RON",
+          price: "600 €",
           f1: "Website multi-pagină",
           f2: "SEO tehnic avansat",
           f3: "Analytics + rapoarte lunare",
@@ -100,6 +100,37 @@
           f4: "Timeline flexibil",
           f5: "Suport dedicat",
           cta: "Cere ofertă"
+        },
+        subscription: {
+          title: "Abonamente lunare",
+          subtitle: "Suport continuu pentru creștere",
+          maintenance: {
+            title: "Mentenanță",
+            price: "50 € / lună",
+            f1: "Backup zilnic",
+            f2: "Updates de securitate",
+            f3: "Monitorizare uptime",
+            f4: "Bug fixes minori",
+            cta: "Abonare"
+          },
+          support: {
+            title: "Suport Prioritar",
+            price: "100 € / lună",
+            f1: "Răspuns în 2 ore",
+            f2: "Modificări incluse",
+            f3: "Consultanță tehnică",
+            f4: "Prioritate la updates",
+            cta: "Abonare"
+          },
+          content: {
+            title: "Updates Conținut",
+            price: "30 € / lună",
+            f1: "Modificări text",
+            f2: "Adaugare articole",
+            f3: "Actualizare imagini",
+            f4: "SEO on-page",
+            cta: "Abonare"
+          }
         }
       },
       portfolio: {
@@ -113,18 +144,28 @@
       },
       testimonials: {
         title: "Ce spun clienții",
-        quote: "„Mesajul e clar, site-ul e rapid, iar lead-urile au crescut în prima lună.”",
-        cite: "— Andrei, antreprenor local"
+        cristi: {
+          text: "„Am colaborat cu ZypheroLab pentru toate cele 5 proiecte din portofoliul meu și sunt extrem de mulțumit de fiecare site creat. Echipa a înțeles perfect nevoile mele de la prima discuție și a livrat site-uri rapide, moderne și optimizate pentru conversie. Recomand cu încredere!”",
+          author: "— Cristi, proprietar 5 proiecte în portofoliu"
+        }
       },
       gen: {
         title: "Generator website AI",
         labelName: "Nume business",
         phName: "Introdu numele",
-        labelType: "Tip business",
+        labelDescription: "Descriere scurtă",
+        phDescription: "Descrie în câteva cuvinte business-ul tău",
+        labelAddress: "Adresă",
+        phAddress: "Strada, numărul, orașul",
+        labelPhone: "Telefon",
+        phPhone: "07XX XXX XXX",
+        labelServices: "Servicii principale (separate prin virgulă)",
+        phServices: "Ex: Web design, SEO, Marketing",
         labelColor: "Culoare principală",
         colorHint: "Alege nuanța culorii accent pentru preview, de la 0 la 360 grade.",
         labelStyle: "Stil",
         btnGenerate: "Generează preview site",
+        btnExport: "Exportă preview",
         previewRegion: "Previzualizare concept site",
         phPreview: "Apasă „Generează preview site” pentru a vedea conceptul.",
         footText: "Vezi cum arată site-ul în ~30 de secunde — preview AI instant pentru business-ul tău.",
@@ -260,7 +301,7 @@
         popular: "Most Popular",
         start: {
           title: "Starter Pack",
-          price: "1,500 RON",
+          price: "300 €",
           f1: "Complete landing page",
           f2: "Baseline technical SEO",
           f3: "Lead form + WhatsApp",
@@ -270,7 +311,7 @@
         },
         growth: {
           title: "Growth Pack",
-          price: "3,500 RON",
+          price: "600 €",
           f1: "Multi-page website",
           f2: "Advanced technical SEO",
           f3: "Analytics + monthly reports",
@@ -287,6 +328,37 @@
           f4: "Flexible timeline",
           f5: "Dedicated support",
           cta: "Get a quote"
+        },
+        subscription: {
+          title: "Monthly Subscriptions",
+          subtitle: "Continuous support for growth",
+          maintenance: {
+            title: "Maintenance",
+            price: "50 € / month",
+            f1: "Daily backups",
+            f2: "Security updates",
+            f3: "Uptime monitoring",
+            f4: "Minor bug fixes",
+            cta: "Subscribe"
+          },
+          support: {
+            title: "Priority Support",
+            price: "100 € / month",
+            f1: "2-hour response",
+            f2: "Modifications included",
+            f3: "Technical consulting",
+            f4: "Update priority",
+            cta: "Subscribe"
+          },
+          content: {
+            title: "Content Updates",
+            price: "30 € / month",
+            f1: "Text modifications",
+            f2: "Add articles",
+            f3: "Update images",
+            f4: "On-page SEO",
+            cta: "Subscribe"
+          }
         }
       },
       portfolio: {
@@ -300,18 +372,28 @@
       },
       testimonials: {
         title: "What clients say",
-        quote: "“The message is clear, the site is fast, and leads grew in the first month.”",
-        cite: "— Andrei, local business owner"
+        cristi: {
+          text: "“I collaborated with ZypheroLab for all 5 projects in my portfolio and I am extremely satisfied with every website created. The team understood my needs perfectly from the first discussion and delivered fast, modern, and conversion-optimized sites. I highly recommend them!”",
+          author: "— Cristi, owner of 5 projects in portfolio"
+        }
       },
       gen: {
         title: "AI website generator",
         labelName: "Business name",
         phName: "Enter your name",
-        labelType: "Business type",
+        labelDescription: "Short description",
+        phDescription: "Describe your business in a few words",
+        labelAddress: "Address",
+        phAddress: "Street, number, city",
+        labelPhone: "Phone",
+        phPhone: "07XX XXX XXX",
+        labelServices: "Main services (comma separated)",
+        phServices: "Ex: Web design, SEO, Marketing",
         labelColor: "Primary color",
         colorHint: "Pick the accent hue for the preview, from 0 to 360 degrees.",
         labelStyle: "Style",
         btnGenerate: "Generate website preview",
+        btnExport: "Export preview",
         previewRegion: "Live website preview",
         phPreview: "Click “Generate preview” to see the concept.",
         footText: "See your site in ~30 seconds — an instant AI preview for your business.",
@@ -322,7 +404,12 @@
           barber: "Barber shop",
           agency: "Agency",
           services: "Services",
-          ecommerce: "E-commerce"
+          ecommerce: "E-commerce",
+          medical: "Medical clinic",
+          fitness: "Gym / Fitness",
+          legal: "Law firm",
+          education: "Education / Courses",
+          consulting: "Consulting"
         }
       },
       faq: {

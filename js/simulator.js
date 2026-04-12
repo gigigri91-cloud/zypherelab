@@ -54,7 +54,7 @@ function typeLabelForPill(type) {
   return label === key ? type : label;
 }
 
-function createPreviewCard(name, type, style, hue) {
+function createPreviewCard(name, type, style, hue, description, address, phone, services) {
   const wrap = document.createElement("div");
   wrap.className = `preview-browser preview-style-${style}`;
   wrap.style.setProperty("--preview-hue", String(hue));
@@ -74,7 +74,8 @@ function createPreviewCard(name, type, style, hue) {
   title.textContent = name;
 
   const sub = document.createElement("p");
-  sub.textContent = taglineForType(type);
+  sub.className = "preview-hero-description";
+  sub.textContent = description || taglineForType(type);
 
   const cta = document.createElement("a");
   cta.className = "preview-cta";
@@ -83,14 +84,30 @@ function createPreviewCard(name, type, style, hue) {
 
   hero.append(title, sub, cta);
 
+  const about = document.createElement("div");
+  about.className = "preview-about";
+  const aboutTitle = document.createElement("strong");
+  aboutTitle.textContent = "Despre noi";
+  about.appendChild(aboutTitle);
+  const aboutText = document.createElement("p");
+  aboutText.textContent = description || `Suntem ${typeLabelForPill(type)} dedicat să oferim servicii de calitate superioară.`;
+  about.appendChild(aboutText);
+
+  const servicesSection = document.createElement("div");
+  servicesSection.className = "preview-services-section";
+  const servicesTitle = document.createElement("strong");
+  servicesTitle.textContent = "Servicii";
+  servicesSection.appendChild(servicesTitle);
   const cardsRow = document.createElement("div");
   cardsRow.className = "preview-cards";
-  serviceCardLabels(type).forEach((text) => {
+  const serviceLabels = services ? services.split(",").map(s => s.trim()).filter(s => s) : serviceCardLabels(type);
+  serviceLabels.slice(0, 4).forEach((text) => {
     const card = document.createElement("div");
     card.className = "preview-card";
     card.textContent = text;
     cardsRow.appendChild(card);
   });
+  servicesSection.appendChild(cardsRow);
 
   const body = document.createElement("div");
   body.className = "preview-site-body";
@@ -104,7 +121,32 @@ function createPreviewCard(name, type, style, hue) {
   });
   body.append(strong, ul);
 
-  wrap.append(nav, hero, cardsRow, body);
+  const contact = document.createElement("div");
+  contact.className = "preview-contact";
+  const contactTitle = document.createElement("strong");
+  contactTitle.textContent = "Contact";
+  contact.appendChild(contactTitle);
+  if (address) {
+    const addr = document.createElement("p");
+    addr.textContent = address;
+    contact.appendChild(addr);
+  }
+  if (phone) {
+    const tel = document.createElement("p");
+    tel.textContent = phone;
+    contact.appendChild(tel);
+  }
+  if (!address && !phone) {
+    const placeholder = document.createElement("p");
+    placeholder.textContent = "Contactați-ne pentru mai multe informații";
+    contact.appendChild(placeholder);
+  }
+
+  const footer = document.createElement("div");
+  footer.className = "preview-footer";
+  footer.textContent = `© ${new Date().getFullYear()} ${name}`;
+
+  wrap.append(nav, hero, about, servicesSection, body, contact, footer);
   return wrap;
 }
 
@@ -112,7 +154,12 @@ function generateSite() {
   const nameInput = document.getElementById("siteName");
   const typeInput = document.getElementById("siteType");
   const colorInput = document.getElementById("siteColor");
+  const descriptionInput = document.getElementById("siteDescription");
+  const addressInput = document.getElementById("siteAddress");
+  const phoneInput = document.getElementById("sitePhone");
+  const servicesInput = document.getElementById("siteServices");
   const previewBox = document.getElementById("previewBox");
+  const previewBoxMobile = document.getElementById("previewBoxMobile");
 
   if (!(nameInput && typeInput && previewBox)) {
     return;
@@ -122,8 +169,15 @@ function generateSite() {
   const selectedType = typeInput.value;
   const hue = colorInput ? Number(colorInput.value) || 220 : 220;
   const style = getSelectedStyle();
+  const description = descriptionInput ? descriptionInput.value.trim() : "";
+  const address = addressInput ? addressInput.value.trim() : "";
+  const phone = phoneInput ? phoneInput.value.trim() : "";
+  const services = servicesInput ? servicesInput.value.trim() : "";
 
   previewBox.innerHTML = "";
+  if (previewBoxMobile) {
+    previewBoxMobile.innerHTML = "";
+  }
 
   if (!cleanName) {
     const message = document.createElement("p");
@@ -131,10 +185,20 @@ function generateSite() {
     message.style.margin = "auto";
     message.textContent = tt("gen.errorName");
     previewBox.appendChild(message);
+    if (previewBoxMobile) {
+      const messageMobile = message.cloneNode(true);
+      previewBoxMobile.appendChild(messageMobile);
+    }
     return;
   }
 
-  previewBox.appendChild(createPreviewCard(cleanName, selectedType, style, hue));
+  const card = createPreviewCard(cleanName, selectedType, style, hue, description, address, phone, services);
+  previewBox.appendChild(card);
+
+  if (previewBoxMobile) {
+    const cardMobile = card.cloneNode(true);
+    previewBoxMobile.appendChild(cardMobile);
+  }
 }
 
 function setupStylePills() {
@@ -160,6 +224,81 @@ function setupColorSlider() {
 
   slider.addEventListener("input", sync);
   sync();
+}
+
+function setupRealTimeUpdates() {
+  const inputs = [
+    "siteName",
+    "siteType",
+    "siteDescription",
+    "siteAddress",
+    "sitePhone",
+    "siteServices",
+    "siteColor"
+  ];
+
+  inputs.forEach(id => {
+    const input = document.getElementById(id);
+    if (input) {
+      input.addEventListener("input", () => {
+        const nameInput = document.getElementById("siteName");
+        if (nameInput && nameInput.value.trim()) {
+          generateSite();
+        }
+      });
+    }
+  });
+}
+
+function setupPreviewToggle() {
+  const toggles = document.querySelectorAll(".preview-toggle");
+  const devices = document.querySelectorAll(".preview-device");
+
+  toggles.forEach(toggle => {
+    toggle.addEventListener("click", () => {
+      const previewType = toggle.dataset.preview;
+
+      toggles.forEach(t => t.classList.remove("preview-toggle--active"));
+      toggle.classList.add("preview-toggle--active");
+
+      devices.forEach(device => {
+        device.classList.remove("preview-device--active");
+        if (device.classList.contains(`preview-${previewType}`)) {
+          device.classList.add("preview-device--active");
+        }
+      });
+    });
+  });
+}
+
+function setupExportButton() {
+  const exportButton = document.getElementById("exportPreviewBtn");
+  const previewBox = document.getElementById("previewBox");
+
+  if (!exportButton || !previewBox) {
+    return;
+  }
+
+  exportButton.addEventListener("click", () => {
+    const nameInput = document.getElementById("siteName");
+    const cleanName = nameInput ? nameInput.value.trim() : "";
+
+    if (!cleanName) {
+      alert(tt("gen.errorName"));
+      return;
+    }
+
+    const previewContent = previewBox.innerHTML;
+    const blob = new Blob([previewContent], { type: "text/html" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `${cleanName.replace(/[^a-z0-9]/gi, "-").toLowerCase()}-preview.html`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  });
 }
 
 function setupRevealOnScroll() {
@@ -286,6 +425,9 @@ function boot() {
   setupColorSlider();
   setupNavHighlight();
   setupLangRefreshPreview();
+  setupRealTimeUpdates();
+  setupPreviewToggle();
+  setupExportButton();
 
   const generatePreviewButton = document.getElementById("generatePreviewBtn");
   if (generatePreviewButton) {

@@ -230,11 +230,6 @@
           <a class="btn btn-secondary" href="#portfolio" data-i18n="hero.ctaStart">Vezi portofoliu</a>
         </div>
       </div>
-      <div class="hero-visual" aria-hidden="true">
-        <div class="hero-placeholder">
-          <p data-i18n="hero.visualPlaceholder">Simulatorul va apărea aici</p>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -324,6 +319,47 @@
     </div>
   </section>
 
+  <section id="subscriptions" class="subscriptions reveal" aria-labelledby="subscriptions-title">
+    <h2 id="subscriptions-title" data-i18n="pricing.subscription.title">Abonamente lunare</h2>
+    <p class="subscriptions-subtitle" data-i18n="pricing.subscription.subtitle">Suport continuu pentru creștere</p>
+    <div class="subscriptions-grid">
+      <div class="subscription-card">
+        <h3 data-i18n="pricing.subscription.maintenance.title">Mentenanță</h3>
+        <div class="subscription-price" data-i18n="pricing.subscription.maintenance.price">50 € / lună</div>
+        <ul class="subscription-features">
+          <li data-i18n="pricing.subscription.maintenance.f1">Backup zilnic</li>
+          <li data-i18n="pricing.subscription.maintenance.f2">Updates de securitate</li>
+          <li data-i18n="pricing.subscription.maintenance.f3">Monitorizare uptime</li>
+          <li data-i18n="pricing.subscription.maintenance.f4">Bug fixes minori</li>
+        </ul>
+        <a class="btn" href="#contact" data-i18n="pricing.subscription.maintenance.cta">Abonare</a>
+      </div>
+      <div class="subscription-card subscription-card--featured">
+        <div class="subscription-badge">Popular</div>
+        <h3 data-i18n="pricing.subscription.support.title">Suport Prioritar</h3>
+        <div class="subscription-price" data-i18n="pricing.subscription.support.price">100 € / lună</div>
+        <ul class="subscription-features">
+          <li data-i18n="pricing.subscription.support.f1">Răspuns în 2 ore</li>
+          <li data-i18n="pricing.subscription.support.f2">Modificări incluse</li>
+          <li data-i18n="pricing.subscription.support.f3">Consultanță tehnică</li>
+          <li data-i18n="pricing.subscription.support.f4">Prioritate la updates</li>
+        </ul>
+        <a class="btn" href="#contact" data-i18n="pricing.subscription.support.cta">Abonare</a>
+      </div>
+      <div class="subscription-card">
+        <h3 data-i18n="pricing.subscription.content.title">Updates Conținut</h3>
+        <div class="subscription-price" data-i18n="pricing.subscription.content.price">30 € / lună</div>
+        <ul class="subscription-features">
+          <li data-i18n="pricing.subscription.content.f1">Modificări text</li>
+          <li data-i18n="pricing.subscription.content.f2">Adaugare articole</li>
+          <li data-i18n="pricing.subscription.content.f3">Actualizare imagini</li>
+          <li data-i18n="pricing.subscription.content.f4">SEO on-page</li>
+        </ul>
+        <a class="btn btn-secondary" href="#contact" data-i18n="pricing.subscription.content.cta">Abonare</a>
+      </div>
+    </div>
+  </section>
+
   <section id="results" class="portfolio reveal" aria-labelledby="results-title">
     <h2 id="results-title" data-i18n="portfolio.title">Portofoliu — proiectele noastre</h2>
     <div class="portfolio-grid">
@@ -359,16 +395,8 @@
     <h2 id="testimonials-title" data-i18n="testimonials.title">Ce spun clienții</h2>
     <div class="testimonials-grid">
       <blockquote>
-        <p>„Mesajul e clar, site-ul e rapid, iar lead-urile au crescut în prima lună."</p>
-        <cite>— Andrei, antreprenor local</cite>
-      </blockquote>
-      <blockquote>
-        <p>„Echipa a înțeles nevoile noastre de la prima discuție. Rezultatul e exact ce ne-am dorit."</p>
-        <cite>— Maria, proprietară restaurant</cite>
-      </blockquote>
-      <blockquote>
-        <p>„Performanța site-ului s-a îmbunătățit semnificativ. Traficul organic a crescut cu 40%."</p>
-        <cite>— George, manager e-commerce</cite>
+        <p data-i18n="testimonials.cristi.text">„Am colaborat cu ZypheroLab pentru toate cele 5 proiecte din portofoliul meu și sunt extrem de mulțumit de fiecare site creat. Echipa a înțeles perfect nevoile mele de la prima discuție și a livrat site-uri rapide, moderne și optimizate pentru conversie. Recomand cu încredere!”</p>
+        <cite data-i18n="testimonials.cristi.author">— Cristi, proprietar 5 proiecte în portofoliu</cite>
       </blockquote>
     </div>
   </section>
@@ -418,7 +446,28 @@
               <option value="agency" data-i18n="gen.opt.agency">Agenție</option>
               <option value="services" data-i18n="gen.opt.services">Servicii</option>
               <option value="ecommerce" data-i18n="gen.opt.ecommerce">E-commerce</option>
+              <option value="medical" data-i18n="gen.opt.medical">Cabinet Medical</option>
+              <option value="fitness" data-i18n="gen.opt.fitness">Sala Fitness</option>
+              <option value="legal" data-i18n="gen.opt.legal">Cabinet Avocatură</option>
+              <option value="education" data-i18n="gen.opt.education">Educație / Cursuri</option>
+              <option value="consulting" data-i18n="gen.opt.consulting">Consulting</option>
             </select>
+          </div>
+          <div class="field-group">
+            <label for="siteDescription" data-i18n="gen.labelDescription">Descriere scurtă</label>
+            <textarea id="siteDescription" rows="2" data-i18n-placeholder="gen.phDescription" placeholder="Descrie în câteva cuvinte business-ul tău"></textarea>
+          </div>
+          <div class="field-group">
+            <label for="siteAddress" data-i18n="gen.labelAddress">Adresă</label>
+            <input type="text" id="siteAddress" data-i18n-placeholder="gen.phAddress" placeholder="Strada, numărul, orașul" autocomplete="street-address">
+          </div>
+          <div class="field-group">
+            <label for="sitePhone" data-i18n="gen.labelPhone">Telefon</label>
+            <input type="tel" id="sitePhone" data-i18n-placeholder="gen.phPhone" placeholder="07XX XXX XXX" autocomplete="tel">
+          </div>
+          <div class="field-group">
+            <label for="siteServices" data-i18n="gen.labelServices">Servicii principale (separate prin virgulă)</label>
+            <textarea id="siteServices" rows="2" data-i18n-placeholder="gen.phServices" placeholder="Ex: Web design, SEO, Marketing"></textarea>
           </div>
           <div class="field-group">
             <label for="siteColor"><span data-i18n="gen.labelColor">Culoare principală</span> <span class="color-value" id="siteColorValue" aria-hidden="true">220°</span></label>
@@ -433,10 +482,17 @@
               <button type="button" data-style="luxury" aria-label="Luxury style">Luxury</button>
             </div>
           </div>
-          <button class="btn btn-generate" id="generatePreviewBtn" type="button" data-i18n="gen.btnGenerate" aria-label="Generează preview site">Generează preview site</button>
+          <div class="generator-actions">
+            <button class="btn btn-generate" id="generatePreviewBtn" type="button" data-i18n="gen.btnGenerate" aria-label="Generează preview site">Generează preview site</button>
+            <button class="btn btn-secondary btn-export" id="exportPreviewBtn" type="button" data-i18n="gen.btnExport" aria-label="Exportă preview">Exportă preview</button>
+          </div>
         </div>
         <div class="generator-preview-column">
-          <div class="preview-laptop">
+          <div class="preview-controls">
+            <button type="button" class="preview-toggle preview-toggle--active" data-preview="desktop" aria-label="Desktop preview">Desktop</button>
+            <button type="button" class="preview-toggle" data-preview="mobile" aria-label="Mobile preview">Mobile</button>
+          </div>
+          <div class="preview-laptop preview-device preview-device--active">
             <div class="preview-laptop-bezel">
               <div class="preview-laptop-screen">
                 <div class="preview-chrome" aria-hidden="true">
@@ -444,6 +500,17 @@
                 </div>
                 <div id="previewBox" class="preview-mount" role="region" aria-live="polite" data-i18n-aria="gen.previewRegion" aria-label="Previzualizare concept site">
                   <p class="preview-placeholder" data-i18n="gen.phPreview">Apasă „Generează preview site” pentru a vedea conceptul.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="preview-mobile preview-device">
+            <div class="preview-mobile-bezel">
+              <div class="preview-mobile-screen">
+                <div class="preview-chrome" aria-hidden="true">
+                  <span></span><span></span><span></span>
+                </div>
+                <div id="previewBoxMobile" class="preview-mount" role="region" aria-live="polite" aria-label="Previzualizare concept site mobil">
                 </div>
               </div>
             </div>
