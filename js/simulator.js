@@ -220,6 +220,10 @@ function setupColorSlider() {
 
   const sync = () => {
     label.textContent = `${slider.value}°`;
+    const nameInput = document.getElementById("siteName");
+    if (nameInput && nameInput.value.trim()) {
+      generateSite();
+    }
   };
 
   slider.addEventListener("input", sync);
@@ -263,10 +267,12 @@ function setupPreviewToggle() {
 
       devices.forEach(device => {
         device.classList.remove("preview-device--active");
-        if (device.classList.contains(`preview-${previewType}`)) {
-          device.classList.add("preview-device--active");
-        }
       });
+
+      const activeDevice = document.querySelector(`.preview-${previewType}`);
+      if (activeDevice) {
+        activeDevice.classList.add("preview-device--active");
+      }
     });
   });
 }
