@@ -623,6 +623,25 @@
 <script src="/js/dark-mode.js"></script>
 <script src="/js/analytics.js"></script>
 <script>
+// Reveal on scroll
+(function() {
+  const revealElements = document.querySelectorAll(".reveal");
+  if (!("IntersectionObserver" in window)) {
+    revealElements.forEach((el) => el.classList.add("active"));
+    return;
+  }
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("active");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  revealElements.forEach((el) => observer.observe(el));
+})();
+
+// Lazy load simulator
 const obs = new IntersectionObserver(e => {
   if (e[0].isIntersecting) {
     const s = document.createElement('script');
