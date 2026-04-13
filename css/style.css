@@ -724,15 +724,24 @@ section {
   text-align: center;
 }
 
+.hero-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: min(42rem, 100%);
+  margin-inline: auto;
+}
+
 .hero h1 {
   font-family: var(--font-display);
   font-size: clamp(2.5rem, 6vw, 4rem);
   font-weight: 700;
-  line-height: 1.1;
+  line-height: 1.12;
   letter-spacing: -0.025em;
   color: var(--text-hero);
   text-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
-  white-space: nowrap;
+  text-wrap: balance;
 }
 
 .hero p {
@@ -760,13 +769,26 @@ section {
 
 .hero-lead {
   max-width: 42ch;
+  margin-top: 1.15rem;
+  margin-inline: auto;
+}
+
+.hero-lead .hero-subtitle {
+  margin-top: 0;
+}
+
+.hero-lead .hero-tagline {
+  margin-top: 0.65rem;
+  font-size: clamp(0.95rem, 2vw, 1.15rem);
+  font-weight: 500;
+  opacity: 0.94;
 }
 
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 0.85rem;
-  margin-top: 1.75rem;
+  margin-top: 1.5rem;
   min-height: 2.75rem;
   justify-content: center;
 }
@@ -775,7 +797,7 @@ section {
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
-  margin-top: 1.25rem;
+  margin-top: 1rem;
   justify-content: center;
 }
 

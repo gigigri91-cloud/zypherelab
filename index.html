@@ -219,16 +219,18 @@
     <div class="hero-inner">
       <div class="hero-copy">
         <h1 data-i18n="hero.title">Website-uri moderne pentru afaceri românești care vor clienți noi</h1>
-        <p class="hero-subtitle" data-i18n="hero.subtitle">Rapide, optimizate pentru conversie. De la 300€ landing → 600€ site complet.</p>
-        <p class="hero-tagline" data-i18n="hero.tagline">Schițe în 3-5 zile | 3 luni suport gratuit</p>
-        <div class="trust-badges">
-          <span class="trust-badge" data-i18n="hero.t1">100% Mobile</span>
-          <span class="trust-badge" data-i18n="hero.t2">SEO Ready</span>
-          <span class="trust-badge" data-i18n="hero.t3">Suport Gratuit</span>
+        <div class="hero-lead">
+          <p class="hero-subtitle" data-i18n="hero.subtitle">Rapide, optimizate pentru conversie. De la 300€ landing → 600€ site complet.</p>
+          <p class="hero-tagline" data-i18n="hero.tagline">Schițe în 3-5 zile | 3 luni suport gratuit</p>
         </div>
         <div class="hero-actions">
           <a class="btn" href="#contact" data-i18n="hero.cta1">Ofertă WhatsApp</a>
           <a class="btn btn-secondary" href="#portfolio" data-i18n="hero.cta2">Vezi lucrări</a>
+        </div>
+        <div class="trust-badges">
+          <span class="trust-badge" data-i18n="hero.t1">100% Mobile</span>
+          <span class="trust-badge" data-i18n="hero.t2">SEO Ready</span>
+          <span class="trust-badge" data-i18n="hero.t3">Suport Gratuit</span>
         </div>
       </div>
     </div>
@@ -588,19 +590,19 @@
     <form id="leadForm" novalidate>
       <div class="field-group">
         <label for="name" data-i18n="contact.name">Nume</label>
-        <input id="name" name="name" type="text" data-i18n-placeholder="contact.phName" placeholder="Numele tău" required>
+        <input id="name" name="name" type="text" autocomplete="name" data-i18n-placeholder="contact.phName" placeholder="Numele tău" required>
       </div>
       <div class="field-group">
         <label for="email" data-i18n="contact.email">Email</label>
-        <input id="email" name="email" type="email" data-i18n-placeholder="contact.phEmail" placeholder="email@firma.ro" required>
+        <input id="email" name="email" type="email" autocomplete="email" data-i18n-placeholder="contact.phEmail" placeholder="email@firma.ro" required>
       </div>
       <div class="field-group">
         <label for="business" data-i18n="contact.business">Business</label>
-        <input id="business" name="business" type="text" data-i18n-placeholder="contact.phBusiness" placeholder="Numele business-ului" required>
+        <input id="business" name="business" type="text" autocomplete="organization" data-i18n-placeholder="contact.phBusiness" placeholder="Numele business-ului" required>
       </div>
       <div class="field-group">
         <label for="goal" data-i18n="contact.goal">Obiectiv principal</label>
-        <textarea id="goal" name="goal" data-i18n-placeholder="contact.phGoal" placeholder="Ex: mai multe lead-uri din Google" required></textarea>
+        <textarea id="goal" name="goal" autocomplete="off" data-i18n-placeholder="contact.phGoal" placeholder="Ex: mai multe lead-uri din Google" required></textarea>
       </div>
       <button class="btn" type="submit" data-i18n="contact.submit">Trimite cererea</button>
     </form>
