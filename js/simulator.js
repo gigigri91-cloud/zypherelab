@@ -55,6 +55,7 @@ function typeLabelForPill(type) {
 }
 
 function createPreviewCard(name, type, style, hue, description, address, phone, services) {
+  const frag = document.createDocumentFragment();
   const wrap = document.createElement("div");
   wrap.className = `preview-browser preview-style-${style}`;
   wrap.style.setProperty("--preview-hue", String(hue));
@@ -147,7 +148,8 @@ function createPreviewCard(name, type, style, hue, description, address, phone, 
   footer.textContent = `© ${new Date().getFullYear()} ${name}`;
 
   wrap.append(nav, hero, about, servicesSection, body, contact, footer);
-  return wrap;
+  frag.appendChild(wrap);
+  return frag;
 }
 
 function generateSite() {
@@ -230,6 +232,19 @@ function setupColorSlider() {
   sync();
 }
 
+function throttle(fn, delay) {
+  let timeoutId = null;
+  return function(...args) {
+    if (timeoutId) {
+      clearTimeout(timeoutId);
+    }
+    timeoutId = setTimeout(() => {
+      fn.apply(this, args);
+      timeoutId = null;
+    }, delay);
+  };
+}
+
 function setupRealTimeUpdates() {
   const inputs = [
     "siteName",
@@ -241,15 +256,17 @@ function setupRealTimeUpdates() {
     "siteColor"
   ];
 
+  const throttledGenerate = throttle(() => {
+    const nameInput = document.getElementById("siteName");
+    if (nameInput && nameInput.value.trim()) {
+      generateSite();
+    }
+  }, 150);
+
   inputs.forEach(id => {
     const input = document.getElementById(id);
     if (input) {
-      input.addEventListener("input", () => {
-        const nameInput = document.getElementById("siteName");
-        if (nameInput && nameInput.value.trim()) {
-          generateSite();
-        }
-      });
+      input.addEventListener("input", throttledGenerate);
     }
   });
 }

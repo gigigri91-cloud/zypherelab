@@ -36,12 +36,14 @@
       lang: { switchAria: "Limba site-ului", ro: "Română", en: "Engleză" },
       header: { cta: "Cere ofertă" },
       hero: {
-        title: "Construim website-uri care îți aduc clienți",
-        tagline: "Preview instant. Rezultate reale.",
-        lead: "",
-        ctaSim: "Încearcă simulatorul live",
-        ctaStart: "Vezi portofoliu",
-        visualPlaceholder: "Simulatorul va apărea aici"
+        title: "Website-uri moderne pentru afaceri românești care vor clienți noi",
+        subtitle: "Rapide, optimizate pentru conversie. De la 300€ landing → 600€ site complet.",
+        tagline: "Schițe în 3-5 zile | 3 luni suport gratuit",
+        cta1: "Ofertă WhatsApp",
+        cta2: "Vezi lucrări",
+        t1: "100% Mobile",
+        t2: "SEO Ready",
+        t3: "Suport Gratuit"
       },
       facts: {
         title: "Date rapide pentru Google și motoare AI",
@@ -134,19 +136,62 @@
         }
       },
       portfolio: {
-        title: "Portofoliu — studii de caz",
-        c1t: "Firmă servicii locale",
-        c1p: "Redesign + SEO on-page. Rezultat: creștere trafic organic și lead-uri mai calificate.",
-        c1m: "+68% cereri în 90 zile",
-        c2t: "Restaurant urban",
-        c2p: "Landing orientat pe rezervări mobile și viteză ridicată.",
-        c2m: "+41% rezervări online"
+        title: "Portofoliu — proiecte web design",
+        project1: {
+          title: "Landing Restaurant",
+          desc: "Design modern pentru restaurant cu sistem de rezervări integrat. Optimizat pentru mobil.",
+          link: "Vezi studiu de caz"
+        },
+        project2: {
+          title: "Site Cabinet Avocat",
+          desc: "Prezență online profesională cu formular de programare și SEO local.",
+          link: "Vezi studiu de caz"
+        },
+        project3: {
+          title: "Redesign E-commerce",
+          desc: "Optimizare conversie pentru magazin online. +40% vânzări după redesign.",
+          link: "Vezi studiu de caz"
+        },
+        project4: {
+          title: "Portofoliu Freelancer",
+          desc: "Site personal cu galerie de proiecte și formular de contact. Design minimalist.",
+          link: "Vezi studiu de caz"
+        },
+        project5: {
+          title: "Demo Generator Site",
+          desc: "Simulator interactiv vanilla JS. Alege tip business, vezi preview instant.",
+          link: "Încearcă demo"
+        }
+      },
+      process: {
+        title: "Cum lucrăm",
+        step1: "Discuție brief",
+        step1desc: "Aflăm obiectivele, publicul țintă și mesajul principal.",
+        step2: "Wireframe",
+        step2desc: "Aprobăm structura și fluxul înainte de design final.",
+        step3: "Build + Test",
+        step3desc: "Dezvoltare rapidă, testare pe toate dispozitivele.",
+        step4: "Lansare + Suport",
+        step4desc: "Publicare, monitorizare și 3 luni suport inclus."
+      },
+      about: {
+        title: "Despre mine",
+        intro: "Web designer freelancer din București. Livrez rapid pentru afaceri mici și mijlocii din România.",
+        cta: "Hai să discutăm"
       },
       testimonials: {
         title: "Ce spun clienții",
         cristi: {
-          text: "„Am colaborat cu ZypheroLab pentru toate cele 5 proiecte din portofoliul meu și sunt extrem de mulțumit de fiecare site creat. Echipa a înțeles perfect nevoile mele de la prima discuție și a livrat site-uri rapide, moderne și optimizate pentru conversie. Recomand cu încredere!”",
-          author: "— Cristi, proprietar 5 proiecte în portofoliu"
+          text: "„Am colaborat cu ZypheroLab pentru toate cele 5 proiecte din portofoliul meu și sunt extrem de mulțumit de fiecare site creat. Echipa a înțeles perfect nevoile mele de la prima discuție și a livrat site-uri rapide, moderne și optimizate pentru conversie. Recomand cu încredere!\"",
+          author: "— Cristi, proprietar 5 proiecte"
+        },
+        maria: {
+          text: "„Site-ul restaurantului meu a crescut vânzările cu 30% în prima lună. Design-ul este exact ce îmi trebuia - modern, rapid și ușor de folosit pe telefon.\"",
+          author: "— Maria, proprietar restaurant"
+        },
+        andrei: {
+          text: "„Profesionalism și livrare rapidă. Cabinetul meu de avocatură are acum o prezență online care aduce clienți noi în fiecare lună.\"",
+          author: "— Andrei, avocat"
         }
       },
       gen: {
@@ -180,13 +225,17 @@
         }
       },
       faq: {
-        title: "Întrebări frecvente",
-        q1: "În cât timp primesc prima versiune?",
-        a1: "În mod normal în 3–5 zile lucrătoare pentru un draft funcțional.",
-        q2: "Pot fi găsit mai bine în căutări AI?",
-        a2: "Da, prin structură semantică, date clare despre business, schema și conținut ușor de referit.",
-        q3: "Ce primesc după lansare?",
-        a3: "Checklist de optimizare continuă, monitorizare KPI și recomandări de creștere."
+        title: "Întrebări frecvente — web design",
+        q1: "Cât costă un website?",
+        a1: "Landing page de la 300€, site complet 5 pagini de la 600€. Prețul final depinde de funcționalități și complexitate.",
+        q2: "În cât timp e gata site-ul?",
+        a2: "Landing page în 3-5 zile, site complet în 1-2 săptămâni. Depinde de cât de repede primim materialele de la tine.",
+        q3: "Site-ul va apărea pe Google?",
+        a3: "Da, includem SEO tehnic de bază: meta tags, viteză, structură semantică. Indexare în Google în câteva zile de la lansare.",
+        q4: "Pot modifica conținutul după?",
+        a4: "Da, livrăm codul sursă curat și documentat. Poți modifica textele sau pot face eu modificări la cerere.",
+        q5: "Ce se întâmplă după lansare?",
+        a5: "3 luni suport gratuit pentru bug-uri și mici ajustări. După, ofer mentenanță lunară la 50€ sau suport la cerere."
       },
       contact: {
         title: "Solicită o discuție gratuită",
@@ -264,12 +313,14 @@
       lang: { switchAria: "Site language", ro: "Romanian", en: "English" },
       header: { cta: "Get a Quote" },
       hero: {
-        title: "We Build Websites That Bring You Clients",
-        tagline: "Instant previews. Real results.",
-        lead: "Fast pages, a clear message, and optimization for Google and AI search — so you get steady leads.",
-        ctaSim: "Try Live Simulator",
-        ctaStart: "View Portfolio",
-        visualPlaceholder: "Simulator will appear here"
+        title: "Modern websites for Romanian businesses that want new clients",
+        subtitle: "Fast, conversion-focused. From €300 landing → €600 full site.",
+        tagline: "Drafts in 3-5 days | 3 months free support",
+        cta1: "WhatsApp Quote",
+        cta2: "View Work",
+        t1: "100% Mobile",
+        t2: "SEO Ready",
+        t3: "Free Support"
       },
       facts: {
         title: "Quick signals for Google and AI engines",
@@ -362,19 +413,62 @@
         }
       },
       portfolio: {
-        title: "Portfolio — case studies",
-        c1t: "Local services company",
-        c1p: "Redesign + on-page SEO. Result: more organic traffic and better-qualified leads.",
-        c1m: "+68% inquiries in 90 days",
-        c2t: "Urban restaurant",
-        c2p: "Mobile-first landing focused on reservations and speed.",
-        c2m: "+41% online reservations"
+        title: "Portfolio — web design projects",
+        project1: {
+          title: "Restaurant Landing",
+          desc: "Modern design for restaurant with integrated reservation system. Mobile optimized.",
+          link: "View case study"
+        },
+        project2: {
+          title: "Law Firm Site",
+          desc: "Professional online presence with appointment form and local SEO.",
+          link: "View case study"
+        },
+        project3: {
+          title: "E-commerce Redesign",
+          desc: "Conversion optimization for online store. +40% sales after redesign.",
+          link: "View case study"
+        },
+        project4: {
+          title: "Freelancer Portfolio",
+          desc: "Personal site with project gallery and contact form. Minimalist design.",
+          link: "View case study"
+        },
+        project5: {
+          title: "Site Generator Demo",
+          desc: "Interactive vanilla JS demo. Choose business type, see instant preview.",
+          link: "Try demo"
+        }
+      },
+      process: {
+        title: "How we work",
+        step1: "Brief call",
+        step1desc: "We learn your goals, target audience, and core message.",
+        step2: "Wireframe",
+        step2desc: "We approve structure and flow before final design.",
+        step3: "Build + Test",
+        step3desc: "Rapid development, testing on all devices.",
+        step4: "Launch + Support",
+        step4desc: "Publication, monitoring, and 3 months included support."
+      },
+      about: {
+        title: "About me",
+        intro: "Freelance web designer from Bucharest. Fast delivery for small and medium Romanian businesses.",
+        cta: "Let's talk"
       },
       testimonials: {
         title: "What clients say",
         cristi: {
-          text: "“I collaborated with ZypheroLab for all 5 projects in my portfolio and I am extremely satisfied with every website created. The team understood my needs perfectly from the first discussion and delivered fast, modern, and conversion-optimized sites. I highly recommend them!”",
-          author: "— Cristi, owner of 5 projects in portfolio"
+          text: "I collaborated with ZypheroLab for all 5 projects in my portfolio and I am extremely satisfied with every website created. The team understood my needs perfectly from the first discussion and delivered fast, modern, and conversion-optimized sites. I highly recommend them!",
+          author: "— Cristi, owner of 5 projects"
+        },
+        maria: {
+          text: "My restaurant website increased sales by 30% in the first month. The design is exactly what I needed - modern, fast, and easy to use on mobile.",
+          author: "— Maria, restaurant owner"
+        },
+        andrei: {
+          text: "Professionalism and fast delivery. My law firm now has an online presence that brings new clients every month.",
+          author: "— Andrei, lawyer"
         }
       },
       gen: {
@@ -413,13 +507,17 @@
         }
       },
       faq: {
-        title: "Frequently asked questions",
-        q1: "How soon do I get the first version?",
-        a1: "Typically within 3–5 business days for a functional draft.",
-        q2: "Can I rank better in AI search results?",
-        a2: "Yes—through semantic structure, clear business facts, schema, and easy-to-reference content.",
-        q3: "What do I get after launch?",
-        a3: "A continuous optimization checklist, KPI monitoring, and growth recommendations."
+        title: "FAQ — web design",
+        q1: "How much does a website cost?",
+        a1: "Landing page from €300, full 5-page site from €600. Final price depends on features and complexity.",
+        q2: "How long does it take?",
+        a2: "Landing page in 3-5 days, full site in 1-2 weeks. Depends on how quickly you provide materials.",
+        q3: "Will my site appear on Google?",
+        a3: "Yes, we include basic technical SEO: meta tags, speed, semantic structure. Google indexing within days of launch.",
+        q4: "Can I edit content later?",
+        a4: "Yes, we deliver clean, documented source code. You can edit text or I can make changes on request.",
+        q5: "What happens after launch?",
+        a5: "3 months free support for bugs and small adjustments. After that, I offer monthly maintenance at €50 or on-demand support."
       },
       contact: {
         title: "Book a free call",
