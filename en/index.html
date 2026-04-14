@@ -44,7 +44,8 @@
 <link rel="preload" href="/fonts/montserrat-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/montserrat-latin-ext.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/css/fonts.css" as="style">
-<link rel="stylesheet" href="/css/fonts.css">
+<link rel="stylesheet" href="css/fonts.css" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="css/fonts.css"></noscript>
 <link rel="preload" href="/css/style.min.css" as="style">
 <link rel="stylesheet" href="/css/style.min.css">
 <link rel="alternate" type="text/plain" href="/llms.txt" title="LLMs summary">
@@ -625,6 +626,12 @@
 <script src="/js/dark-mode.js"></script>
 <script src="/js/analytics.js"></script>
 <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var loader = document.getElementById('loader');
+    if (loader) loader.style.display = 'none';
+  });
+</script>
+<script>
 // Reveal on scroll
 (function() {
   const revealElements = document.querySelectorAll(".reveal");
@@ -642,11 +649,6 @@
   }, { threshold: 0.12 });
   revealElements.forEach((el) => observer.observe(el));
 })();
-
-document.addEventListener('DOMContentLoaded', () => {
-  const loader = document.getElementById('loader');
-  if (loader) loader.style.display = 'none';
-});
 
 // Lazy load simulator
 const obs = new IntersectionObserver(e => {
