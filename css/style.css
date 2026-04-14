@@ -443,30 +443,44 @@ header {
     --header-offset: 4rem;
   }
 
-  .hamburger {
-    display: flex;
-  }
-
   .nav-main {
     display: none !important;
   }
 
-  .header-inner {
-    padding: 12px 6%;
+  .hamburger {
+    display: flex;
   }
 
-  .lang-switch,
   .header-cta {
     display: none;
   }
 
-  .header-inner .dark-mode-toggle {
-    display: none;
+  /* Keep lang-switch visible in header on mobile */
+  .lang-switch {
+    display: inline-flex;
   }
 
-  body > header ~ .dark-mode-toggle,
-  .dark-mode-toggle {
-    /* will be overridden below for the floating version */
+  /* Keep dark-mode-toggle visible in header on mobile */
+  .header-inner .dark-mode-toggle {
+    display: flex;
+    position: static;
+    padding: 0.4rem;
+    width: 32px;
+    height: 32px;
+  }
+
+  /* Header inner: logo on left, controls + hamburger on right */
+  .header-inner {
+    padding: 12px 6%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+  }
+
+  /* Group: lang-switch + dark-mode-toggle + hamburger in a row */
+  .header-inner .hamburger {
+    margin-left: 0.25rem;
   }
 
   body.mobile-menu-open {
@@ -474,39 +488,6 @@ header {
   }
 }
 
-@media (max-width: 768px) {
-  /* Float dark mode toggle to top-right corner */
-  header .dark-mode-toggle {
-    display: none;
-  }
-
-  /* Re-show it as fixed in top-right corner */
-  .dark-mode-toggle {
-    position: fixed;
-    top: 10px;
-    right: 60px;
-    z-index: 1100;
-    display: flex !important;
-    padding: 0.45rem;
-    width: 36px;
-    height: 36px;
-    background: var(--bg-primary);
-    border: 1px solid var(--border);
-    border-radius: 999px;
-    box-shadow: var(--shadow-md);
-  }
-
-  .mobile-menu-footer .dark-mode-toggle {
-    position: static;
-    top: auto;
-    right: auto;
-    z-index: auto;
-    width: auto;
-    height: auto;
-    padding: 0.5rem;
-    box-shadow: none;
-  }
-}
 
 .nav-main {
   display: flex;
@@ -2408,43 +2389,6 @@ footer {
   .header-inner {
     flex-direction: row;
     align-items: center;
-    gap: 0;
-  }
-
-  .hero {
-    padding: 90px 5% 0 5%;
-  }
-
-  .nav-main {
-    width: 100%;
-    justify-content: space-between;
-    flex-wrap: nowrap;
-  }
-
-  .nav-main a {
-    margin-left: 0;
-    margin-right: 0;
-    padding: 0.3rem 0.5rem;
-    font-size: 0.85rem;
-  }
-
-  .header-cta {
-    width: 100%;
-    text-align: center;
-  }
-
-  .lang-switch {
-    align-self: center;
-  }
-
-  .trust-badges {
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  .trust-badge {
-    justify-content: center;
-    white-space: nowrap;
   }
 }
 
