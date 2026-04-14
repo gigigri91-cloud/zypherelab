@@ -8,6 +8,7 @@
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="author" content="ZypheroLab">
 <meta name="theme-color" content="#667eea">
+<link rel="preconnect" href="https://www.googletagmanager.com">
 <!-- Google Analytics 4 -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-JRPX0T1X3S"></script>
 <script>
@@ -17,6 +18,7 @@
   gtag('config', 'G-JRPX0T1X3S');
 </script>
 <link rel="preload" href="/img/brand/zypherolab-logo.png" as="image" type="image/png">
+<link rel="preload" as="image" href="/img/brand/zypherolab-logo.webp" type="image/webp">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
 <link rel="icon" href="/favicon-192.png" type="image/png" sizes="192x192">
@@ -148,7 +150,10 @@
 
 <div id="loader" aria-hidden="true">
   <div class="loader-logo">
-    <img src="/img/brand/zypherolab-logo.png" alt="" width="80" height="80" decoding="async">
+    <picture>
+      <source srcset="/img/brand/zypherolab-logo.webp" type="image/webp">
+      <img src="/img/brand/zypherolab-logo.png" alt="ZypheroLab" width="80" height="80" decoding="async" loading="eager">
+    </picture>
   </div>
 </div>
 
@@ -156,7 +161,10 @@
   <div class="header-inner">
     <a href="#home" class="brand" data-i18n-aria="brand.aria" aria-label="ZypheroLab — Acasă">
       <span class="brand-mark-hex" aria-hidden="true">
-        <img class="brand-mark-img" src="/img/brand/zypherolab-logo.png" width="80" height="80" alt="" decoding="async">
+        <picture class="brand-mark-img">
+          <source srcset="/img/brand/zypherolab-logo.webp" type="image/webp">
+          <img src="/img/brand/zypherolab-logo.png" alt="ZypheroLab" width="80" height="80" decoding="async" loading="lazy">
+        </picture>
       </span>
       <span class="brand-wordmark">Zyphero<span class="brand-wordmark-accent">Lab</span></span>
     </a>
@@ -187,7 +195,10 @@
   <div class="mobile-menu-header">
     <a href="#home" class="brand" data-i18n-aria="brand.aria" aria-label="ZypheroLab — Acasă">
       <span class="brand-mark-hex" aria-hidden="true">
-        <img class="brand-mark-img" src="/img/brand/zypherolab-logo.png" width="80" height="80" alt="" decoding="async">
+        <picture class="brand-mark-img">
+          <source srcset="/img/brand/zypherolab-logo.webp" type="image/webp">
+          <img src="/img/brand/zypherolab-logo.png" alt="ZypheroLab" width="80" height="80" decoding="async" loading="lazy">
+        </picture>
       </span>
       <span class="brand-wordmark">Zyphero<span class="brand-wordmark-accent">Lab</span></span>
     </a>
@@ -631,11 +642,11 @@
 </a>
 
 <noscript data-i18n="noscript">Acest website funcționează mai bine cu JavaScript activat.</noscript>
-<script src="/js/config.js"></script>
-<script src="/js/i18n.js"></script>
-<script src="/js/mobile-menu.js"></script>
-<script src="/js/dark-mode.js"></script>
-<script src="/js/analytics.js"></script>
+<script src="/js/config.js" defer></script>
+<script src="/js/i18n.js" defer></script>
+<script src="/js/mobile-menu.js" defer></script>
+<script src="/js/dark-mode.js" defer></script>
+<script src="/js/analytics.js" defer></script>
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     var loader = document.getElementById('loader');

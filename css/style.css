@@ -156,7 +156,7 @@ header {
   -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--border);
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
-  transition: background 0.3s ease, border-color 0.3s ease;
+  transition: background 0.3s ease;
 }
 
 .dark-mode header {
@@ -401,7 +401,7 @@ header {
   color: var(--text-main);
   font-weight: 500;
   font-size: 1rem;
-  transition: background 0.2s ease, color 0.2s ease;
+  transition: background 0.2s ease;
 }
 
 .mobile-menu-nav a:hover {
@@ -504,7 +504,7 @@ header {
   font-size: 0.95rem;
   padding: 0.4rem 0.6rem;
   border-radius: 6px;
-  transition: color 0.2s ease, background 0.2s ease;
+  transition: background 0.2s ease;
 }
 
 .dark-mode .nav-main a {
@@ -540,7 +540,7 @@ header {
   background: var(--gradient-cta);
   border: none;
   box-shadow: var(--shadow-md);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s ease;
 }
 
 .header-cta:hover {
@@ -565,7 +565,7 @@ header {
   font-size: 0.8rem;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: background 0.2s ease;
 }
 
 .dark-mode .lang-btn {
@@ -597,7 +597,7 @@ header {
   border-radius: 999px;
   background: white;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: background 0.2s ease;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -641,8 +641,6 @@ section {
   align-items: center;
   justify-content: center;
   background: var(--hero-gradient);
-  background-size: 200% 200%;
-  animation: gradientShift 15s ease infinite;
   overflow: hidden;
   scroll-margin-top: 80px;
 }
@@ -650,8 +648,11 @@ section {
 .hero::before {
   content: "";
   position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.05) 100%);
+  inset: -50%;
+  background: var(--hero-gradient);
+  background-size: 200% 200%;
+  animation: gradientShift 15s ease infinite;
+  z-index: 0;
   pointer-events: none;
 }
 
@@ -659,14 +660,16 @@ section {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+  background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.05) 100%),
+                    radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
                     radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+  z-index: 1;
   pointer-events: none;
 }
 
 @keyframes gradientShift {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
+  0%, 100% { transform: translate3d(-8%, 0, 0) scale(1.08); }
+  50% { transform: translate3d(8%, 0, 0) scale(1.08); }
 }
 
 @keyframes float {
@@ -752,6 +755,8 @@ section {
   justify-content: center;
   gap: 2rem;
   text-align: center;
+  position: relative;
+  z-index: 2;
 }
 
 .hero-copy {
@@ -772,6 +777,11 @@ section {
   color: var(--text-hero);
   text-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
   text-wrap: balance;
+}
+
+section#home .hero-copy h1 {
+  animation-delay: 0s !important;
+  transition: none;
 }
 
 .hero p {
@@ -894,7 +904,7 @@ section {
   color: var(--primary);
   cursor: pointer;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s ease;
 }
 
 .btn:hover {
@@ -1011,7 +1021,7 @@ blockquote {
 .card {
   padding: 1.2rem;
   box-shadow: var(--shadow-sm);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s ease;
   background: var(--gradient-card);
 }
 
@@ -1051,7 +1061,7 @@ blockquote {
   padding: 2rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05),
               0 10px 15px rgba(0, 0, 0, 0.1);
-  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  transition: transform 0.5s ease;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -1162,7 +1172,7 @@ blockquote {
   border-radius: 1rem;
   padding: 2rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -1282,7 +1292,7 @@ blockquote {
   text-decoration: none;
   font-weight: 500;
   font-size: 0.9rem;
-  transition: color 0.2s ease;
+  transition: none;
 }
 
 .portfolio-link:hover {
@@ -1322,7 +1332,7 @@ blockquote {
   border-radius: 1rem;
   padding: 1.5rem;
   text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
 .dark-mode .process-step {
@@ -1373,10 +1383,21 @@ blockquote {
 
 /* About Section */
 .about {
+  position: relative;
+  overflow: hidden;
   padding: 4rem 5%;
+  background: var(--hero-gradient);
+}
+
+.about::before {
+  content: "";
+  position: absolute;
+  inset: -50%;
   background: var(--hero-gradient);
   background-size: 200% 200%;
   animation: gradientShift 15s ease infinite;
+  z-index: 0;
+  pointer-events: none;
 }
 
 .about-inner {
@@ -1384,6 +1405,8 @@ blockquote {
   margin: 0 auto;
   text-align: center;
   color: white;
+  position: relative;
+  z-index: 1;
 }
 
 .about h2 {
@@ -1833,7 +1856,7 @@ input[type="range"].color-picker::-moz-range-thumb {
   font-size: 0.88rem;
   cursor: pointer;
   font-family: inherit;
-  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  transition: background 0.2s ease;
 }
 
 .style-options button:last-child {
@@ -2194,7 +2217,7 @@ footer {
   text-decoration: none;
   border-radius: 50%;
   box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s ease;
 }
 
 .whatsapp:hover,
