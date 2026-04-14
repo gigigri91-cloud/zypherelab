@@ -8,15 +8,6 @@
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="author" content="ZypheroLab">
 <meta name="theme-color" content="#667eea">
-<link rel="preconnect" href="https://www.googletagmanager.com">
-<!-- Google Analytics 4 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-JRPX0T1X3S"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-JRPX0T1X3S');
-</script>
 <link rel="preload" href="/img/brand/zypherolab-logo.png" as="image" type="image/png">
 <link rel="preload" as="image" href="/img/brand/zypherolab-logo.webp" type="image/webp">
 <link rel="icon" href="/favicon.ico" sizes="any">
@@ -670,6 +661,28 @@ const obs = new IntersectionObserver(e => {
   }
 });
 obs.observe(document.getElementById('simulator'));
+</script>
+<script>
+  // Load GTM after page is interactive (deferred to not block LCP)
+  function loadGTM() {
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=G-JRPX0T1X3S';
+    document.head.appendChild(s);
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    window.gtag = gtag;
+    gtag('js', new Date());
+    gtag('config', 'G-JRPX0T1X3S');
+  }
+
+  if (document.readyState === 'complete') {
+    setTimeout(loadGTM, 1000);
+  } else {
+    window.addEventListener('load', function() {
+      setTimeout(loadGTM, 1000);
+    });
+  }
 </script>
 </body>
 </html>

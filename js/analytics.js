@@ -2,8 +2,8 @@
 (function() {
   // Track event helper function
   function trackEvent(eventName, eventParams) {
-    if (typeof gtag !== 'undefined') {
-      gtag('event', eventName, eventParams);
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', eventName, eventParams);
     }
   }
 
