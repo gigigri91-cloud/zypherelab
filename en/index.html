@@ -128,15 +128,6 @@
 <body>
 <a class="skip-link" href="#main-content" data-i18n="skip">Skip to content</a>
 
-<div id="loader" aria-hidden="true">
-  <div class="loader-logo">
-    <picture>
-      <source srcset="/img/brand/zypherolab-mark.png" type="image/png">
-      <img src="/img/brand/zypherolab-mark.png" alt="ZypheroLab" width="44" height="44" decoding="async" loading="eager">
-    </picture>
-  </div>
-</div>
-
 <header>
   <div class="header-inner">
     <a href="#home" class="brand" data-i18n-aria="brand.aria" aria-label="ZypheroLab — Home">
@@ -563,22 +554,6 @@
     </div>
   </section>
 
-  <section id="faq" class="faq reveal" aria-labelledby="faq-title">
-    <h2 id="faq-title" data-i18n="faq.title">Frequently asked questions</h2>
-    <details>
-      <summary data-i18n="faq.q1">How soon do I get the first version?</summary>
-      <p data-i18n="faq.a1">Typically within 3–5 business days for a functional draft.</p>
-    </details>
-    <details>
-      <summary data-i18n="faq.q2">Can I rank better in AI search results?</summary>
-      <p data-i18n="faq.a2">Yes—through semantic structure, clear business facts, schema, and easy-to-reference content.</p>
-    </details>
-    <details>
-      <summary data-i18n="faq.q3">What do I get after launch?</summary>
-      <p data-i18n="faq.a3">A continuous optimization checklist, KPI monitoring, and growth recommendations.</p>
-    </details>
-  </section>
-
   <section id="contact" class="contact reveal" aria-labelledby="contact-title">
     <h2 id="contact-title" data-i18n="contact.title">Book a free call</h2>
     <form id="leadForm" action="https://formspree.io/f/xzdyzdpn" method="POST" novalidate>
@@ -626,12 +601,6 @@
 <script src="/js/config.js" defer></script>
 <script src="/js/i18n.js" defer></script>
 <script src="/js/mobile-menu.js" defer></script>
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    var loader = document.getElementById('loader');
-    if (loader) loader.style.display = 'none';
-  });
-</script>
 <script>
 // Reveal on scroll
 (function() {

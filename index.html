@@ -139,15 +139,6 @@
 <body>
 <a class="skip-link" href="#main-content" data-i18n="skip">Sari la conținut</a>
 
-<div id="loader" aria-hidden="true">
-  <div class="loader-logo">
-    <picture>
-      <source srcset="/img/brand/zypherolab-mark.png" type="image/png">
-      <img src="/img/brand/zypherolab-mark.png" alt="ZypheroLab" width="44" height="44" decoding="async" loading="eager">
-    </picture>
-  </div>
-</div>
-
 <header>
   <div class="header-inner">
     <a href="#home" class="brand" data-i18n-aria="brand.aria" aria-label="ZypheroLab — Acasă">
@@ -574,22 +565,6 @@
     </div>
   </section>
 
-  <section id="faq" class="faq reveal" aria-labelledby="faq-title">
-    <h2 id="faq-title" data-i18n="faq.title">Întrebări frecvente</h2>
-    <details>
-      <summary data-i18n="faq.q1">În cât timp primesc prima versiune?</summary>
-      <p data-i18n="faq.a1">În mod normal în 3–5 zile lucrătoare pentru un draft funcțional.</p>
-    </details>
-    <details>
-      <summary data-i18n="faq.q2">Pot fi găsit mai bine în căutări AI?</summary>
-      <p data-i18n="faq.a2">Da, prin structură semantică, date clare despre business, schema și conținut ușor de referit.</p>
-    </details>
-    <details>
-      <summary data-i18n="faq.q3">Ce primesc după lansare?</summary>
-      <p data-i18n="faq.a3">Checklist de optimizare continuă, monitorizare KPI și recomandări de creștere.</p>
-    </details>
-  </section>
-
   <section id="contact" class="contact reveal" aria-labelledby="contact-title">
     <h2 id="contact-title" data-i18n="contact.title">Solicită o discuție gratuită</h2>
     <form id="leadForm" action="https://formspree.io/f/xzdyzdpn" method="POST" novalidate>
@@ -637,12 +612,6 @@
 <script src="/js/config.js" defer></script>
 <script src="/js/i18n.js" defer></script>
 <script src="/js/mobile-menu.js" defer></script>
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    var loader = document.getElementById('loader');
-    if (loader) loader.style.display = 'none';
-  });
-</script>
 <script>
 // Reveal on scroll
 (function() {

@@ -275,11 +275,6 @@ function setupLangRefreshPreview() {
 }
 
 function boot() {
-  const loader = document.getElementById("loader");
-  if (loader) {
-    loader.style.display = "none";
-  }
-
   setupRevealOnScroll();
   setupLeadForm();
   setupStylePills();

@@ -263,7 +263,7 @@ header {
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.04em;
-  color: var(--text-secondary);
+  color: #475569;
   background: transparent;
   cursor: pointer;
   transition: color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
@@ -365,7 +365,7 @@ section {
   border-radius: 999px;
   font-size: 0.85rem;
   font-weight: 500;
-  color: var(--text-secondary);
+  color: #475569;
 }
 
 .hero-visual {
@@ -1185,32 +1185,6 @@ footer {
   background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z'/%3E%3C/svg%3E") center / contain no-repeat;
 }
 
-#loader {
-  position: fixed;
-  inset: 0;
-  background: var(--bg);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-}
-
-.loader-logo {
-  animation: pulse 1.25s infinite;
-}
-
-.loader-logo img {
-  display: block;
-  height: clamp(4rem, 14vw, 5.5rem);
-  width: clamp(4rem, 14vw, 5.5rem);
-  object-fit: contain;
-  border-radius: 1rem;
-  box-shadow:
-    0 0 0 1px rgb(255 255 255 / 0.1),
-    0 0 48px rgb(var(--primary-rgb) / 0.35),
-    0 0 80px rgb(var(--secondary-rgb) / 0.25);
-}
-
 .reveal {
   opacity: 0;
   transform: translateY(20px);
@@ -1220,21 +1194,6 @@ footer {
 .reveal.active {
   opacity: 1;
   transform: translateY(0);
-}
-
-@keyframes pulse {
-  0% {
-    opacity: 0.45;
-    transform: scale(0.96);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.08);
-  }
-  100% {
-    opacity: 0.45;
-    transform: scale(0.96);
-  }
 }
 
 @media (max-width: 900px) {
