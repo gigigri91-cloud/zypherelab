@@ -643,6 +643,11 @@
   revealElements.forEach((el) => observer.observe(el));
 })();
 
+document.addEventListener('DOMContentLoaded', () => {
+  const loader = document.getElementById('loader');
+  if (loader) loader.style.display = 'none';
+});
+
 // Lazy load simulator
 const obs = new IntersectionObserver(e => {
   if (e[0].isIntersecting) {
