@@ -55,7 +55,6 @@ function typeLabelForPill(type) {
 }
 
 function createPreviewCard(name, type, style, hue, description, address, phone, services) {
-  const frag = document.createDocumentFragment();
   const wrap = document.createElement("div");
   wrap.className = `preview-browser preview-style-${style}`;
   wrap.style.setProperty("--preview-hue", String(hue));
@@ -88,7 +87,7 @@ function createPreviewCard(name, type, style, hue, description, address, phone, 
   const about = document.createElement("div");
   about.className = "preview-about";
   const aboutTitle = document.createElement("strong");
-  aboutTitle.textContent = "Despre noi";
+  aboutTitle.textContent = tt("preview.section.about");
   about.appendChild(aboutTitle);
   const aboutText = document.createElement("p");
   aboutText.textContent = description || `Suntem ${typeLabelForPill(type)} dedicat să oferim servicii de calitate superioară.`;
@@ -97,7 +96,7 @@ function createPreviewCard(name, type, style, hue, description, address, phone, 
   const servicesSection = document.createElement("div");
   servicesSection.className = "preview-services-section";
   const servicesTitle = document.createElement("strong");
-  servicesTitle.textContent = "Servicii";
+  servicesTitle.textContent = tt("preview.section.services");
   servicesSection.appendChild(servicesTitle);
   const cardsRow = document.createElement("div");
   cardsRow.className = "preview-cards";
@@ -125,7 +124,7 @@ function createPreviewCard(name, type, style, hue, description, address, phone, 
   const contact = document.createElement("div");
   contact.className = "preview-contact";
   const contactTitle = document.createElement("strong");
-  contactTitle.textContent = "Contact";
+  contactTitle.textContent = tt("preview.section.contact");
   contact.appendChild(contactTitle);
   if (address) {
     const addr = document.createElement("p");
@@ -139,7 +138,7 @@ function createPreviewCard(name, type, style, hue, description, address, phone, 
   }
   if (!address && !phone) {
     const placeholder = document.createElement("p");
-    placeholder.textContent = "Contactați-ne pentru mai multe informații";
+    placeholder.textContent = tt("preview.section.contactPlaceholder");
     contact.appendChild(placeholder);
   }
 
@@ -148,8 +147,7 @@ function createPreviewCard(name, type, style, hue, description, address, phone, 
   footer.textContent = `© ${new Date().getFullYear()} ${name}`;
 
   wrap.append(nav, hero, about, servicesSection, body, contact, footer);
-  frag.appendChild(wrap);
-  return frag;
+  return wrap;
 }
 
 function generateSite() {
@@ -209,6 +207,11 @@ function setupStylePills() {
     pill.addEventListener("click", () => {
       pills.forEach((p) => p.classList.remove("active"));
       pill.classList.add("active");
+      // Regenerate preview if one has already been generated
+      const nameInput = document.getElementById("siteName");
+      if (nameInput && nameInput.value.trim()) {
+        generateSite();
+      }
     });
   });
 }
@@ -266,7 +269,8 @@ function setupRealTimeUpdates() {
   inputs.forEach(id => {
     const input = document.getElementById(id);
     if (input) {
-      input.addEventListener("input", throttledGenerate);
+      const eventName = input.tagName === "SELECT" ? "change" : "input";
+      input.addEventListener(eventName, throttledGenerate);
     }
   });
 }
@@ -274,6 +278,10 @@ function setupRealTimeUpdates() {
 function setupPreviewToggle() {
   const toggles = document.querySelectorAll(".preview-toggle");
   const devices = document.querySelectorAll(".preview-device");
+  const deviceClassMap = {
+    desktop: "preview-laptop",
+    mobile: "preview-mobile"
+  };
 
   toggles.forEach(toggle => {
     toggle.addEventListener("click", () => {
@@ -286,10 +294,11 @@ function setupPreviewToggle() {
         device.classList.remove("preview-device--active");
       });
 
-      const activeDevice = document.querySelector(`.preview-${previewType}`);
-      if (activeDevice) {
-        activeDevice.classList.add("preview-device--active");
-      }
+      const targetClass = deviceClassMap[previewType];
+      const activeDevice = targetClass
+        ? document.querySelector(`.${targetClass}`)
+        : null;
+      if (activeDevice) activeDevice.classList.add("preview-device--active");
     });
   });
 }
@@ -311,8 +320,37 @@ function setupExportButton() {
       return;
     }
 
-    const previewContent = previewBox.innerHTML;
-    const blob = new Blob([previewContent], { type: "text/html" });
+    const previewContent = document.getElementById("previewBox").innerHTML;
+    if (!previewContent || !previewContent.includes("preview-browser")) {
+      alert(tt("gen.errorNoPreview") || "Generează mai întâi un preview.");
+      return;
+    }
+
+    // Fetch the preview CSS from the stylesheet
+    const styleEl = Array.from(document.styleSheets)
+      .flatMap(s => { try { return Array.from(s.cssRules); } catch (e) { return []; } })
+      .filter(r => r.cssText && r.cssText.includes("preview-"))
+      .map(r => r.cssText)
+      .join("\n");
+
+    const html = `<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>${cleanName} — Preview ZypheroLab</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Inter, sans-serif; padding: 2rem; background: #f8fafc; }
+    ${styleEl}
+  </style>
+</head>
+<body>
+  ${previewContent}
+</body>
+</html>`;
+
+    const blob = new Blob([html], { type: "text/html" });
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
@@ -390,13 +428,102 @@ function setupNavHighlight() {
 function setupLeadForm() {
   const form = document.getElementById("leadForm");
   const formStatus = document.getElementById("formStatus");
+  const formspreeEndpoint = "https://formspree.io/f/xzdyzdpn";
 
   if (!(form && formStatus)) {
     return;
   }
 
-  form.addEventListener("submit", (event) => {
+  const fieldIds = ["name", "email", "business", "goal"];
+  const fallbackRequired = tt("form.errorRequired");
+  const requiredMessage = fallbackRequired === "form.errorRequired"
+    ? "Completează acest câmp."
+    : fallbackRequired;
+  const fallbackEmail = tt("form.errorEmail");
+  const emailMessage = fallbackEmail === "form.errorEmail"
+    ? "Introdu o adresă de email validă."
+    : fallbackEmail;
+
+  function getField(id) {
+    return document.getElementById(id);
+  }
+
+  function getErrorNode(fieldId) {
+    const input = getField(fieldId);
+    if (!input) {
+      return null;
+    }
+    let node = document.getElementById(`${fieldId}-error`);
+    if (!node) {
+      node = document.createElement("p");
+      node.id = `${fieldId}-error`;
+      node.className = "form-field-error";
+      node.style.marginTop = "0.35rem";
+      node.style.fontSize = "0.85rem";
+      node.style.color = "#dc2626";
+      const group = input.closest(".field-group");
+      if (group) {
+        group.appendChild(node);
+      }
+    }
+    return node;
+  }
+
+  function setFieldError(fieldId, message) {
+    const input = getField(fieldId);
+    const errorNode = getErrorNode(fieldId);
+    if (!input || !errorNode) {
+      return;
+    }
+    errorNode.textContent = message;
+    input.setAttribute("aria-invalid", "true");
+    const describedBy = input.getAttribute("aria-describedby");
+    const ids = describedBy ? describedBy.split(/\s+/).filter(Boolean) : [];
+    if (!ids.includes(errorNode.id)) {
+      ids.push(errorNode.id);
+    }
+    input.setAttribute("aria-describedby", ids.join(" "));
+  }
+
+  function clearFieldError(fieldId) {
+    const input = getField(fieldId);
+    const errorNode = document.getElementById(`${fieldId}-error`);
+    if (errorNode) {
+      errorNode.textContent = "";
+    }
+    if (input) {
+      input.removeAttribute("aria-invalid");
+      const describedBy = input.getAttribute("aria-describedby");
+      if (describedBy) {
+        const ids = describedBy
+          .split(/\s+/)
+          .filter((id) => id && id !== `${fieldId}-error`);
+        if (ids.length) {
+          input.setAttribute("aria-describedby", ids.join(" "));
+        } else {
+          input.removeAttribute("aria-describedby");
+        }
+      }
+    }
+  }
+
+  function clearAllFieldErrors() {
+    fieldIds.forEach(clearFieldError);
+  }
+
+  fieldIds.forEach((id) => {
+    const input = getField(id);
+    if (input) {
+      input.addEventListener("input", () => {
+        clearFieldError(id);
+      });
+    }
+  });
+
+  form.addEventListener("submit", async (event) => {
     event.preventDefault();
+    clearAllFieldErrors();
+    formStatus.textContent = "";
 
     const formData = new FormData(form);
     const name = String(formData.get("name") || "").trim();
@@ -404,26 +531,55 @@ function setupLeadForm() {
     const business = String(formData.get("business") || "").trim();
     const goal = String(formData.get("goal") || "").trim();
 
-    if (!name || !email || !business || !goal) {
+    const missing = [];
+    if (!name) missing.push("name");
+    if (!email) missing.push("email");
+    if (!business) missing.push("business");
+    if (!goal) missing.push("goal");
+
+    if (missing.length) {
+      missing.forEach((id) => setFieldError(id, requiredMessage));
       formStatus.textContent = tt("form.error");
       return;
     }
 
-    const i = window.ZypheroI18n;
-    const message = i && typeof i.interpolateFormWa === "function"
-      ? i.interpolateFormWa({ name, email, business, goal })
-      : [
-          "Salut! Vreau o ofertă pentru website.",
-          `Nume: ${name}`,
-          `Email: ${email}`,
-          `Business: ${business}`,
-          `Obiectiv: ${goal}`
-        ].join("\n");
+    const emailInput = getField("email");
+    if (emailInput && !emailInput.checkValidity()) {
+      setFieldError("email", emailMessage);
+      formStatus.textContent = tt("form.error");
+      return;
+    }
 
-    const whatsappUrl = `https://wa.me/${waPhoneDigits()}?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, "_blank", "noopener");
-    formStatus.textContent = tt("form.success");
-    form.reset();
+    try {
+      const response = await fetch(formspreeEndpoint, {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json"
+        }
+      });
+
+      if (!response.ok) {
+        try {
+          const payload = await response.json();
+          const errors = payload && Array.isArray(payload.errors) ? payload.errors : [];
+          errors.forEach((err) => {
+            if (err && err.field && fieldIds.includes(err.field)) {
+              setFieldError(err.field, err.message || tt("form.error"));
+            }
+          });
+        } catch (parseError) {
+          // Ignore response parsing errors and fallback to generic status message.
+        }
+        formStatus.textContent = tt("form.error");
+        return;
+      }
+
+      formStatus.textContent = tt("form.success");
+      form.reset();
+    } catch (error) {
+      formStatus.textContent = tt("form.error");
+    }
   });
 }
 
