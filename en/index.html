@@ -7,8 +7,9 @@
 <meta name="description" content="ZypheroLab builds fast, conversion-focused websites with SEO and AI search visibility. Modern design, performance, and real leads.">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="author" content="ZypheroLab">
-<meta name="theme-color" content="#050508">
-<link rel="preload" href="/img/brand/zypherolab-mark@2x.png" as="image" type="image/png">
+<meta name="theme-color" content="#667eea">
+<meta http-equiv="Cache-Control" content="no-cache">
+<link rel="preload" href="img/brand/zypherolab-logo.webp" as="image" type="image/webp">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
 <link rel="icon" href="/favicon-192.png" type="image/png" sizes="192x192">
@@ -36,9 +37,10 @@
 <link rel="preload" href="/fonts/montserrat-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/montserrat-latin-ext.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/css/fonts.css" as="style">
-<link rel="stylesheet" href="/css/fonts.css">
-<link rel="preload" href="/css/style.css" as="style">
-<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="css/fonts.css" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="css/fonts.css"></noscript>
+<link rel="preload" href="/css/style.min.css" as="style">
+<link rel="stylesheet" href="/css/style.min.css">
 <link rel="alternate" type="text/plain" href="/llms.txt" title="LLMs summary">
 <script type="application/ld+json">
 {
@@ -50,7 +52,7 @@
       "name": "ZypheroLab",
       "url": "https://zypherolab.com/",
       "description": "Conversion-focused web design agency with technical SEO and AI search visibility.",
-      "logo": "https://zypherolab.com/img/brand/zypherolab-mark.png",
+      "logo": "https://zypherolab.com/img/brand/zypherolab-logo.png",
       "contactPoint": {
         "@type": "ContactPoint",
         "contactType": "sales",
@@ -128,7 +130,10 @@
 
 <div id="loader" aria-hidden="true">
   <div class="loader-logo">
-    <img src="/img/brand/zypherolab-mark@2x.png" alt="" width="80" height="80" decoding="async">
+    <picture>
+      <source srcset="/img/brand/zypherolab-logo.webp" type="image/webp">
+      <img src="/img/brand/zypherolab-logo.png" alt="ZypheroLab" width="44" height="44" decoding="async" loading="eager">
+    </picture>
   </div>
 </div>
 
@@ -136,10 +141,18 @@
   <div class="header-inner">
     <a href="#home" class="brand" data-i18n-aria="brand.aria" aria-label="ZypheroLab — Home">
       <span class="brand-mark-hex" aria-hidden="true">
-        <img class="brand-mark-img" src="/img/brand/zypherolab-mark@2x.png" width="80" height="80" alt="" decoding="async">
+        <picture class="brand-mark-img">
+          <source srcset="/img/brand/zypherolab-logo.webp" type="image/webp">
+          <img src="/img/brand/zypherolab-logo.png" alt="ZypheroLab" width="44" height="44" decoding="async" loading="lazy">
+        </picture>
       </span>
       <span class="brand-wordmark">Zyphero<span class="brand-wordmark-accent">Lab</span></span>
     </a>
+    <button type="button" class="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
     <nav class="nav-main" data-i18n-aria="nav.aria" aria-label="Main navigation">
       <a href="#home" data-nav-target="home" class="is-active" data-i18n="nav.home">Home</a>
       <a href="#services" data-nav-target="services" data-i18n="nav.services">Services</a>
@@ -150,28 +163,67 @@
       <button type="button" class="lang-btn" data-lang="ro" aria-pressed="false">RO</button>
       <button type="button" class="lang-btn is-active" data-lang="en" aria-pressed="true">EN</button>
     </div>
+    <button type="button" class="dark-mode-toggle" aria-label="Toggle dark mode" data-i18n-aria="darkMode.aria">
+      <span class="dark-mode-toggle-icon" aria-hidden="true">🌙</span>
+    </button>
     <a class="header-cta" href="#contact" data-i18n="header.cta">Get a quote</a>
   </div>
 </header>
 
+<div class="mobile-menu-overlay" aria-hidden="true"></div>
+<div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+  <div class="mobile-menu-header">
+    <a href="#home" class="brand" data-i18n-aria="brand.aria" aria-label="ZypheroLab — Home">
+      <span class="brand-mark-hex" aria-hidden="true">
+        <picture class="brand-mark-img">
+          <source srcset="/img/brand/zypherolab-logo.webp" type="image/webp">
+          <img src="/img/brand/zypherolab-logo.png" alt="ZypheroLab" width="44" height="44" decoding="async" loading="lazy">
+        </picture>
+      </span>
+      <span class="brand-wordmark">Zyphero<span class="brand-wordmark-accent">Lab</span></span>
+    </a>
+    <button type="button" class="mobile-menu-close" aria-label="Close menu">
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+  <nav class="mobile-menu-nav" data-i18n-aria="nav.aria" aria-label="Main navigation">
+    <a href="#home" data-nav-target="home" class="is-active" data-i18n="nav.home">Home</a>
+    <a href="#services" data-nav-target="services" data-i18n="nav.services">Services</a>
+    <a href="#results" data-nav-target="results" data-i18n="nav.portfolio">Portfolio</a>
+    <a href="#simulator" data-nav-target="simulator" data-i18n="nav.simulator">Simulator</a>
+    <a href="#contact" data-nav-target="contact" data-i18n="nav.contact">Contact</a>
+  </nav>
+  <div class="mobile-menu-footer">
+    <div class="lang-switch" role="group">
+      <button type="button" class="lang-btn" data-lang="ro" aria-pressed="false">RO</button>
+      <button type="button" class="lang-btn is-active" data-lang="en" aria-pressed="true">EN</button>
+    </div>
+    <button type="button" class="dark-mode-toggle" aria-label="Toggle dark mode" data-i18n-aria="darkMode.aria">
+      <span class="dark-mode-toggle-icon" aria-hidden="true">🌙</span>
+    </button>
+  </div>
+</div>
+
 <main id="main-content">
   <section id="home" class="hero">
+    <div class="floating-shape floating-shape--circle-1" aria-hidden="true"></div>
+    <div class="floating-shape floating-shape--circle-2" aria-hidden="true"></div>
+    <div class="floating-shape floating-shape--circle-3" aria-hidden="true"></div>
     <div class="hero-inner">
       <div class="hero-copy">
-        <h1 data-i18n="hero.title">We Build Websites That Bring You Clients</h1>
-        <p class="hero-tagline" data-i18n="hero.tagline">Instant previews. Real results.</p>
-        <div class="hero-actions">
-          <a class="btn" href="#simulator" data-i18n="hero.ctaSim">Try Live Simulator</a>
+        <h1 data-i18n="hero.title">Modern websites for Romanian businesses that want new clients</h1>
+        <div class="hero-lead">
+          <p class="hero-subtitle" data-i18n="hero.subtitle">Fast, conversion-focused. From €300 landing → €600 full site.</p>
+          <p class="hero-tagline" data-i18n="hero.tagline">Drafts in 3-5 days | 3 months free support</p>
         </div>
-      </div>
-      <div class="hero-visual" aria-hidden="true">
-        <div class="hero-planet-glow"></div>
-        <div class="hero-orb">
-          <div class="hero-orb-glow"></div>
-          <div class="hero-orb-core"></div>
-          <div class="hero-orb-ring hero-orb-ring--1"></div>
-          <div class="hero-orb-ring hero-orb-ring--2"></div>
-          <div class="hero-orb-particles"></div>
+        <div class="hero-actions">
+          <a class="btn" href="#contact" data-i18n="hero.cta1">WhatsApp Quote</a>
+          <a class="btn btn-secondary" href="#portfolio" data-i18n="hero.cta2">View Work</a>
+        </div>
+        <div class="trust-badges">
+          <span class="trust-badge" data-i18n="hero.t1">100% Mobile</span>
+          <span class="trust-badge" data-i18n="hero.t2">SEO Ready</span>
+          <span class="trust-badge" data-i18n="hero.t3">Free Support</span>
         </div>
       </div>
     </div>
@@ -217,28 +269,200 @@
     <a class="btn" href="#contact" data-i18n="offer.cta">I want the Starter pack</a>
   </section>
 
-  <section id="results" class="portfolio reveal" aria-labelledby="results-title">
-    <h2 id="results-title" data-i18n="portfolio.title">Portfolio — case studies</h2>
+  <section id="pricing" class="pricing reveal" aria-labelledby="pricing-title">
+    <div class="floating-shape floating-shape--circle-1" aria-hidden="true"></div>
+    <div class="floating-shape floating-shape--circle-2" aria-hidden="true"></div>
+    <div class="floating-shape floating-shape--circle-3" aria-hidden="true"></div>
+    <h2 id="pricing-title" data-i18n="pricing.title">Transparent Pricing</h2>
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <h3 data-i18n="pricing.start.title">Starter Pack</h3>
+        <div class="pricing-price" data-i18n="pricing.start.price">1,500 RON</div>
+        <ul class="pricing-features">
+          <li data-i18n="pricing.start.f1">Complete landing page</li>
+          <li data-i18n="pricing.start.f2">Baseline technical SEO</li>
+          <li data-i18n="pricing.start.f3">Lead form + WhatsApp</li>
+          <li data-i18n="pricing.start.f4">Launched in 3-5 days</li>
+          <li data-i18n="pricing.start.f5">Email support 30 days</li>
+        </ul>
+        <a class="btn" href="#contact" data-i18n="pricing.start.cta">I want the Starter pack</a>
+      </div>
+      <div class="pricing-card pricing-card--featured">
+        <div class="pricing-badge" data-i18n="pricing.popular">Most Popular</div>
+        <h3 data-i18n="pricing.growth.title">Growth Pack</h3>
+        <div class="pricing-price" data-i18n="pricing.growth.price">3,500 RON</div>
+        <ul class="pricing-features">
+          <li data-i18n="pricing.growth.f1">Multi-page website</li>
+          <li data-i18n="pricing.growth.f2">Advanced technical SEO</li>
+          <li data-i18n="pricing.growth.f3">Analytics + monthly reports</li>
+          <li data-i18n="pricing.growth.f4">Launched in 5-7 days</li>
+          <li data-i18n="pricing.growth.f5">Priority support 3 months</li>
+        </ul>
+        <a class="btn" href="#contact" data-i18n="pricing.growth.cta">I want the Growth pack</a>
+      </div>
+      <div class="pricing-card">
+        <h3 data-i18n="pricing.custom.title">Custom Project</h3>
+        <div class="pricing-price" data-i18n="pricing.custom.price">On request</div>
+        <ul class="pricing-features">
+          <li data-i18n="pricing.custom.f1">Custom solution</li>
+          <li data-i18n="pricing.custom.f2">E-commerce or application</li>
+          <li data-i18n="pricing.custom.f3">API integrations</li>
+          <li data-i18n="pricing.custom.f4">Flexible timeline</li>
+          <li data-i18n="pricing.custom.f5">Dedicated support</li>
+        </ul>
+        <a class="btn btn-secondary" href="#contact" data-i18n="pricing.custom.cta">Get a quote</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="subscriptions" class="subscriptions reveal" aria-labelledby="subscriptions-title">
+    <h2 id="subscriptions-title" data-i18n="pricing.subscription.title">Monthly Subscriptions</h2>
+    <p class="subscriptions-subtitle" data-i18n="pricing.subscription.subtitle">Continuous support for growth</p>
+    <div class="subscriptions-grid">
+      <div class="subscription-card">
+        <h3 data-i18n="pricing.subscription.maintenance.title">Maintenance</h3>
+        <div class="subscription-price" data-i18n="pricing.subscription.maintenance.price">50 € / month</div>
+        <ul class="subscription-features">
+          <li data-i18n="pricing.subscription.maintenance.f1">Daily backups</li>
+          <li data-i18n="pricing.subscription.maintenance.f2">Security updates</li>
+          <li data-i18n="pricing.subscription.maintenance.f3">Uptime monitoring</li>
+          <li data-i18n="pricing.subscription.maintenance.f4">Minor bug fixes</li>
+        </ul>
+        <a class="btn" href="#contact" data-i18n="pricing.subscription.maintenance.cta">Subscribe</a>
+      </div>
+      <div class="subscription-card subscription-card--featured">
+        <div class="subscription-badge">Popular</div>
+        <h3 data-i18n="pricing.subscription.support.title">Priority Support</h3>
+        <div class="subscription-price" data-i18n="pricing.subscription.support.price">100 € / month</div>
+        <ul class="subscription-features">
+          <li data-i18n="pricing.subscription.support.f1">2-hour response</li>
+          <li data-i18n="pricing.subscription.support.f2">Modifications included</li>
+          <li data-i18n="pricing.subscription.support.f3">Technical consulting</li>
+          <li data-i18n="pricing.subscription.support.f4">Update priority</li>
+        </ul>
+        <a class="btn" href="#contact" data-i18n="pricing.subscription.support.cta">Subscribe</a>
+      </div>
+      <div class="subscription-card">
+        <h3 data-i18n="pricing.subscription.content.title">Content Updates</h3>
+        <div class="subscription-price" data-i18n="pricing.subscription.content.price">30 € / month</div>
+        <ul class="subscription-features">
+          <li data-i18n="pricing.subscription.content.f1">Text modifications</li>
+          <li data-i18n="pricing.subscription.content.f2">Add articles</li>
+          <li data-i18n="pricing.subscription.content.f3">Update images</li>
+          <li data-i18n="pricing.subscription.content.f4">On-page SEO</li>
+        </ul>
+        <a class="btn btn-secondary" href="#contact" data-i18n="pricing.subscription.content.cta">Subscribe</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="results" class="portfolio reveal" aria-labelledby="portfolio-title">
+    <h2 id="portfolio-title" data-i18n="portfolio.title">Portfolio — web design projects</h2>
     <div class="portfolio-grid">
       <article class="portfolio-item">
-        <h3 data-i18n="portfolio.c1t">Local services company</h3>
-        <p data-i18n="portfolio.c1p">Redesign + on-page SEO. Result: more organic traffic and better-qualified leads.</p>
-        <p class="result-metric" data-i18n="portfolio.c1m">+68% inquiries in 90 days</p>
+        <h3 data-i18n="portfolio.project1.title">Restaurant Landing</h3>
+        <p data-i18n="portfolio.project1.desc">Modern design for restaurant with integrated reservation system. Mobile optimized.</p>
+        <a href="#" class="portfolio-link" data-i18n="portfolio.project1.link">View case study →</a>
       </article>
       <article class="portfolio-item">
-        <h3 data-i18n="portfolio.c2t">Urban restaurant</h3>
-        <p data-i18n="portfolio.c2p">Mobile-first landing focused on reservations and speed.</p>
-        <p class="result-metric" data-i18n="portfolio.c2m">+41% online reservations</p>
+        <h3 data-i18n="portfolio.project2.title">Law Firm Site</h3>
+        <p data-i18n="portfolio.project2.desc">Professional online presence with appointment form and local SEO.</p>
+        <a href="#" class="portfolio-link" data-i18n="portfolio.project2.link">View case study →</a>
       </article>
+      <article class="portfolio-item">
+        <h3 data-i18n="portfolio.project3.title">E-commerce Redesign</h3>
+        <p data-i18n="portfolio.project3.desc">Conversion optimization for online store. +40% sales after redesign.</p>
+        <a href="#" class="portfolio-link" data-i18n="portfolio.project3.link">View case study →</a>
+      </article>
+      <article class="portfolio-item">
+        <h3 data-i18n="portfolio.project4.title">Freelancer Portfolio</h3>
+        <p data-i18n="portfolio.project4.desc">Personal site with project gallery and contact form. Minimalist design.</p>
+        <a href="#" class="portfolio-link" data-i18n="portfolio.project4.link">View case study →</a>
+      </article>
+      <article class="portfolio-item portfolio-item--highlight">
+        <h3 data-i18n="portfolio.project5.title">Site Generator Demo</h3>
+        <p data-i18n="portfolio.project5.desc">Interactive vanilla JS demo. Choose business type, see instant preview.</p>
+        <a href="#simulator" class="portfolio-link" data-i18n="portfolio.project5.link">Try demo →</a>
+      </article>
+    </div>
+  </section>
+
+  <section id="process" class="process reveal" aria-labelledby="process-title">
+    <h2 id="process-title" data-i18n="process.title">How we work</h2>
+    <div class="process-grid">
+      <article class="process-step">
+        <div class="process-number">1</div>
+        <h3 data-i18n="process.step1">Brief call</h3>
+        <p data-i18n="process.step1desc">We learn your goals, target audience, and core message.</p>
+      </article>
+      <article class="process-step">
+        <div class="process-number">2</div>
+        <h3 data-i18n="process.step2">Wireframe</h3>
+        <p data-i18n="process.step2desc">We approve structure and flow before final design.</p>
+      </article>
+      <article class="process-step">
+        <div class="process-number">3</div>
+        <h3 data-i18n="process.step3">Build + Test</h3>
+        <p data-i18n="process.step3desc">Rapid development, testing on all devices.</p>
+      </article>
+      <article class="process-step">
+        <div class="process-number">4</div>
+        <h3 data-i18n="process.step4">Launch + Support</h3>
+        <p data-i18n="process.step4desc">Publication, monitoring, and 3 months included support.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="about reveal" aria-labelledby="about-title">
+    <div class="about-inner">
+      <h2 id="about-title" data-i18n="about.title">About me</h2>
+      <p data-i18n="about.intro">Freelance web designer from Bucharest. Fast delivery for small and medium Romanian businesses.</p>
+      <a href="#contact" class="btn" data-i18n="about.cta">Let's talk</a>
     </div>
   </section>
 
   <section class="testimonials reveal" aria-labelledby="testimonials-title">
     <h2 id="testimonials-title" data-i18n="testimonials.title">What clients say</h2>
-    <blockquote>
-      <p data-i18n="testimonials.quote">“The message is clear, the site is fast, and leads grew in the first month.”</p>
-      <cite data-i18n="testimonials.cite">— Andrei, local business owner</cite>
-    </blockquote>
+    <div class="testimonials-grid">
+      <blockquote>
+        <p data-i18n="testimonials.cristi.text">"I collaborated with ZypheroLab for all 5 projects in my portfolio and I am extremely satisfied with every website created. The team understood my needs perfectly from the first discussion and delivered fast, modern, and conversion-optimized sites. I highly recommend them!"</p>
+        <cite data-i18n="testimonials.cristi.author">— Cristi, owner of 5 projects</cite>
+      </blockquote>
+      <blockquote>
+        <p data-i18n="testimonials.maria.text">"My restaurant website increased sales by 30% in the first month. The design is exactly what I needed - modern, fast, and easy to use on mobile."</p>
+        <cite data-i18n="testimonials.maria.author">— Maria, restaurant owner</cite>
+      </blockquote>
+      <blockquote>
+        <p data-i18n="testimonials.andrei.text">"Professionalism and fast delivery. My law firm now has an online presence that brings new clients every month."</p>
+        <cite data-i18n="testimonials.andrei.author">— Andrei, lawyer</cite>
+      </blockquote>
+    </div>
+  </section>
+
+  <section id="faq" class="faq reveal" aria-labelledby="faq-title">
+    <h2 id="faq-title" data-i18n="faq.title">FAQ — web design</h2>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary data-i18n="faq.q1">How much does a website cost?</summary>
+        <p data-i18n="faq.a1">Landing page from €300, full 5-page site from €600. Final price depends on features and complexity.</p>
+      </details>
+      <details class="faq-item">
+        <summary data-i18n="faq.q2">How long does it take?</summary>
+        <p data-i18n="faq.a2">Landing page in 3-5 days, full site in 1-2 weeks. Depends on how quickly you provide materials.</p>
+      </details>
+      <details class="faq-item">
+        <summary data-i18n="faq.q3">Will my site appear on Google?</summary>
+        <p data-i18n="faq.a3">Yes, we include basic technical SEO: meta tags, speed, semantic structure. Google indexing within days of launch.</p>
+      </details>
+      <details class="faq-item">
+        <summary data-i18n="faq.q4">Can I edit content later?</summary>
+        <p data-i18n="faq.a4">Yes, we deliver clean, documented source code. You can edit text or I can make changes on request.</p>
+      </details>
+      <details class="faq-item">
+        <summary data-i18n="faq.q5">What happens after launch?</summary>
+        <p data-i18n="faq.a5">3 months free support for bugs and small adjustments. After that, I offer monthly maintenance at €50 or on-demand support.</p>
+      </details>
+    </div>
   </section>
 
   <section id="simulator" class="generator-section reveal" aria-labelledby="generator-title">
@@ -260,7 +484,28 @@
               <option value="agency" data-i18n="gen.opt.agency">Agency</option>
               <option value="services" data-i18n="gen.opt.services">Services</option>
               <option value="ecommerce" data-i18n="gen.opt.ecommerce">E-commerce</option>
+              <option value="medical" data-i18n="gen.opt.medical">Medical clinic</option>
+              <option value="fitness" data-i18n="gen.opt.fitness">Gym / Fitness</option>
+              <option value="legal" data-i18n="gen.opt.legal">Law firm</option>
+              <option value="education" data-i18n="gen.opt.education">Education / Courses</option>
+              <option value="consulting" data-i18n="gen.opt.consulting">Consulting</option>
             </select>
+          </div>
+          <div class="field-group">
+            <label for="siteDescription" data-i18n="gen.labelDescription">Short description</label>
+            <textarea id="siteDescription" rows="2" data-i18n-placeholder="gen.phDescription" placeholder="Describe your business in a few words"></textarea>
+          </div>
+          <div class="field-group">
+            <label for="siteAddress" data-i18n="gen.labelAddress">Address</label>
+            <input type="text" id="siteAddress" data-i18n-placeholder="gen.phAddress" placeholder="Street, number, city" autocomplete="street-address">
+          </div>
+          <div class="field-group">
+            <label for="sitePhone" data-i18n="gen.labelPhone">Phone</label>
+            <input type="tel" id="sitePhone" data-i18n-placeholder="gen.phPhone" placeholder="07XX XXX XXX" autocomplete="tel">
+          </div>
+          <div class="field-group">
+            <label for="siteServices" data-i18n="gen.labelServices">Main services (comma separated)</label>
+            <textarea id="siteServices" rows="2" data-i18n-placeholder="gen.phServices" placeholder="Ex: Web design, SEO, Marketing"></textarea>
           </div>
           <div class="field-group">
             <label for="siteColor"><span data-i18n="gen.labelColor">Primary color</span> <span class="color-value" id="siteColorValue" aria-hidden="true">220°</span></label>
@@ -270,22 +515,41 @@
           <div class="field-group field-group--styles">
             <span class="field-label-like" id="style-label" data-i18n="gen.labelStyle">Style</span>
             <div class="style-toggles style-options" role="group" aria-labelledby="style-label">
-              <button type="button" class="active" data-style="modern">Modern</button>
-              <button type="button" data-style="minimal">Minimal</button>
-              <button type="button" data-style="luxury">Luxury</button>
+              <button type="button" class="active" data-style="modern" aria-label="Modern style">Modern</button>
+              <button type="button" data-style="minimal" aria-label="Minimal style">Minimal</button>
+              <button type="button" data-style="luxury" aria-label="Luxury style">Luxury</button>
             </div>
           </div>
-          <button class="btn btn-generate" id="generatePreviewBtn" type="button" data-i18n="gen.btnGenerate">Generate website preview</button>
+          <div class="generator-actions">
+            <button class="btn btn-generate" id="generatePreviewBtn" type="button" data-i18n="gen.btnGenerate" aria-label="Generate website preview">Generate website preview</button>
+            <button class="btn btn-secondary btn-export" id="exportPreviewBtn" type="button" data-i18n="gen.btnExport" aria-label="Export preview">Export preview</button>
+          </div>
         </div>
         <div class="generator-preview-column">
-          <div class="preview-laptop">
+          <div class="preview-controls">
+            <button type="button" class="preview-toggle preview-toggle--active" data-preview="desktop" aria-label="Desktop preview">Desktop</button>
+            <button type="button" class="preview-toggle" data-preview="mobile" aria-label="Mobile preview">Mobile</button>
+          </div>
+          <div class="preview-laptop preview-device preview-device--active">
             <div class="preview-laptop-bezel">
               <div class="preview-laptop-screen">
                 <div class="preview-chrome" aria-hidden="true">
                   <span></span><span></span><span></span>
                 </div>
-                <div id="previewBox" class="preview-mount" role="region" aria-live="polite" data-i18n-aria="gen.previewRegion" aria-label="Live website preview">
-                  <p class="preview-placeholder" data-i18n="gen.phPreview">Click “Generate preview” to see the concept.</p>
+                <div id="previewBox" class="preview-mount" role="region" aria-live="polite" data-i18n-aria="gen.previewRegion" aria-label="Website concept preview">
+                  <p class="preview-placeholder" data-i18n="gen.phPreview">Press “Generate website preview” to see the concept.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="preview-mobile preview-device">
+            <div class="preview-mobile-bezel">
+              <div class="preview-mobile-screen">
+                <div class="preview-chrome" aria-hidden="true">
+                  <span></span><span></span><span></span>
+                </div>
+                <div id="previewBoxMobile" class="preview-mount" role="region" aria-live="polite" aria-label="Website concept mobile preview">
+                  <p class="preview-placeholder" data-i18n="gen.phPreview">Press “Generate website preview” to see the concept.</p>
                 </div>
               </div>
             </div>
@@ -317,22 +581,22 @@
 
   <section id="contact" class="contact reveal" aria-labelledby="contact-title">
     <h2 id="contact-title" data-i18n="contact.title">Book a free call</h2>
-    <form id="leadForm" novalidate>
+    <form id="leadForm" action="https://formspree.io/f/xzdyzdpn" method="POST" novalidate>
       <div class="field-group">
         <label for="name" data-i18n="contact.name">Name</label>
-        <input id="name" name="name" type="text" data-i18n-placeholder="contact.phName" placeholder="Your name" required>
+        <input id="name" name="name" type="text" autocomplete="name" data-i18n-placeholder="contact.phName" placeholder="Your name" required>
       </div>
       <div class="field-group">
         <label for="email" data-i18n="contact.email">Email</label>
-        <input id="email" name="email" type="email" data-i18n-placeholder="contact.phEmail" placeholder="you@company.com" required>
+        <input id="email" name="email" type="email" autocomplete="email" data-i18n-placeholder="contact.phEmail" placeholder="you@company.com" required>
       </div>
       <div class="field-group">
         <label for="business" data-i18n="contact.business">Business</label>
-        <input id="business" name="business" type="text" data-i18n-placeholder="contact.phBusiness" placeholder="Business name" required>
+        <input id="business" name="business" type="text" autocomplete="organization" data-i18n-placeholder="contact.phBusiness" placeholder="Business name" required>
       </div>
       <div class="field-group">
         <label for="goal" data-i18n="contact.goal">Main goal</label>
-        <textarea id="goal" name="goal" data-i18n-placeholder="contact.phGoal" placeholder="e.g. more leads from Google" required></textarea>
+        <textarea id="goal" name="goal" autocomplete="off" data-i18n-placeholder="contact.phGoal" placeholder="e.g. more leads from Google" required></textarea>
       </div>
       <button class="btn" type="submit" data-i18n="contact.submit">Send request</button>
     </form>
@@ -359,8 +623,67 @@
 </a>
 
 <noscript data-i18n="noscript">This site works best with JavaScript enabled.</noscript>
-<script src="/js/config.js"></script>
+<script src="/js/config.js" defer></script>
 <script src="/js/i18n.js" defer></script>
-<script src="/js/simulator.js" defer></script>
+<script src="/js/mobile-menu.js" defer></script>
+<script src="/js/dark-mode.js" defer></script>
+<script src="/js/analytics.js" defer></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var loader = document.getElementById('loader');
+    if (loader) loader.style.display = 'none';
+  });
+</script>
+<script>
+// Reveal on scroll
+(function() {
+  const revealElements = document.querySelectorAll(".reveal");
+  if (!("IntersectionObserver" in window)) {
+    revealElements.forEach((el) => el.classList.add("active"));
+    return;
+  }
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("active");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  revealElements.forEach((el) => observer.observe(el));
+})();
+
+// Lazy load simulator
+const obs = new IntersectionObserver(e => {
+  if (e[0].isIntersecting) {
+    const s = document.createElement('script');
+    s.src = '/js/simulator.js'; s.async = true;
+    document.head.appendChild(s); obs.disconnect();
+  }
+});
+obs.observe(document.getElementById('simulator'));
+</script>
+<script>
+  // Load GTM after page is interactive (deferred to not block LCP)
+  function loadGTM() {
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=G-JRPX0T1X3S';
+    document.head.appendChild(s);
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    window.gtag = gtag;
+    gtag('js', new Date());
+    gtag('config', 'G-JRPX0T1X3S');
+  }
+
+  if (document.readyState === 'complete') {
+    setTimeout(loadGTM, 1000);
+  } else {
+    window.addEventListener('load', function() {
+      setTimeout(loadGTM, 1000);
+    });
+  }
+</script>
 </body>
 </html>

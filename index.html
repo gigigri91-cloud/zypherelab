@@ -7,8 +7,9 @@
 <meta name="description" content="ZypheroLab construiește website-uri rapide, orientate pe conversie, SEO și căutări AI. Design modern, performanță și lead-uri reale.">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="author" content="ZypheroLab">
-<meta name="theme-color" content="#050508">
-<link rel="preload" href="/img/brand/zypherolab-mark@2x.png" as="image" type="image/png">
+<meta name="theme-color" content="#667eea">
+<meta http-equiv="Cache-Control" content="no-cache">
+<link rel="preload" href="img/brand/zypherolab-logo.webp" as="image" type="image/webp">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
 <link rel="icon" href="/favicon-192.png" type="image/png" sizes="192x192">
@@ -36,9 +37,10 @@
 <link rel="preload" href="/fonts/montserrat-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/montserrat-latin-ext.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/css/fonts.css" as="style">
-<link rel="stylesheet" href="/css/fonts.css">
-<link rel="preload" href="/css/style.css" as="style">
-<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="css/fonts.css" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="css/fonts.css"></noscript>
+<link rel="preload" href="css/style.min.css" as="style">
+<link rel="stylesheet" href="/css/style.min.css">
 <link rel="alternate" type="text/plain" href="/llms.txt" title="LLMs summary">
 <script type="application/ld+json">
 {
@@ -49,8 +51,8 @@
       "@id": "https://zypherolab.com/#organization",
       "name": "ZypheroLab",
       "url": "https://zypherolab.com/",
-      "description": "Agenție de web design orientată pe conversie, SEO tehnic și căutări AI.",
-      "logo": "https://zypherolab.com/img/brand/zypherolab-mark.png",
+      "description": "Web designer freelancer din București. Website-uri rapide, optimizate pentru conversie, SEO și căutări AI. De la 300€.",
+      "logo": "https://zypherolab.com/img/brand/zypherolab-logo.png",
       "contactPoint": {
         "@type": "ContactPoint",
         "contactType": "sales",
@@ -139,7 +141,10 @@
 
 <div id="loader" aria-hidden="true">
   <div class="loader-logo">
-    <img src="/img/brand/zypherolab-mark@2x.png" alt="" width="80" height="80" decoding="async">
+    <picture>
+      <source srcset="/img/brand/zypherolab-logo.webp" type="image/webp">
+      <img src="/img/brand/zypherolab-logo.png" alt="ZypheroLab" width="44" height="44" decoding="async" loading="eager">
+    </picture>
   </div>
 </div>
 
@@ -147,10 +152,18 @@
   <div class="header-inner">
     <a href="#home" class="brand" data-i18n-aria="brand.aria" aria-label="ZypheroLab — Acasă">
       <span class="brand-mark-hex" aria-hidden="true">
-        <img class="brand-mark-img" src="/img/brand/zypherolab-mark@2x.png" width="80" height="80" alt="" decoding="async">
+        <picture class="brand-mark-img">
+          <source srcset="/img/brand/zypherolab-logo.webp" type="image/webp">
+          <img src="/img/brand/zypherolab-logo.png" alt="ZypheroLab" width="44" height="44" decoding="async" loading="lazy">
+        </picture>
       </span>
       <span class="brand-wordmark">Zyphero<span class="brand-wordmark-accent">Lab</span></span>
     </a>
+    <button type="button" class="hamburger" aria-label="Deschide meniu" aria-expanded="false" aria-controls="mobile-menu">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
     <nav class="nav-main" data-i18n-aria="nav.aria" aria-label="Navigare principală">
       <a href="#home" data-nav-target="home" class="is-active" data-i18n="nav.home">Acasă</a>
       <a href="#services" data-nav-target="services" data-i18n="nav.services">Servicii</a>
@@ -161,28 +174,67 @@
       <button type="button" class="lang-btn is-active" data-lang="ro" aria-pressed="true">RO</button>
       <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
     </div>
+    <button type="button" class="dark-mode-toggle" aria-label="Comută dark mode" data-i18n-aria="darkMode.aria">
+      <span class="dark-mode-toggle-icon" aria-hidden="true">🌙</span>
+    </button>
     <a class="header-cta" href="#contact" data-i18n="header.cta">Cere ofertă</a>
   </div>
 </header>
 
+<div class="mobile-menu-overlay" aria-hidden="true"></div>
+<div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+  <div class="mobile-menu-header">
+    <a href="#home" class="brand" data-i18n-aria="brand.aria" aria-label="ZypheroLab — Acasă">
+      <span class="brand-mark-hex" aria-hidden="true">
+        <picture class="brand-mark-img">
+          <source srcset="/img/brand/zypherolab-logo.webp" type="image/webp">
+          <img src="/img/brand/zypherolab-logo.png" alt="ZypheroLab" width="44" height="44" decoding="async" loading="lazy">
+        </picture>
+      </span>
+      <span class="brand-wordmark">Zyphero<span class="brand-wordmark-accent">Lab</span></span>
+    </a>
+    <button type="button" class="mobile-menu-close" aria-label="Închide meniu">
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+  <nav class="mobile-menu-nav" data-i18n-aria="nav.aria" aria-label="Navigare principală">
+    <a href="#home" data-nav-target="home" class="is-active" data-i18n="nav.home">Acasă</a>
+    <a href="#services" data-nav-target="services" data-i18n="nav.services">Servicii</a>
+    <a href="#results" data-nav-target="results" data-i18n="nav.portfolio">Portofoliu</a>
+    <a href="#simulator" data-nav-target="simulator" data-i18n="nav.simulator">Simulator</a>
+    <a href="#contact" data-nav-target="contact" data-i18n="nav.contact">Contact</a>
+  </nav>
+  <div class="mobile-menu-footer">
+    <div class="lang-switch" role="group">
+      <button type="button" class="lang-btn is-active" data-lang="ro" aria-pressed="true">RO</button>
+      <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+    <button type="button" class="dark-mode-toggle" aria-label="Comută dark mode" data-i18n-aria="darkMode.aria">
+      <span class="dark-mode-toggle-icon" aria-hidden="true">🌙</span>
+    </button>
+  </div>
+</div>
+
 <main id="main-content">
   <section id="home" class="hero">
+    <div class="floating-shape floating-shape--circle-1" aria-hidden="true"></div>
+    <div class="floating-shape floating-shape--circle-2" aria-hidden="true"></div>
+    <div class="floating-shape floating-shape--circle-3" aria-hidden="true"></div>
     <div class="hero-inner">
       <div class="hero-copy">
-        <h1 data-i18n="hero.title">Construim website-uri care îți aduc clienți</h1>
-        <p class="hero-tagline" data-i18n="hero.tagline">Preview instant. Rezultate reale.</p>
-        <div class="hero-actions">
-          <a class="btn" href="#simulator" data-i18n="hero.ctaSim">Încearcă simulatorul live</a>
+        <h1 data-i18n="hero.title">Website-uri moderne pentru afaceri românești care vor clienți noi</h1>
+        <div class="hero-lead">
+          <p class="hero-subtitle" data-i18n="hero.subtitle">Rapide, optimizate pentru conversie. De la 300€ landing → 600€ site complet.</p>
+          <p class="hero-tagline" data-i18n="hero.tagline">Schițe în 3-5 zile | 3 luni suport gratuit</p>
         </div>
-      </div>
-      <div class="hero-visual" aria-hidden="true">
-        <div class="hero-planet-glow"></div>
-        <div class="hero-orb">
-          <div class="hero-orb-glow"></div>
-          <div class="hero-orb-core"></div>
-          <div class="hero-orb-ring hero-orb-ring--1"></div>
-          <div class="hero-orb-ring hero-orb-ring--2"></div>
-          <div class="hero-orb-particles"></div>
+        <div class="hero-actions">
+          <a class="btn" href="#contact" data-i18n="hero.cta1">Ofertă WhatsApp</a>
+          <a class="btn btn-secondary" href="#portfolio" data-i18n="hero.cta2">Vezi lucrări</a>
+        </div>
+        <div class="trust-badges">
+          <span class="trust-badge" data-i18n="hero.t1">100% Mobile</span>
+          <span class="trust-badge" data-i18n="hero.t2">SEO Ready</span>
+          <span class="trust-badge" data-i18n="hero.t3">Suport Gratuit</span>
         </div>
       </div>
     </div>
@@ -228,28 +280,200 @@
     <a class="btn" href="#contact" data-i18n="offer.cta">Vreau pachetul Start</a>
   </section>
 
-  <section id="results" class="portfolio reveal" aria-labelledby="results-title">
-    <h2 id="results-title" data-i18n="portfolio.title">Portofoliu — studii de caz</h2>
+  <section id="pricing" class="pricing reveal" aria-labelledby="pricing-title">
+    <div class="floating-shape floating-shape--circle-1" aria-hidden="true"></div>
+    <div class="floating-shape floating-shape--circle-2" aria-hidden="true"></div>
+    <div class="floating-shape floating-shape--circle-3" aria-hidden="true"></div>
+    <h2 id="pricing-title" data-i18n="pricing.title">Preturi transparente</h2>
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <h3 data-i18n="pricing.start.title">Pachet Start</h3>
+        <div class="pricing-price" data-i18n="pricing.start.price">300 €</div>
+        <ul class="pricing-features">
+          <li data-i18n="pricing.start.f1">Landing page completă</li>
+          <li data-i18n="pricing.start.f2">SEO tehnic de bază</li>
+          <li data-i18n="pricing.start.f3">Formular lead + WhatsApp</li>
+          <li data-i18n="pricing.start.f4">Lansare în 3-5 zile</li>
+          <li data-i18n="pricing.start.f5">Suport email 30 zile</li>
+        </ul>
+        <a class="btn" href="#contact" data-i18n="pricing.start.cta">Vreau pachetul Start</a>
+      </div>
+      <div class="pricing-card pricing-card--featured">
+        <div class="pricing-badge" data-i18n="pricing.popular">Cel mai popular</div>
+        <h3 data-i18n="pricing.growth.title">Pachet Growth</h3>
+        <div class="pricing-price" data-i18n="pricing.growth.price">600 €</div>
+        <ul class="pricing-features">
+          <li data-i18n="pricing.growth.f1">Website multi-pagină</li>
+          <li data-i18n="pricing.growth.f2">SEO tehnic avansat</li>
+          <li data-i18n="pricing.growth.f3">Analytics + rapoarte lunare</li>
+          <li data-i18n="pricing.growth.f4">Lansare în 5-7 zile</li>
+          <li data-i18n="pricing.growth.f5">Suport prioritar 3 luni</li>
+        </ul>
+        <a class="btn" href="#contact" data-i18n="pricing.growth.cta">Vreau pachetul Growth</a>
+      </div>
+      <div class="pricing-card">
+        <h3 data-i18n="pricing.custom.title">Proiect Custom</h3>
+        <div class="pricing-price" data-i18n="pricing.custom.price">La cerere</div>
+        <ul class="pricing-features">
+          <li data-i18n="pricing.custom.f1">Soluție personalizată</li>
+          <li data-i18n="pricing.custom.f2">E-commerce sau aplicație</li>
+          <li data-i18n="pricing.custom.f3">Integrări API</li>
+          <li data-i18n="pricing.custom.f4">Timeline flexibil</li>
+          <li data-i18n="pricing.custom.f5">Suport dedicat</li>
+        </ul>
+        <a class="btn btn-secondary" href="#contact" data-i18n="pricing.custom.cta">Cere ofertă</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="subscriptions" class="subscriptions reveal" aria-labelledby="subscriptions-title">
+    <h2 id="subscriptions-title" data-i18n="pricing.subscription.title">Abonamente lunare</h2>
+    <p class="subscriptions-subtitle" data-i18n="pricing.subscription.subtitle">Suport continuu pentru creștere</p>
+    <div class="subscriptions-grid">
+      <div class="subscription-card">
+        <h3 data-i18n="pricing.subscription.maintenance.title">Mentenanță</h3>
+        <div class="subscription-price" data-i18n="pricing.subscription.maintenance.price">50 € / lună</div>
+        <ul class="subscription-features">
+          <li data-i18n="pricing.subscription.maintenance.f1">Backup zilnic</li>
+          <li data-i18n="pricing.subscription.maintenance.f2">Updates de securitate</li>
+          <li data-i18n="pricing.subscription.maintenance.f3">Monitorizare uptime</li>
+          <li data-i18n="pricing.subscription.maintenance.f4">Bug fixes minori</li>
+        </ul>
+        <a class="btn" href="#contact" data-i18n="pricing.subscription.maintenance.cta">Abonare</a>
+      </div>
+      <div class="subscription-card subscription-card--featured">
+        <div class="subscription-badge">Popular</div>
+        <h3 data-i18n="pricing.subscription.support.title">Suport Prioritar</h3>
+        <div class="subscription-price" data-i18n="pricing.subscription.support.price">100 € / lună</div>
+        <ul class="subscription-features">
+          <li data-i18n="pricing.subscription.support.f1">Răspuns în 2 ore</li>
+          <li data-i18n="pricing.subscription.support.f2">Modificări incluse</li>
+          <li data-i18n="pricing.subscription.support.f3">Consultanță tehnică</li>
+          <li data-i18n="pricing.subscription.support.f4">Prioritate la updates</li>
+        </ul>
+        <a class="btn" href="#contact" data-i18n="pricing.subscription.support.cta">Abonare</a>
+      </div>
+      <div class="subscription-card">
+        <h3 data-i18n="pricing.subscription.content.title">Updates Conținut</h3>
+        <div class="subscription-price" data-i18n="pricing.subscription.content.price">30 € / lună</div>
+        <ul class="subscription-features">
+          <li data-i18n="pricing.subscription.content.f1">Modificări text</li>
+          <li data-i18n="pricing.subscription.content.f2">Adaugare articole</li>
+          <li data-i18n="pricing.subscription.content.f3">Actualizare imagini</li>
+          <li data-i18n="pricing.subscription.content.f4">SEO on-page</li>
+        </ul>
+        <a class="btn btn-secondary" href="#contact" data-i18n="pricing.subscription.content.cta">Abonare</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="results" class="portfolio reveal" aria-labelledby="portfolio-title">
+    <h2 id="portfolio-title" data-i18n="portfolio.title">Portofoliu — proiecte web design</h2>
     <div class="portfolio-grid">
       <article class="portfolio-item">
-        <h3 data-i18n="portfolio.c1t">Firmă servicii locale</h3>
-        <p data-i18n="portfolio.c1p">Redesign + SEO on-page. Rezultat: creștere trafic organic și lead-uri mai calificate.</p>
-        <p class="result-metric" data-i18n="portfolio.c1m">+68% cereri în 90 zile</p>
+        <h3 data-i18n="portfolio.project1.title">Landing Restaurant</h3>
+        <p data-i18n="portfolio.project1.desc">Design modern pentru restaurant cu sistem de rezervări integrat. Optimizat pentru mobil.</p>
+        <a href="#" class="portfolio-link" data-i18n="portfolio.project1.link">Vezi studiu de caz →</a>
       </article>
       <article class="portfolio-item">
-        <h3 data-i18n="portfolio.c2t">Restaurant urban</h3>
-        <p data-i18n="portfolio.c2p">Landing orientat pe rezervări mobile și viteză ridicată.</p>
-        <p class="result-metric" data-i18n="portfolio.c2m">+41% rezervări online</p>
+        <h3 data-i18n="portfolio.project2.title">Site Cabinet Avocat</h3>
+        <p data-i18n="portfolio.project2.desc">Prezență online profesională cu formular de programare și SEO local.</p>
+        <a href="#" class="portfolio-link" data-i18n="portfolio.project2.link">Vezi studiu de caz →</a>
       </article>
+      <article class="portfolio-item">
+        <h3 data-i18n="portfolio.project3.title">Redesign E-commerce</h3>
+        <p data-i18n="portfolio.project3.desc">Optimizare conversie pentru magazin online. +40% vânzări după redesign.</p>
+        <a href="#" class="portfolio-link" data-i18n="portfolio.project3.link">Vezi studiu de caz →</a>
+      </article>
+      <article class="portfolio-item">
+        <h3 data-i18n="portfolio.project4.title">Portofoliu Freelancer</h3>
+        <p data-i18n="portfolio.project4.desc">Site personal cu galerie de proiecte și formular de contact. Design minimalist.</p>
+        <a href="#" class="portfolio-link" data-i18n="portfolio.project4.link">Vezi studiu de caz →</a>
+      </article>
+      <article class="portfolio-item portfolio-item--highlight">
+        <h3 data-i18n="portfolio.project5.title">Demo Generator Site</h3>
+        <p data-i18n="portfolio.project5.desc">Simulator interactiv vanilla JS. Alege tip business, vezi preview instant.</p>
+        <a href="#simulator" class="portfolio-link" data-i18n="portfolio.project5.link">Încearcă demo →</a>
+      </article>
+    </div>
+  </section>
+
+  <section id="process" class="process reveal" aria-labelledby="process-title">
+    <h2 id="process-title" data-i18n="process.title">Cum lucrăm</h2>
+    <div class="process-grid">
+      <article class="process-step">
+        <div class="process-number">1</div>
+        <h3 data-i18n="process.step1">Discuție brief</h3>
+        <p data-i18n="process.step1desc">Aflăm obiectivele, publicul țintă și mesajul principal.</p>
+      </article>
+      <article class="process-step">
+        <div class="process-number">2</div>
+        <h3 data-i18n="process.step2">Wireframe</h3>
+        <p data-i18n="process.step2desc">Aprobăm structura și fluxul înainte de design final.</p>
+      </article>
+      <article class="process-step">
+        <div class="process-number">3</div>
+        <h3 data-i18n="process.step3">Build + Test</h3>
+        <p data-i18n="process.step3desc">Dezvoltare rapidă, testare pe toate dispozitivele.</p>
+      </article>
+      <article class="process-step">
+        <div class="process-number">4</div>
+        <h3 data-i18n="process.step4">Lansare + Suport</h3>
+        <p data-i18n="process.step4desc">Publicare, monitorizare și 3 luni suport inclus.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="about reveal" aria-labelledby="about-title">
+    <div class="about-inner">
+      <h2 id="about-title" data-i18n="about.title">Despre mine</h2>
+      <p data-i18n="about.intro">Web designer freelancer din București. Livrez rapid pentru afaceri mici și mijlocii din România.</p>
+      <a href="#contact" class="btn" data-i18n="about.cta">Hai să discutăm</a>
     </div>
   </section>
 
   <section class="testimonials reveal" aria-labelledby="testimonials-title">
     <h2 id="testimonials-title" data-i18n="testimonials.title">Ce spun clienții</h2>
-    <blockquote>
-      <p data-i18n="testimonials.quote">„Mesajul e clar, site-ul e rapid, iar lead-urile au crescut în prima lună.”</p>
-      <cite data-i18n="testimonials.cite">— Andrei, antreprenor local</cite>
-    </blockquote>
+    <div class="testimonials-grid">
+      <blockquote>
+        <p data-i18n="testimonials.cristi.text">„Am colaborat cu ZypheroLab pentru toate cele 5 proiecte din portofoliul meu și sunt extrem de mulțumit de fiecare site creat. Echipa a înțeles perfect nevoile mele de la prima discuție și a livrat site-uri rapide, moderne și optimizate pentru conversie. Recomand cu încredere!”</p>
+        <cite data-i18n="testimonials.cristi.author">— Cristi, proprietar 5 proiecte</cite>
+      </blockquote>
+      <blockquote>
+        <p data-i18n="testimonials.maria.text">„Site-ul restaurantului meu a crescut vânzările cu 30% în prima lună. Design-ul este exact ce îmi trebuia - modern, rapid și ușor de folosit pe telefon."</p>
+        <cite data-i18n="testimonials.maria.author">— Maria, proprietar restaurant</cite>
+      </blockquote>
+      <blockquote>
+        <p data-i18n="testimonials.andrei.text">„Profesionalism și livrare rapidă. Cabinetul meu de avocatură are acum o prezență online care aduce clienți noi în fiecare lună."</p>
+        <cite data-i18n="testimonials.andrei.author">— Andrei, avocat</cite>
+      </blockquote>
+    </div>
+  </section>
+
+  <section id="faq" class="faq reveal" aria-labelledby="faq-title">
+    <h2 id="faq-title" data-i18n="faq.title">Întrebări frecvente — web design</h2>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary data-i18n="faq.q1">Cât costă un website?</summary>
+        <p data-i18n="faq.a1">Landing page de la 300€, site complet 5 pagini de la 600€. Prețul final depinde de funcționalități și complexitate.</p>
+      </details>
+      <details class="faq-item">
+        <summary data-i18n="faq.q2">În cât timp e gata site-ul?</summary>
+        <p data-i18n="faq.a2">Landing page în 3-5 zile, site complet în 1-2 săptămâni. Depinde de cât de repede primim materialele de la tine.</p>
+      </details>
+      <details class="faq-item">
+        <summary data-i18n="faq.q3">Site-ul va apărea pe Google?</summary>
+        <p data-i18n="faq.a3">Da, includem SEO tehnic de bază: meta tags, viteză, structură semantică. Indexare în Google în câteva zile de la lansare.</p>
+      </details>
+      <details class="faq-item">
+        <summary data-i18n="faq.q4">Pot modifica conținutul după?</summary>
+        <p data-i18n="faq.a4">Da, livrăm codul sursă curat și documentat. Poți modifica textele sau pot face eu modificări la cerere.</p>
+      </details>
+      <details class="faq-item">
+        <summary data-i18n="faq.q5">Ce se întâmplă după lansare?</summary>
+        <p data-i18n="faq.a5">3 luni suport gratuit pentru bug-uri și mici ajustări. După, ofer mentenanță lunară la 50€ sau suport la cerere.</p>
+      </details>
+    </div>
   </section>
 
   <section id="simulator" class="generator-section reveal" aria-labelledby="generator-title">
@@ -271,7 +495,28 @@
               <option value="agency" data-i18n="gen.opt.agency">Agenție</option>
               <option value="services" data-i18n="gen.opt.services">Servicii</option>
               <option value="ecommerce" data-i18n="gen.opt.ecommerce">E-commerce</option>
+              <option value="medical" data-i18n="gen.opt.medical">Cabinet Medical</option>
+              <option value="fitness" data-i18n="gen.opt.fitness">Sala Fitness</option>
+              <option value="legal" data-i18n="gen.opt.legal">Cabinet Avocatură</option>
+              <option value="education" data-i18n="gen.opt.education">Educație / Cursuri</option>
+              <option value="consulting" data-i18n="gen.opt.consulting">Consulting</option>
             </select>
+          </div>
+          <div class="field-group">
+            <label for="siteDescription" data-i18n="gen.labelDescription">Descriere scurtă</label>
+            <textarea id="siteDescription" rows="2" data-i18n-placeholder="gen.phDescription" placeholder="Descrie în câteva cuvinte business-ul tău"></textarea>
+          </div>
+          <div class="field-group">
+            <label for="siteAddress" data-i18n="gen.labelAddress">Adresă</label>
+            <input type="text" id="siteAddress" data-i18n-placeholder="gen.phAddress" placeholder="Strada, numărul, orașul" autocomplete="street-address">
+          </div>
+          <div class="field-group">
+            <label for="sitePhone" data-i18n="gen.labelPhone">Telefon</label>
+            <input type="tel" id="sitePhone" data-i18n-placeholder="gen.phPhone" placeholder="07XX XXX XXX" autocomplete="tel">
+          </div>
+          <div class="field-group">
+            <label for="siteServices" data-i18n="gen.labelServices">Servicii principale (separate prin virgulă)</label>
+            <textarea id="siteServices" rows="2" data-i18n-placeholder="gen.phServices" placeholder="Ex: Web design, SEO, Marketing"></textarea>
           </div>
           <div class="field-group">
             <label for="siteColor"><span data-i18n="gen.labelColor">Culoare principală</span> <span class="color-value" id="siteColorValue" aria-hidden="true">220°</span></label>
@@ -281,21 +526,40 @@
           <div class="field-group field-group--styles">
             <span class="field-label-like" id="style-label" data-i18n="gen.labelStyle">Stil</span>
             <div class="style-toggles style-options" role="group" aria-labelledby="style-label">
-              <button type="button" class="active" data-style="modern">Modern</button>
-              <button type="button" data-style="minimal">Minimal</button>
-              <button type="button" data-style="luxury">Luxury</button>
+              <button type="button" class="active" data-style="modern" aria-label="Modern style">Modern</button>
+              <button type="button" data-style="minimal" aria-label="Minimal style">Minimal</button>
+              <button type="button" data-style="luxury" aria-label="Luxury style">Luxury</button>
             </div>
           </div>
-          <button class="btn btn-generate" id="generatePreviewBtn" type="button" data-i18n="gen.btnGenerate">Generează preview site</button>
+          <div class="generator-actions">
+            <button class="btn btn-generate" id="generatePreviewBtn" type="button" data-i18n="gen.btnGenerate" aria-label="Generează preview site">Generează preview site</button>
+            <button class="btn btn-secondary btn-export" id="exportPreviewBtn" type="button" data-i18n="gen.btnExport" aria-label="Exportă preview">Exportă preview</button>
+          </div>
         </div>
         <div class="generator-preview-column">
-          <div class="preview-laptop">
+          <div class="preview-controls">
+            <button type="button" class="preview-toggle preview-toggle--active" data-preview="desktop" aria-label="Desktop preview">Desktop</button>
+            <button type="button" class="preview-toggle" data-preview="mobile" aria-label="Mobile preview">Mobile</button>
+          </div>
+          <div class="preview-laptop preview-device preview-device--active">
             <div class="preview-laptop-bezel">
               <div class="preview-laptop-screen">
                 <div class="preview-chrome" aria-hidden="true">
                   <span></span><span></span><span></span>
                 </div>
                 <div id="previewBox" class="preview-mount" role="region" aria-live="polite" data-i18n-aria="gen.previewRegion" aria-label="Previzualizare concept site">
+                  <p class="preview-placeholder" data-i18n="gen.phPreview">Apasă „Generează preview site” pentru a vedea conceptul.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="preview-mobile preview-device">
+            <div class="preview-mobile-bezel">
+              <div class="preview-mobile-screen">
+                <div class="preview-chrome" aria-hidden="true">
+                  <span></span><span></span><span></span>
+                </div>
+                <div id="previewBoxMobile" class="preview-mount" role="region" aria-live="polite" aria-label="Previzualizare concept site mobil">
                   <p class="preview-placeholder" data-i18n="gen.phPreview">Apasă „Generează preview site” pentru a vedea conceptul.</p>
                 </div>
               </div>
@@ -328,22 +592,22 @@
 
   <section id="contact" class="contact reveal" aria-labelledby="contact-title">
     <h2 id="contact-title" data-i18n="contact.title">Solicită o discuție gratuită</h2>
-    <form id="leadForm" novalidate>
+    <form id="leadForm" action="https://formspree.io/f/xzdyzdpn" method="POST" novalidate>
       <div class="field-group">
         <label for="name" data-i18n="contact.name">Nume</label>
-        <input id="name" name="name" type="text" data-i18n-placeholder="contact.phName" placeholder="Numele tău" required>
+        <input id="name" name="name" type="text" autocomplete="name" data-i18n-placeholder="contact.phName" placeholder="Numele tău" required>
       </div>
       <div class="field-group">
         <label for="email" data-i18n="contact.email">Email</label>
-        <input id="email" name="email" type="email" data-i18n-placeholder="contact.phEmail" placeholder="email@firma.ro" required>
+        <input id="email" name="email" type="email" autocomplete="email" data-i18n-placeholder="contact.phEmail" placeholder="email@firma.ro" required>
       </div>
       <div class="field-group">
         <label for="business" data-i18n="contact.business">Business</label>
-        <input id="business" name="business" type="text" data-i18n-placeholder="contact.phBusiness" placeholder="Numele business-ului" required>
+        <input id="business" name="business" type="text" autocomplete="organization" data-i18n-placeholder="contact.phBusiness" placeholder="Numele business-ului" required>
       </div>
       <div class="field-group">
         <label for="goal" data-i18n="contact.goal">Obiectiv principal</label>
-        <textarea id="goal" name="goal" data-i18n-placeholder="contact.phGoal" placeholder="Ex: mai multe lead-uri din Google" required></textarea>
+        <textarea id="goal" name="goal" autocomplete="off" data-i18n-placeholder="contact.phGoal" placeholder="Ex: mai multe lead-uri din Google" required></textarea>
       </div>
       <button class="btn" type="submit" data-i18n="contact.submit">Trimite cererea</button>
     </form>
@@ -370,8 +634,67 @@
 </a>
 
 <noscript data-i18n="noscript">Acest website funcționează mai bine cu JavaScript activat.</noscript>
-<script src="/js/config.js"></script>
+<script src="/js/config.js" defer></script>
 <script src="/js/i18n.js" defer></script>
-<script src="/js/simulator.js" defer></script>
+<script src="/js/mobile-menu.js" defer></script>
+<script src="/js/dark-mode.js" defer></script>
+<script src="/js/analytics.js" defer></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var loader = document.getElementById('loader');
+    if (loader) loader.style.display = 'none';
+  });
+</script>
+<script>
+// Reveal on scroll
+(function() {
+  const revealElements = document.querySelectorAll(".reveal");
+  if (!("IntersectionObserver" in window)) {
+    revealElements.forEach((el) => el.classList.add("active"));
+    return;
+  }
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("active");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  revealElements.forEach((el) => observer.observe(el));
+})();
+
+// Lazy load simulator
+const obs = new IntersectionObserver(e => {
+  if (e[0].isIntersecting) {
+    const s = document.createElement('script');
+    s.src = '/js/simulator.js'; s.async = true;
+    document.head.appendChild(s); obs.disconnect();
+  }
+});
+obs.observe(document.getElementById('simulator'));
+</script>
+<script>
+  // Load GTM after page is interactive (deferred to not block LCP)
+  function loadGTM() {
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=G-JRPX0T1X3S';
+    document.head.appendChild(s);
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    window.gtag = gtag;
+    gtag('js', new Date());
+    gtag('config', 'G-JRPX0T1X3S');
+  }
+
+  if (document.readyState === 'complete') {
+    setTimeout(loadGTM, 1000);
+  } else {
+    window.addEventListener('load', function() {
+      setTimeout(loadGTM, 1000);
+    });
+  }
+</script>
 </body>
 </html>
