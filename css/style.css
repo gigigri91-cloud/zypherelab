@@ -182,7 +182,6 @@ header {
   text-decoration: none;
   color: var(--text-main);
   flex-shrink: 0;
-  border-radius: 0.65rem;
 }
 
 .brand:hover .brand-mark-hex {
@@ -195,11 +194,12 @@ header {
 }
 
 .brand-mark-hex {
-  display: block;
-  width: 42px;
-  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex-shrink: 0;
-  transition: transform 0.2s ease;
+  width: 36px;
+  height: 36px;
 }
 
 .brand-mark-img {
@@ -217,14 +217,13 @@ header {
 }
 
 .brand-wordmark {
+  display: flex;
+  align-items: center;
   font-family: var(--font-display);
   font-weight: 700;
   font-size: clamp(1.05rem, 2.8vw, 1.2rem);
   letter-spacing: -0.02em;
   line-height: 1;
-  color: var(--text-main);
-  font-style: normal;
-  transition: color 0.3s ease;
 }
 
 .dark-mode .brand-wordmark {
@@ -440,32 +439,72 @@ header {
 }
 
 @media (max-width: 768px) {
+  :root {
+    --header-offset: 4rem;
+  }
+
   .hamburger {
     display: flex;
   }
 
   .nav-main {
-    display: none;
+    display: none !important;
   }
 
   .header-inner {
     padding: 12px 6%;
   }
 
+  .lang-switch,
   .header-cta {
     display: none;
   }
 
-  .lang-switch {
+  .header-inner .dark-mode-toggle {
     display: none;
   }
 
+  body > header ~ .dark-mode-toggle,
   .dark-mode-toggle {
-    display: none;
+    /* will be overridden below for the floating version */
   }
 
   body.mobile-menu-open {
     overflow: hidden;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Float dark mode toggle to top-right corner */
+  header .dark-mode-toggle {
+    display: none;
+  }
+
+  /* Re-show it as fixed in top-right corner */
+  .dark-mode-toggle {
+    position: fixed;
+    top: 10px;
+    right: 60px;
+    z-index: 1100;
+    display: flex !important;
+    padding: 0.45rem;
+    width: 36px;
+    height: 36px;
+    background: var(--bg-primary);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    box-shadow: var(--shadow-md);
+  }
+
+  .mobile-menu-footer .dark-mode-toggle {
+    position: static;
+    top: auto;
+    right: auto;
+    z-index: auto;
+    width: auto;
+    height: auto;
+    padding: 0.5rem;
+    box-shadow: none;
   }
 }
 
@@ -2359,16 +2398,17 @@ footer {
 
 @media (max-width: 720px) {
   :root {
-    --header-offset: 7.5rem;
+    --header-offset: 4rem;
   }
 
   header {
-    padding: 12px 5%;
+    padding: 10px 5%;
   }
 
   .header-inner {
-    flex-direction: column;
-    gap: 0.75rem;
+    flex-direction: row;
+    align-items: center;
+    gap: 0;
   }
 
   .hero {
@@ -2442,14 +2482,14 @@ footer {
   }
 
   .header-inner .brand {
-    flex-direction: column;
+    flex-direction: row;
+    align-items: center;
     gap: 0.5rem;
-    align-items: flex-start;
   }
 
   .header-inner .brand .brand-mark-hex {
-    width: 36px;
-    height: 36px;
+    width: 32px;
+    height: 32px;
   }
 
   .brand-wordmark {
