@@ -54,7 +54,7 @@ function typeLabelForPill(type) {
   return label === key ? type : label;
 }
 
-function createPreviewCard(name, type, style, hue, description, address, phone, services) {
+function createPreviewCard(name, type, style, hue) {
   const wrap = document.createElement("div");
   wrap.className = `preview-browser preview-style-${style}`;
   wrap.style.setProperty("--preview-hue", String(hue));
@@ -74,8 +74,7 @@ function createPreviewCard(name, type, style, hue, description, address, phone, 
   title.textContent = name;
 
   const sub = document.createElement("p");
-  sub.className = "preview-hero-description";
-  sub.textContent = description || taglineForType(type);
+  sub.textContent = taglineForType(type);
 
   const cta = document.createElement("a");
   cta.className = "preview-cta";
@@ -84,30 +83,14 @@ function createPreviewCard(name, type, style, hue, description, address, phone, 
 
   hero.append(title, sub, cta);
 
-  const about = document.createElement("div");
-  about.className = "preview-about";
-  const aboutTitle = document.createElement("strong");
-  aboutTitle.textContent = tt("preview.section.about");
-  about.appendChild(aboutTitle);
-  const aboutText = document.createElement("p");
-  aboutText.textContent = description || `Suntem ${typeLabelForPill(type)} dedicat să oferim servicii de calitate superioară.`;
-  about.appendChild(aboutText);
-
-  const servicesSection = document.createElement("div");
-  servicesSection.className = "preview-services-section";
-  const servicesTitle = document.createElement("strong");
-  servicesTitle.textContent = tt("preview.section.services");
-  servicesSection.appendChild(servicesTitle);
   const cardsRow = document.createElement("div");
   cardsRow.className = "preview-cards";
-  const serviceLabels = services ? services.split(",").map(s => s.trim()).filter(s => s) : serviceCardLabels(type);
-  serviceLabels.slice(0, 4).forEach((text) => {
+  serviceCardLabels(type).forEach((text) => {
     const card = document.createElement("div");
     card.className = "preview-card";
     card.textContent = text;
     cardsRow.appendChild(card);
   });
-  servicesSection.appendChild(cardsRow);
 
   const body = document.createElement("div");
   body.className = "preview-site-body";
@@ -121,32 +104,7 @@ function createPreviewCard(name, type, style, hue, description, address, phone, 
   });
   body.append(strong, ul);
 
-  const contact = document.createElement("div");
-  contact.className = "preview-contact";
-  const contactTitle = document.createElement("strong");
-  contactTitle.textContent = tt("preview.section.contact");
-  contact.appendChild(contactTitle);
-  if (address) {
-    const addr = document.createElement("p");
-    addr.textContent = address;
-    contact.appendChild(addr);
-  }
-  if (phone) {
-    const tel = document.createElement("p");
-    tel.textContent = phone;
-    contact.appendChild(tel);
-  }
-  if (!address && !phone) {
-    const placeholder = document.createElement("p");
-    placeholder.textContent = tt("preview.section.contactPlaceholder");
-    contact.appendChild(placeholder);
-  }
-
-  const footer = document.createElement("div");
-  footer.className = "preview-footer";
-  footer.textContent = `© ${new Date().getFullYear()} ${name}`;
-
-  wrap.append(nav, hero, about, servicesSection, body, contact, footer);
+  wrap.append(nav, hero, cardsRow, body);
   return wrap;
 }
 
@@ -154,12 +112,7 @@ function generateSite() {
   const nameInput = document.getElementById("siteName");
   const typeInput = document.getElementById("siteType");
   const colorInput = document.getElementById("siteColor");
-  const descriptionInput = document.getElementById("siteDescription");
-  const addressInput = document.getElementById("siteAddress");
-  const phoneInput = document.getElementById("sitePhone");
-  const servicesInput = document.getElementById("siteServices");
   const previewBox = document.getElementById("previewBox");
-  const previewBoxMobile = document.getElementById("previewBoxMobile");
 
   if (!(nameInput && typeInput && previewBox)) {
     return;
@@ -169,15 +122,8 @@ function generateSite() {
   const selectedType = typeInput.value;
   const hue = colorInput ? Number(colorInput.value) || 220 : 220;
   const style = getSelectedStyle();
-  const description = descriptionInput ? descriptionInput.value.trim() : "";
-  const address = addressInput ? addressInput.value.trim() : "";
-  const phone = phoneInput ? phoneInput.value.trim() : "";
-  const services = servicesInput ? servicesInput.value.trim() : "";
 
   previewBox.innerHTML = "";
-  if (previewBoxMobile) {
-    previewBoxMobile.innerHTML = "";
-  }
 
   if (!cleanName) {
     const message = document.createElement("p");
@@ -185,20 +131,10 @@ function generateSite() {
     message.style.margin = "auto";
     message.textContent = tt("gen.errorName");
     previewBox.appendChild(message);
-    if (previewBoxMobile) {
-      const messageMobile = message.cloneNode(true);
-      previewBoxMobile.appendChild(messageMobile);
-    }
     return;
   }
 
-  const card = createPreviewCard(cleanName, selectedType, style, hue, description, address, phone, services);
-  previewBox.appendChild(card);
-
-  if (previewBoxMobile) {
-    const cardMobile = card.cloneNode(true);
-    previewBoxMobile.appendChild(cardMobile);
-  }
+  previewBox.appendChild(createPreviewCard(cleanName, selectedType, style, hue));
 }
 
 function setupStylePills() {
@@ -207,11 +143,6 @@ function setupStylePills() {
     pill.addEventListener("click", () => {
       pills.forEach((p) => p.classList.remove("active"));
       pill.classList.add("active");
-      // Regenerate preview if one has already been generated
-      const nameInput = document.getElementById("siteName");
-      if (nameInput && nameInput.value.trim()) {
-        generateSite();
-      }
     });
   });
 }
@@ -225,141 +156,10 @@ function setupColorSlider() {
 
   const sync = () => {
     label.textContent = `${slider.value}°`;
-    const nameInput = document.getElementById("siteName");
-    if (nameInput && nameInput.value.trim()) {
-      generateSite();
-    }
   };
 
   slider.addEventListener("input", sync);
   sync();
-}
-
-function throttle(fn, delay) {
-  let timeoutId = null;
-  return function(...args) {
-    if (timeoutId) {
-      clearTimeout(timeoutId);
-    }
-    timeoutId = setTimeout(() => {
-      fn.apply(this, args);
-      timeoutId = null;
-    }, delay);
-  };
-}
-
-function setupRealTimeUpdates() {
-  const inputs = [
-    "siteName",
-    "siteType",
-    "siteDescription",
-    "siteAddress",
-    "sitePhone",
-    "siteServices",
-    "siteColor"
-  ];
-
-  const throttledGenerate = throttle(() => {
-    const nameInput = document.getElementById("siteName");
-    if (nameInput && nameInput.value.trim()) {
-      generateSite();
-    }
-  }, 150);
-
-  inputs.forEach(id => {
-    const input = document.getElementById(id);
-    if (input) {
-      const eventName = input.tagName === "SELECT" ? "change" : "input";
-      input.addEventListener(eventName, throttledGenerate);
-    }
-  });
-}
-
-function setupPreviewToggle() {
-  const toggles = document.querySelectorAll(".preview-toggle");
-  const devices = document.querySelectorAll(".preview-device");
-  const deviceClassMap = {
-    desktop: "preview-laptop",
-    mobile: "preview-mobile"
-  };
-
-  toggles.forEach(toggle => {
-    toggle.addEventListener("click", () => {
-      const previewType = toggle.dataset.preview;
-
-      toggles.forEach(t => t.classList.remove("preview-toggle--active"));
-      toggle.classList.add("preview-toggle--active");
-
-      devices.forEach(device => {
-        device.classList.remove("preview-device--active");
-      });
-
-      const targetClass = deviceClassMap[previewType];
-      const activeDevice = targetClass
-        ? document.querySelector(`.${targetClass}`)
-        : null;
-      if (activeDevice) activeDevice.classList.add("preview-device--active");
-    });
-  });
-}
-
-function setupExportButton() {
-  const exportButton = document.getElementById("exportPreviewBtn");
-  const previewBox = document.getElementById("previewBox");
-
-  if (!exportButton || !previewBox) {
-    return;
-  }
-
-  exportButton.addEventListener("click", () => {
-    const nameInput = document.getElementById("siteName");
-    const cleanName = nameInput ? nameInput.value.trim() : "";
-
-    if (!cleanName) {
-      alert(tt("gen.errorName"));
-      return;
-    }
-
-    const previewContent = document.getElementById("previewBox").innerHTML;
-    if (!previewContent || !previewContent.includes("preview-browser")) {
-      alert(tt("gen.errorNoPreview") || "Generează mai întâi un preview.");
-      return;
-    }
-
-    // Fetch the preview CSS from the stylesheet
-    const styleEl = Array.from(document.styleSheets)
-      .flatMap(s => { try { return Array.from(s.cssRules); } catch (e) { return []; } })
-      .filter(r => r.cssText && r.cssText.includes("preview-"))
-      .map(r => r.cssText)
-      .join("\n");
-
-    const html = `<!DOCTYPE html>
-<html lang="ro">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>${cleanName} — Preview ZypheroLab</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: Inter, sans-serif; padding: 2rem; background: #f8fafc; }
-    ${styleEl}
-  </style>
-</head>
-<body>
-  ${previewContent}
-</body>
-</html>`;
-
-    const blob = new Blob([html], { type: "text/html" });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = `${cleanName.replace(/[^a-z0-9]/gi, "-").toLowerCase()}-preview.html`;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
-  });
 }
 
 function setupRevealOnScroll() {
@@ -428,102 +228,13 @@ function setupNavHighlight() {
 function setupLeadForm() {
   const form = document.getElementById("leadForm");
   const formStatus = document.getElementById("formStatus");
-  const formspreeEndpoint = "https://formspree.io/f/xzdyzdpn";
 
   if (!(form && formStatus)) {
     return;
   }
 
-  const fieldIds = ["name", "email", "business", "goal"];
-  const fallbackRequired = tt("form.errorRequired");
-  const requiredMessage = fallbackRequired === "form.errorRequired"
-    ? "Completează acest câmp."
-    : fallbackRequired;
-  const fallbackEmail = tt("form.errorEmail");
-  const emailMessage = fallbackEmail === "form.errorEmail"
-    ? "Introdu o adresă de email validă."
-    : fallbackEmail;
-
-  function getField(id) {
-    return document.getElementById(id);
-  }
-
-  function getErrorNode(fieldId) {
-    const input = getField(fieldId);
-    if (!input) {
-      return null;
-    }
-    let node = document.getElementById(`${fieldId}-error`);
-    if (!node) {
-      node = document.createElement("p");
-      node.id = `${fieldId}-error`;
-      node.className = "form-field-error";
-      node.style.marginTop = "0.35rem";
-      node.style.fontSize = "0.85rem";
-      node.style.color = "#dc2626";
-      const group = input.closest(".field-group");
-      if (group) {
-        group.appendChild(node);
-      }
-    }
-    return node;
-  }
-
-  function setFieldError(fieldId, message) {
-    const input = getField(fieldId);
-    const errorNode = getErrorNode(fieldId);
-    if (!input || !errorNode) {
-      return;
-    }
-    errorNode.textContent = message;
-    input.setAttribute("aria-invalid", "true");
-    const describedBy = input.getAttribute("aria-describedby");
-    const ids = describedBy ? describedBy.split(/\s+/).filter(Boolean) : [];
-    if (!ids.includes(errorNode.id)) {
-      ids.push(errorNode.id);
-    }
-    input.setAttribute("aria-describedby", ids.join(" "));
-  }
-
-  function clearFieldError(fieldId) {
-    const input = getField(fieldId);
-    const errorNode = document.getElementById(`${fieldId}-error`);
-    if (errorNode) {
-      errorNode.textContent = "";
-    }
-    if (input) {
-      input.removeAttribute("aria-invalid");
-      const describedBy = input.getAttribute("aria-describedby");
-      if (describedBy) {
-        const ids = describedBy
-          .split(/\s+/)
-          .filter((id) => id && id !== `${fieldId}-error`);
-        if (ids.length) {
-          input.setAttribute("aria-describedby", ids.join(" "));
-        } else {
-          input.removeAttribute("aria-describedby");
-        }
-      }
-    }
-  }
-
-  function clearAllFieldErrors() {
-    fieldIds.forEach(clearFieldError);
-  }
-
-  fieldIds.forEach((id) => {
-    const input = getField(id);
-    if (input) {
-      input.addEventListener("input", () => {
-        clearFieldError(id);
-      });
-    }
-  });
-
-  form.addEventListener("submit", async (event) => {
+  form.addEventListener("submit", (event) => {
     event.preventDefault();
-    clearAllFieldErrors();
-    formStatus.textContent = "";
 
     const formData = new FormData(form);
     const name = String(formData.get("name") || "").trim();
@@ -531,55 +242,26 @@ function setupLeadForm() {
     const business = String(formData.get("business") || "").trim();
     const goal = String(formData.get("goal") || "").trim();
 
-    const missing = [];
-    if (!name) missing.push("name");
-    if (!email) missing.push("email");
-    if (!business) missing.push("business");
-    if (!goal) missing.push("goal");
-
-    if (missing.length) {
-      missing.forEach((id) => setFieldError(id, requiredMessage));
+    if (!name || !email || !business || !goal) {
       formStatus.textContent = tt("form.error");
       return;
     }
 
-    const emailInput = getField("email");
-    if (emailInput && !emailInput.checkValidity()) {
-      setFieldError("email", emailMessage);
-      formStatus.textContent = tt("form.error");
-      return;
-    }
+    const i = window.ZypheroI18n;
+    const message = i && typeof i.interpolateFormWa === "function"
+      ? i.interpolateFormWa({ name, email, business, goal })
+      : [
+          "Salut! Vreau o ofertă pentru website.",
+          `Nume: ${name}`,
+          `Email: ${email}`,
+          `Business: ${business}`,
+          `Obiectiv: ${goal}`
+        ].join("\n");
 
-    try {
-      const response = await fetch(formspreeEndpoint, {
-        method: "POST",
-        body: formData,
-        headers: {
-          Accept: "application/json"
-        }
-      });
-
-      if (!response.ok) {
-        try {
-          const payload = await response.json();
-          const errors = payload && Array.isArray(payload.errors) ? payload.errors : [];
-          errors.forEach((err) => {
-            if (err && err.field && fieldIds.includes(err.field)) {
-              setFieldError(err.field, err.message || tt("form.error"));
-            }
-          });
-        } catch (parseError) {
-          // Ignore response parsing errors and fallback to generic status message.
-        }
-        formStatus.textContent = tt("form.error");
-        return;
-      }
-
-      formStatus.textContent = tt("form.success");
-      form.reset();
-    } catch (error) {
-      formStatus.textContent = tt("form.error");
-    }
+    const whatsappUrl = `https://wa.me/${waPhoneDigits()}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, "_blank", "noopener");
+    formStatus.textContent = tt("form.success");
+    form.reset();
   });
 }
 
@@ -604,9 +286,6 @@ function boot() {
   setupColorSlider();
   setupNavHighlight();
   setupLangRefreshPreview();
-  setupRealTimeUpdates();
-  setupPreviewToggle();
-  setupExportButton();
 
   const generatePreviewButton = document.getElementById("generatePreviewBtn");
   if (generatePreviewButton) {
