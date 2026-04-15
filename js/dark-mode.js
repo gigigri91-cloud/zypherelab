@@ -1,50 +1,72 @@
-// Dark Mode Toggle
-(function() {
-  const darkModeToggle = document.querySelector('.dark-mode-toggle');
-  const darkModeIcon = document.querySelector('.dark-mode-toggle-icon');
-  
-  // Check localStorage for saved preference
-  const savedTheme = localStorage.getItem('theme');
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  
-  // Apply saved theme or system preference
-  if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-    document.body.classList.add('dark-mode');
-    if (darkModeIcon) {
-      darkModeIcon.textContent = '☀️';
-    }
+(function () {
+  const THEME_KEY = "theme";
+  const toggles = Array.from(document.querySelectorAll(".dark-mode-toggle"));
+  const icons = Array.from(document.querySelectorAll(".dark-mode-toggle-icon"));
+  const media = window.matchMedia("(prefers-color-scheme: dark)");
+
+  if (!toggles.length) {
+    return;
   }
-  
-  // Toggle dark mode
-  if (darkModeToggle) {
-    darkModeToggle.addEventListener('click', () => {
-      document.body.classList.toggle('dark-mode');
-      const isDark = document.body.classList.contains('dark-mode');
-      
-      // Update icon
-      if (darkModeIcon) {
-        darkModeIcon.textContent = isDark ? '☀️' : '🌙';
-      }
-      
-      // Save preference
-      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+
+  function isDark() {
+    return document.body.classList.contains("dark-mode");
+  }
+
+  function updateIcons() {
+    const icon = isDark() ? "☀️" : "🌙";
+    icons.forEach((el) => {
+      el.textContent = icon;
     });
   }
-  
-  // Listen for system theme changes
-  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-    if (!localStorage.getItem('theme')) {
-      if (e.matches) {
-        document.body.classList.add('dark-mode');
-        if (darkModeIcon) {
-          darkModeIcon.textContent = '☀️';
-        }
-      } else {
-        document.body.classList.remove('dark-mode');
-        if (darkModeIcon) {
-          darkModeIcon.textContent = '🌙';
-        }
-      }
+
+  function applyTheme(mode) {
+    const enableDark = mode === "dark";
+    document.body.classList.toggle("dark-mode", enableDark);
+    toggles.forEach((toggle) => {
+      toggle.setAttribute("aria-pressed", enableDark ? "true" : "false");
+    });
+    updateIcons();
+  }
+
+  function setTheme(mode) {
+    applyTheme(mode);
+    try {
+      localStorage.setItem(THEME_KEY, mode);
+    } catch {
+      /* ignore storage failures */
+    }
+  }
+
+  function preferredTheme() {
+    let saved = null;
+    try {
+      saved = localStorage.getItem(THEME_KEY);
+    } catch {
+      /* ignore */
+    }
+    if (saved === "dark" || saved === "light") {
+      return saved;
+    }
+    return media.matches ? "dark" : "light";
+  }
+
+  applyTheme(preferredTheme());
+
+  toggles.forEach((toggle) => {
+    toggle.addEventListener("click", () => {
+      setTheme(isDark() ? "light" : "dark");
+    });
+  });
+
+  media.addEventListener("change", (event) => {
+    let saved = null;
+    try {
+      saved = localStorage.getItem(THEME_KEY);
+    } catch {
+      /* ignore */
+    }
+    if (!saved) {
+      applyTheme(event.matches ? "dark" : "light");
     }
   });
 })();
