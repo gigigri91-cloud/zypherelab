@@ -9,7 +9,7 @@ Summary:
 Key facts:
 - First functional site draft is often delivered in 3-5 business days (see on-page FAQ); fuller launches vary by scope.
 - Focus metrics: qualified leads, conversion rate, Core Web Vitals, organic visibility.
-- Contact paths: lead form on /#contact, WhatsApp +40 747 821 384 (links use https://wa.me/40747821384).
+- Contact paths: lead form on `/#contact` (Formspree endpoint) and WhatsApp +40 747 821 384 (links use https://wa.me/40747821384).
 
 Implementation (for humans and coding assistants):
 - Static HTML/CSS/JS; no build step. Optional extended notes may live in a local `docs/` folder (not published to the public repo). Root `AGENTS.md` in the repo is a short pointer only.
@@ -24,4 +24,4 @@ Primary sections:
 - Results: case-study style outcomes.
 - Simulator (#simulator): interactive “AI website generator” — business name, type, accent color, style; generates an in-page preview (no backend; client-side JS).
 - FAQ: implementation timeline, AI-search visibility, post-launch support.
-- Contact: lead qualification form (submits by opening WhatsApp with a prefilled message).
+- Contact: lead qualification form (client-side validation + Formspree submit) and direct WhatsApp CTA.

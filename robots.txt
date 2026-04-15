@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Host: zypherolab.com
 
 Sitemap: https://zypherolab.com/sitemap.xml
