@@ -475,15 +475,18 @@ main > section:not(.hero) {
 .hero::before {
   content: "";
   position: absolute;
-  inset: -15% -10% 8%;
+  inset: -20% -14% 2%;
   z-index: 0;
   pointer-events: none;
   background:
-    radial-gradient(circle at 18% 24%, rgb(var(--primary-rgb) / 0.18), transparent 48%),
-    radial-gradient(circle at 82% 30%, rgb(var(--accent-rgb) / 0.12), transparent 44%),
-    radial-gradient(circle at 52% 82%, rgb(var(--primary-rgb) / 0.1), transparent 52%);
-  transform: translate3d(0, 0, 0) scale(1);
-  animation: heroAmbientDrift 18s ease-in-out infinite alternate;
+    radial-gradient(circle at 12% 24%, rgb(var(--primary-rgb) / 0.32), transparent 43%),
+    radial-gradient(circle at 84% 20%, rgb(var(--accent-rgb) / 0.24), transparent 41%),
+    radial-gradient(circle at 74% 78%, rgb(var(--primary-rgb) / 0.22), transparent 46%),
+    radial-gradient(circle at 28% 74%, rgb(var(--accent-rgb) / 0.16), transparent 52%);
+  background-size: 140% 140%;
+  filter: saturate(1.12);
+  transform: translate3d(0, 0, 0) scale(1.02);
+  animation: heroAmbientDrift 16s ease-in-out infinite alternate;
 }
 
 .floating-shape {
@@ -499,7 +502,7 @@ main > section:not(.hero) {
   aspect-ratio: 1;
   top: 8%;
   left: 4%;
-  background: radial-gradient(circle, rgb(var(--primary-rgb) / 0.2), transparent 72%);
+  background: radial-gradient(circle, rgb(var(--primary-rgb) / 0.34), transparent 72%);
 }
 
 .floating-shape--circle-2 {
@@ -507,7 +510,7 @@ main > section:not(.hero) {
   aspect-ratio: 1;
   right: 6%;
   bottom: 10%;
-  background: radial-gradient(circle, rgb(var(--accent-rgb) / 0.16), transparent 72%);
+  background: radial-gradient(circle, rgb(var(--accent-rgb) / 0.3), transparent 70%);
 }
 
 .floating-shape--circle-3 {
@@ -515,22 +518,30 @@ main > section:not(.hero) {
   aspect-ratio: 1;
   right: 20%;
   top: 14%;
-  background: radial-gradient(circle, rgb(var(--primary-rgb) / 0.14), transparent 72%);
+  background: radial-gradient(circle, rgb(var(--primary-rgb) / 0.24), transparent 72%);
 }
 
 .hero::after {
   content: "";
   position: absolute;
-  right: 8%;
-  top: 12%;
-  width: min(28vw, 18rem);
+  right: 2%;
+  top: 2%;
+  width: min(42vw, 25rem);
   aspect-ratio: 1;
   border-radius: 50%;
-  background: radial-gradient(circle, rgb(var(--primary-rgb) / 0.22), transparent 70%);
-  filter: blur(2px);
+  background:
+    conic-gradient(
+      from 120deg,
+      rgb(var(--primary-rgb) / 0.42) 0deg,
+      rgb(var(--accent-rgb) / 0.34) 95deg,
+      rgb(var(--primary-rgb) / 0.26) 210deg,
+      rgb(var(--accent-rgb) / 0.18) 300deg,
+      rgb(var(--primary-rgb) / 0.42) 360deg
+    );
+  filter: blur(14px);
   pointer-events: none;
   z-index: 0;
-  animation: heroGlowPulse 12s ease-in-out infinite;
+  animation: heroGlowPulse 20s linear infinite;
 }
 
 .hero-inner {
@@ -573,54 +584,60 @@ main > section:not(.hero) {
 
 @keyframes heroAmbientDrift {
   0% {
-    transform: translate3d(-1.5%, -1%, 0) scale(1);
+    transform: translate3d(-4%, -2%, 0) scale(1.02);
+    background-position: 0% 30%;
   }
   100% {
-    transform: translate3d(1.5%, 1.2%, 0) scale(1.03);
+    transform: translate3d(4%, 2%, 0) scale(1.08);
+    background-position: 100% 70%;
   }
 }
 
 @keyframes heroFloatOne {
   0%, 100% {
     transform: translate3d(0, 0, 0);
-    opacity: 0.85;
+    opacity: 0.64;
   }
   50% {
-    transform: translate3d(14px, -10px, 0);
-    opacity: 1;
+    transform: translate3d(30px, -22px, 0);
+    opacity: 0.98;
   }
 }
 
 @keyframes heroFloatTwo {
   0%, 100% {
     transform: translate3d(0, 0, 0);
-    opacity: 0.8;
+    opacity: 0.62;
   }
   50% {
-    transform: translate3d(-16px, 12px, 0);
-    opacity: 0.96;
+    transform: translate3d(-28px, 24px, 0);
+    opacity: 0.94;
   }
 }
 
 @keyframes heroFloatThree {
   0%, 100% {
     transform: translate3d(0, 0, 0);
-    opacity: 0.78;
+    opacity: 0.58;
   }
   50% {
-    transform: translate3d(10px, 14px, 0);
-    opacity: 0.92;
+    transform: translate3d(20px, 24px, 0);
+    opacity: 0.88;
   }
 }
 
 @keyframes heroGlowPulse {
-  0%, 100% {
-    transform: scale(1);
-    opacity: 0.7;
+  0% {
+    transform: translate3d(0, 0, 0) scale(0.92) rotate(0deg);
+    opacity: 0.46;
   }
   50% {
-    transform: scale(1.06);
+    transform: translate3d(-3%, 3%, 0) scale(1.12) rotate(180deg);
     opacity: 0.92;
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scale(0.92) rotate(360deg);
+    opacity: 0.46;
   }
 }
 
@@ -829,6 +846,7 @@ blockquote {
   padding: 1.2rem;
   box-shadow: var(--shadow-sm);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-align: center;
 }
 
 .card:hover {
@@ -873,6 +891,7 @@ blockquote {
   display: flex;
   flex-direction: column;
   background-image: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  text-align: center;
 }
 
 .pricing-card:hover {
@@ -940,6 +959,7 @@ blockquote {
 
 .pricing-card .btn {
   margin-top: auto;
+  align-self: center;
 }
 
 .subscriptions {
@@ -970,6 +990,11 @@ blockquote {
   display: flex;
   flex-direction: column;
   background-image: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  text-align: center;
+}
+
+.subscription-card .btn {
+  align-self: center;
 }
 
 .subscription-card--featured {
@@ -1062,6 +1087,7 @@ blockquote {
 
 .portfolio-item {
   padding: 1.2rem;
+  text-align: center;
 }
 
 .portfolio-item--highlight {
@@ -1075,6 +1101,8 @@ blockquote {
   font-weight: 600;
   color: var(--primary);
   text-decoration: none;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .portfolio-link:hover {
@@ -1091,6 +1119,7 @@ blockquote {
   max-width: 52rem;
   margin: 0 auto;
   padding: 1.2rem;
+  text-align: center;
 }
 
 .testimonials-grid {
@@ -1128,6 +1157,10 @@ cite {
   margin-top: 0.8rem;
 }
 
+.faq .faq-item {
+  text-align: center;
+}
+
 .generator-section {
   padding-top: 3.5rem;
   padding-bottom: 4rem;
@@ -1155,7 +1188,7 @@ cite {
 }
 
 .generator-card-head h2 {
-  text-align: left;
+  text-align: center;
   margin-bottom: 1.25rem;
   font-size: clamp(1.25rem, 2.5vw, 1.5rem);
 }
@@ -1498,8 +1531,9 @@ summary:focus-visible,
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   gap: 1rem;
+  text-align: center;
 }
 
 .generator-card-foot p {
@@ -1507,6 +1541,7 @@ summary:focus-visible,
   max-width: 46ch;
   font-size: 0.95rem;
   margin: 0;
+  text-align: center;
 }
 
 .generator-card-foot .btn {
@@ -1867,17 +1902,18 @@ body.dark-mode .about-inner {
 
 body.dark-mode .hero::before {
   background:
-    radial-gradient(circle at 18% 24%, rgb(var(--primary-rgb) / 0.14), transparent 52%),
-    radial-gradient(circle at 82% 30%, rgb(var(--accent-rgb) / 0.09), transparent 46%),
-    radial-gradient(circle at 52% 82%, rgb(var(--primary-rgb) / 0.08), transparent 56%);
+    radial-gradient(circle at 12% 24%, rgb(var(--primary-rgb) / 0.26), transparent 44%),
+    radial-gradient(circle at 84% 20%, rgb(var(--accent-rgb) / 0.2), transparent 42%),
+    radial-gradient(circle at 74% 78%, rgb(var(--primary-rgb) / 0.2), transparent 48%),
+    radial-gradient(circle at 28% 74%, rgb(var(--accent-rgb) / 0.14), transparent 54%);
 }
 
 body.dark-mode .hero::after {
-  opacity: 0.72;
+  opacity: 0.78;
 }
 
 body.dark-mode .hero .floating-shape {
-  opacity: 0.72;
+  opacity: 0.78;
 }
 
 .whatsapp,
@@ -2001,7 +2037,7 @@ body.dark-mode .hero .floating-shape {
 
   .generator-card-foot {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
   }
 }
 
@@ -2012,16 +2048,16 @@ body.dark-mode .hero .floating-shape {
 
   .hero::before {
     inset: -12% -16% 16%;
-    opacity: 0.7;
-    animation-duration: 22s;
+    opacity: 0.86;
+    animation-duration: 18s;
   }
 
   .hero::after {
-    opacity: 0.62;
+    opacity: 0.76;
   }
 
   .hero .floating-shape {
-    opacity: 0.75;
+    opacity: 0.82;
   }
 
   .nav-main {
@@ -2143,8 +2179,25 @@ body.dark-mode .hero .floating-shape {
 }
 
 @media (max-width: 650px) {
-  .floating-shape {
+  .pricing .floating-shape {
     display: none;
+  }
+
+  .hero .floating-shape {
+    display: block !important;
+    opacity: 0.98 !important;
+  }
+
+  .hero::before {
+    opacity: 0.96;
+    animation-duration: 13s;
+  }
+
+  .hero::after {
+    opacity: 0.88;
+    width: min(52vw, 18rem);
+    right: -6%;
+    top: 4%;
   }
 
   .hero-actions {
