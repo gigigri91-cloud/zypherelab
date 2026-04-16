@@ -594,21 +594,66 @@ function setupLangRefreshPreview() {
   });
 }
 
-function boot() {
-  setupRevealOnScroll();
-  setupLeadForm();
+function setupSimulator(generatePreviewButton) {
   setupStylePills();
   setupColorSlider();
   setupPreviewToggle();
   setupRealTimeUpdates();
-  setupNavHighlight();
-  setupLangRefreshPreview();
   setupExportButton();
 
-  const generatePreviewButton = document.getElementById("generatePreviewBtn");
   if (generatePreviewButton) {
     generatePreviewButton.addEventListener("click", generateSite);
   }
+}
+
+function initSimulatorWhenVisible() {
+  const simulatorSection = document.getElementById("simulator");
+  const generatePreviewButton = document.getElementById("generatePreviewBtn");
+  if (!(simulatorSection && generatePreviewButton)) {
+    return;
+  }
+
+  let initialized = false;
+  const initOnce = () => {
+    if (initialized) {
+      return;
+    }
+    initialized = true;
+    setupSimulator(generatePreviewButton);
+  };
+
+  if (!("IntersectionObserver" in window)) {
+    initOnce();
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries, currentObserver) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          initOnce();
+          currentObserver.disconnect();
+        }
+      });
+    },
+    {
+      threshold: 0.1,
+      rootMargin: "180px 0px"
+    }
+  );
+
+  observer.observe(simulatorSection);
+  ["focusin", "pointerdown", "touchstart"].forEach((eventName) => {
+    simulatorSection.addEventListener(eventName, initOnce, { once: true, passive: true });
+  });
+}
+
+function boot() {
+  setupRevealOnScroll();
+  setupLeadForm();
+  setupNavHighlight();
+  setupLangRefreshPreview();
+  initSimulatorWhenVisible();
 }
 
 if (document.readyState === "loading") {

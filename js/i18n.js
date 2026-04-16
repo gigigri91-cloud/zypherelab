@@ -798,6 +798,9 @@
     if (lang !== "en" && lang !== "ro") {
       return;
     }
+    if (currentLang === lang) {
+      return;
+    }
     currentLang = lang;
     try {
       localStorage.setItem(STORAGE_KEY, lang);
