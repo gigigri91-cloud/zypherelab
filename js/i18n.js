@@ -26,6 +26,7 @@
         aria: "Navigare principală",
         home: "Acasă",
         services: "Servicii",
+        pricing: "Prețuri",
         portfolio: "Portofoliu",
         simulator: "Simulator",
         contact: "Contact"
@@ -72,119 +73,118 @@
         cta: "Vreau o ofertă personalizată"
       },
       about: {
-        title: "De ce ZypheroLab?",
-        intro:
-          "Creăm website-uri orientate pe rezultate, optimizate pentru performanță, SEO și conversie, cu un proces clar de la idee la lansare.",
-        cta: "Hai să discutăm proiectul tău"
+        title: "Despre mine",
+        intro: "Web designer freelancer din București. Livrez rapid pentru afaceri mici și mijlocii din România.",
+        cta: "Hai să discutăm"
       },
       process: {
         title: "Cum lucrăm",
-        step1: "Descoperire",
-        step1desc: "Înțelegem business-ul, publicul țintă și obiectivele proiectului.",
-        step2: "Structură & Design",
-        step2desc: "Definim arhitectura paginii și UI-ul care convertește.",
-        step3: "Implementare",
-        step3desc: "Construim site-ul rapid, responsive și SEO-ready.",
-        step4: "Lansare & Optimizare",
-        step4desc: "Publicăm, măsurăm performanța și iterăm pe date."
+        step1: "Discuție brief",
+        step1desc: "Aflăm obiectivele, publicul țintă și mesajul principal.",
+        step2: "Wireframe",
+        step2desc: "Aprobăm structura și fluxul înainte de design final.",
+        step3: "Build + Test",
+        step3desc: "Dezvoltare rapidă, testare pe toate dispozitivele.",
+        step4: "Lansare + Suport",
+        step4desc: "Publicare, monitorizare și 3 luni suport inclus."
       },
       pricing: {
-        title: "Pachete clare, fără costuri ascunse",
-        popular: "Recomandat",
+        title: "Preturi transparente",
+        popular: "Cel mai popular",
         start: {
-          title: "Start Lead",
+          title: "Pachet Start",
           price: "300 €",
-          f1: "1 pagină de prezentare",
-          f2: "Design modern + responsive",
-          f3: "Formular lead",
-          f4: "SEO on-page de bază",
-          f5: "Livrare rapidă",
-          cta: "Alege pachetul Start"
+          f1: "Landing page completă",
+          f2: "SEO tehnic de bază",
+          f3: "Formular lead + WhatsApp",
+          f4: "Lansare în 3-5 zile",
+          f5: "Suport email 30 zile",
+          cta: "Vreau pachetul Start"
         },
         growth: {
-          title: "Growth Business",
+          title: "Pachet Growth",
           price: "600 €",
-          f1: "Site complet (multi-secțiune)",
-          f2: "Copy orientat pe conversie",
-          f3: "SEO + schema markup",
-          f4: "Integrare analytics",
-          f5: "Optimizare performanță",
-          cta: "Alege pachetul Growth"
+          f1: "Website multi-pagină",
+          f2: "SEO tehnic avansat",
+          f3: "Analytics + rapoarte lunare",
+          f4: "Lansare în 5-7 zile",
+          f5: "Suport prioritar 3 luni",
+          cta: "Vreau pachetul Growth"
         },
         custom: {
-          title: "Custom Pro",
-          price: "Preț personalizat",
-          f1: "Funcționalități avansate",
-          f2: "Integrări externe",
-          f3: "Fluxuri dedicate",
-          f4: "Consultanță strategie",
-          f5: "Scalare pe termen lung",
-          cta: "Cere ofertă custom"
+          title: "Proiect Custom",
+          price: "La cerere",
+          f1: "Soluție personalizată",
+          f2: "E-commerce sau aplicație",
+          f3: "Integrări API",
+          f4: "Timeline flexibil",
+          f5: "Suport dedicat",
+          cta: "Cere ofertă"
         },
         subscription: {
           title: "Abonamente lunare",
-          subtitle: "Suport continuu pentru viteză, stabilitate și creștere",
+          subtitle: "Suport continuu pentru creștere",
           maintenance: {
             title: "Mentenanță",
-            price: "30 € / lună",
-            f1: "Update-uri tehnice",
-            f2: "Monitorizare uptime",
-            f3: "Backup periodic",
-            f4: "Suport de bază",
-            cta: "Alege Mentenanță"
+            price: "50 € / lună",
+            f1: "Backup zilnic",
+            f2: "Updates de securitate",
+            f3: "Monitorizare uptime",
+            f4: "Bug fixes minori",
+            cta: "Abonare"
           },
           support: {
-            title: "Suport",
-            price: "50 € / lună",
-            f1: "Tot din Mentenanță",
-            f2: "Microupdate-uri de conținut",
-            f3: "Asistență prioritară",
-            f4: "Recomandări UX",
-            cta: "Alege Suport"
+            title: "Suport Prioritar",
+            price: "100 € / lună",
+            f1: "Răspuns în 2 ore",
+            f2: "Modificări incluse",
+            f3: "Consultanță tehnică",
+            f4: "Prioritate la updates",
+            cta: "Abonare"
           },
           content: {
             title: "Conținut + SEO",
-            price: "100 € / lună",
-            f1: "Tot din Suport",
-            f2: "Optimizări SEO lunare",
-            f3: "Actualizare conținut",
-            f4: "Raport progres",
-            cta: "Alege Conținut + SEO"
+            price: "30 € / lună",
+            f1: "Modificări text",
+            f2: "Adaugare articole",
+            f3: "Actualizare imagini",
+            f4: "SEO on-page",
+            cta: "Abonare"
           }
         }
       },
       portfolio: {
-        title: "Portofoliu — studii de caz",
-        c1t: "Firmă servicii locale",
-        c1p: "Redesign + SEO on-page. Rezultat: creștere trafic organic și lead-uri mai calificate.",
-        c1m: "+68% cereri în 90 zile",
-        c2t: "Restaurant urban",
-        c2p: "Landing orientat pe rezervări mobile și viteză ridicată.",
-        c2m: "+41% rezervări online",
+        title: "Portofoliu — proiecte web design",
+        c1t: "Landing Restaurant",
+        c1p: "Design modern pentru restaurant cu sistem de rezervări integrat. Optimizat pentru mobil.",
+        c1m: "",
+        c2t: "Site Cabinet Avocat",
+        c2p: "Prezență online profesională cu formular de programare și SEO local.",
+        c2m: "",
         project1: {
-          title: "Clinică stomatologică",
-          desc: "Website de prezentare cu UX simplu și conversii clare.",
-          link: "Detalii la cerere"
+          title: "Landing Restaurant",
+          desc: "Design modern pentru restaurant cu sistem de rezervări integrat. Optimizat pentru mobil.",
+          link: "Detalii la cerere →"
         },
         project2: {
-          title: "Salon beauty",
-          desc: "Landing modern optimizat pentru rezervări rapide.",
-          link: "Detalii la cerere"
+          title: "Site Cabinet Avocat",
+          desc: "Prezență online profesională cu formular de programare și SEO local.",
+          link: "Detalii la cerere →"
         },
         project3: {
-          title: "Firmă consultanță",
-          desc: "Structură profesională pentru lead-uri B2B.",
-          link: "Detalii la cerere"
+          title: "Redesign E-commerce",
+          desc: "Optimizare conversie pentru magazin online. +40% vânzări după redesign.",
+          link: "Detalii la cerere →"
         },
         project4: {
-          title: "Restaurant local",
-          desc: "Pagină orientată pe meniu, rezervări și contact rapid.",
-          link: "Detalii la cerere"
+          title: "Portofoliu Freelancer",
+          desc: "Site personal cu galerie de proiecte și formular de contact. Design minimalist.",
+          link: "Detalii la cerere →"
         },
         project5: {
-          title: "Service auto",
-          desc: "Website cu focus pe încredere, servicii și programări.",
-          link: "Încearcă simulatorul"
+          title: "Demo interactiv",
+          desc: "Testează simulatorul AI și vezi cum poate arăta website-ul business-ului tău în câteva secunde.",
+          link: "Încearcă demo →"
         }
       },
       testimonials: {
@@ -242,15 +242,15 @@
         }
       },
       faq: {
-        title: "Întrebări frecvente",
-        q1: "În cât timp primesc prima versiune?",
-        a1: "De regulă în 3-5 zile lucrătoare pentru un draft funcțional, gata de feedback.",
+        title: "Întrebări frecvente — web design",
+        q1: "Cât costă un website?",
+        a1: "Landing page de la 300€, site complet 5 pagini de la 600€. Prețul final depinde de funcționalități și complexitate.",
         q2: "Ce include pachetul de bază?",
         a2: "Structură strategică, design responsive, formular lead, setup SEO de bază și analytics.",
         q3: "Cum mă ajută site-ul să obțin mai mulți clienți?",
         a3: "Prin mesaj clar, arhitectură orientată pe conversie și CTA-uri care reduc fricțiunea.",
-        q4: "Pot cere modificări după lansare?",
-        a4: "Da. Putem face ajustări punctuale sau poți alege un abonament de suport lunar.",
+        q4: "Pot modifica conținutul după?",
+        a4: "Da, livrăm codul sursă curat și documentat. Poți modifica textele sau pot face eu modificări la cerere.",
         q5: "Lucrați și cu business-uri în engleză?",
         a5: "Da. Site-ul are variantă RO/EN și putem adapta conținutul pentru audiențe internaționale."
       },
@@ -332,15 +332,15 @@
       skip: "Skip to content",
       brand: { aria: "ZypheroLab — Home" },
       darkMode: { aria: "Toggle dark mode" },
-      nav: { aria: "Main navigation", home: "Home", services: "Services", portfolio: "Portfolio", simulator: "Simulator", contact: "Contact" },
+      nav: { aria: "Main navigation", home: "Home", services: "Services", pricing: "Pricing", portfolio: "Portfolio", simulator: "Simulator", contact: "Contact" },
       lang: { switchAria: "Site language", ro: "Romanian", en: "English" },
-      header: { cta: "Get a Quote" },
+      header: { cta: "Get a quote" },
       hero: {
         title: "Premium Websites That Turn Visitors Into Clients",
         subtitle: "Modern design, clear structure, and technical SEO. You get a functional draft in 3-5 business days.",
         tagline: "No technical chaos. Just measurable growth.",
-        cta1: "WhatsApp Offer",
-        cta2: "See Projects",
+        cta1: "WhatsApp Quote",
+        cta2: "View Work",
         t1: "100% Mobile",
         t2: "SEO Ready",
         t3: "Free Support",
@@ -375,119 +375,118 @@
         cta: "I want a custom quote"
       },
       about: {
-        title: "Why ZypheroLab?",
-        intro:
-          "We build results-focused websites optimized for performance, SEO, and conversion, with a clear process from idea to launch.",
-        cta: "Let's discuss your project"
+        title: "About me",
+        intro: "Freelance web designer from Bucharest. Fast delivery for small and medium Romanian businesses.",
+        cta: "Let's talk"
       },
       process: {
         title: "How we work",
-        step1: "Discovery",
-        step1desc: "We understand your business, audience, and project goals.",
-        step2: "Structure & Design",
-        step2desc: "We define page architecture and conversion-oriented UI.",
-        step3: "Implementation",
-        step3desc: "We build a fast, responsive, SEO-ready site.",
-        step4: "Launch & Optimize",
-        step4desc: "We publish, measure performance, and iterate on data."
+        step1: "Brief call",
+        step1desc: "We learn your goals, target audience, and core message.",
+        step2: "Wireframe",
+        step2desc: "We approve structure and flow before final design.",
+        step3: "Build + Test",
+        step3desc: "Rapid development, testing on all devices.",
+        step4: "Launch + Support",
+        step4desc: "Publication, monitoring, and 3 months included support."
       },
       pricing: {
-        title: "Clear plans, no hidden costs",
+        title: "Transparent Pricing",
         popular: "Most popular",
         start: {
-          title: "Lead Start",
+          title: "Starter Pack",
           price: "300 €",
-          f1: "1 presentation page",
-          f2: "Modern responsive design",
-          f3: "Lead form",
-          f4: "Basic on-page SEO",
-          f5: "Fast delivery",
-          cta: "Choose Start plan"
+          f1: "Complete landing page",
+          f2: "Baseline technical SEO",
+          f3: "Lead form + WhatsApp",
+          f4: "Launched in 3-5 days",
+          f5: "Email support 30 days",
+          cta: "I want the Starter pack"
         },
         growth: {
-          title: "Business Growth",
+          title: "Growth Pack",
           price: "600 €",
-          f1: "Complete website (multi-section)",
-          f2: "Conversion-focused copy",
-          f3: "SEO + schema markup",
-          f4: "Analytics integration",
-          f5: "Performance optimization",
-          cta: "Choose Growth plan"
+          f1: "Multi-page website",
+          f2: "Advanced technical SEO",
+          f3: "Analytics + monthly reports",
+          f4: "Launched in 5-7 days",
+          f5: "Priority support 3 months",
+          cta: "I want the Growth pack"
         },
         custom: {
-          title: "Custom Pro",
-          price: "Custom quote",
-          f1: "Advanced functionality",
-          f2: "External integrations",
-          f3: "Dedicated flows",
-          f4: "Strategy consulting",
-          f5: "Long-term scaling",
-          cta: "Request custom quote"
+          title: "Custom Project",
+          price: "On request",
+          f1: "Custom solution",
+          f2: "E-commerce or application",
+          f3: "API integrations",
+          f4: "Flexible timeline",
+          f5: "Dedicated support",
+          cta: "Get a quote"
         },
         subscription: {
-          title: "Monthly subscriptions",
-          subtitle: "Continuous support for speed, stability, and growth",
+          title: "Monthly Subscriptions",
+          subtitle: "Continuous support for growth",
           maintenance: {
             title: "Maintenance",
-            price: "30 € / month",
-            f1: "Technical updates",
-            f2: "Uptime monitoring",
-            f3: "Periodic backups",
-            f4: "Basic support",
-            cta: "Choose Maintenance"
+            price: "50 € / month",
+            f1: "Daily backups",
+            f2: "Security updates",
+            f3: "Uptime monitoring",
+            f4: "Minor bug fixes",
+            cta: "Subscribe"
           },
           support: {
-            title: "Support",
-            price: "50 € / month",
-            f1: "Everything in Maintenance",
-            f2: "Minor content updates",
-            f3: "Priority assistance",
-            f4: "UX recommendations",
-            cta: "Choose Support"
+            title: "Priority Support",
+            price: "100 € / month",
+            f1: "2-hour response",
+            f2: "Modifications included",
+            f3: "Technical consulting",
+            f4: "Update priority",
+            cta: "Subscribe"
           },
           content: {
-            title: "Content + SEO",
-            price: "100 € / month",
-            f1: "Everything in Support",
-            f2: "Monthly SEO improvements",
-            f3: "Content updates",
-            f4: "Progress reports",
-            cta: "Choose Content + SEO"
+            title: "Content Updates",
+            price: "30 € / month",
+            f1: "Text modifications",
+            f2: "Add articles",
+            f3: "Update images",
+            f4: "On-page SEO",
+            cta: "Subscribe"
           }
         }
       },
       portfolio: {
-        title: "Portfolio — case studies",
-        c1t: "Local services company",
-        c1p: "Redesign + on-page SEO. Result: more organic traffic and better-qualified leads.",
-        c1m: "+68% inquiries in 90 days",
-        c2t: "Urban restaurant",
-        c2p: "Mobile-first landing focused on reservations and speed.",
-        c2m: "+41% online reservations",
+        title: "Portfolio — web design projects",
+        c1t: "Restaurant Landing",
+        c1p: "Modern design for restaurant with integrated reservation system. Mobile optimized.",
+        c1m: "",
+        c2t: "Law Firm Site",
+        c2p: "Professional online presence with appointment form and local SEO.",
+        c2m: "",
         project1: {
-          title: "Dental clinic",
-          desc: "Presentation website with clean UX and clear conversion paths.",
-          link: "Details on request"
+          title: "Restaurant Landing",
+          desc: "Modern design for restaurant with integrated reservation system. Mobile optimized.",
+          link: "Details on request →"
         },
         project2: {
-          title: "Beauty salon",
-          desc: "Modern landing page optimized for fast bookings.",
-          link: "Details on request"
+          title: "Law Firm Site",
+          desc: "Professional online presence with appointment form and local SEO.",
+          link: "Details on request →"
         },
         project3: {
-          title: "Consulting firm",
-          desc: "Professional structure tailored for B2B lead generation.",
-          link: "Details on request"
+          title: "E-commerce Redesign",
+          desc: "Conversion optimization for online store. +40% sales after redesign.",
+          link: "Details on request →"
         },
         project4: {
-          title: "Local restaurant",
-          desc: "Page focused on menu, bookings, and quick contact.",
-          link: "Details on request"
+          title: "Freelancer Portfolio",
+          desc: "Personal site with project gallery and contact form. Minimalist design.",
+          link: "Details on request →"
         },
         project5: {
-          title: "Auto service",
-          desc: "Website focused on trust, services, and appointments.",
-          link: "Try the simulator"
+          title: "Interactive demo",
+          desc: "Try the AI simulator and see how your business site could look in seconds.",
+          link: "Try demo →"
         }
       },
       testimonials: {
@@ -545,15 +544,15 @@
         }
       },
       faq: {
-        title: "Frequently asked questions",
-        q1: "How soon do I get the first version?",
-        a1: "Usually within 3-5 business days for a functional draft ready for feedback.",
+        title: "FAQ — web design",
+        q1: "How much does a website cost?",
+        a1: "Landing page from €300, full 5-page site from €600. Final price depends on features and complexity.",
         q2: "What is included in the starter package?",
         a2: "Strategic page structure, responsive design, lead form, baseline SEO setup, and analytics.",
         q3: "How does the website help me get more clients?",
         a3: "Through clear messaging, conversion-focused structure, and CTA flows that reduce friction.",
-        q4: "Can I request changes after launch?",
-        a4: "Yes. You can request one-off updates or choose a monthly support plan.",
+        q4: "Can I edit content later?",
+        a4: "Yes, we deliver clean, documented source code. You can edit text or I can make changes on request.",
         q5: "Do you work with bilingual audiences?",
         a5: "Yes. The site supports RO/EN and content can be adapted for international clients."
       },

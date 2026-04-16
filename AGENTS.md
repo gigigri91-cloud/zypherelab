@@ -12,7 +12,7 @@ Documentația detaliată (handoff RO + ghid tehnic EN) stă în **`docs/`**:
 - Site **static**: HTML, CSS, vanilla JS — fără `package.json` / build / backend.
 - Local: `python3 -m http.server 8080` → `/` (RO), `/en/` (EN).
 - Scripturi runtime: `js/config.js`, `js/i18n.js`, `js/mobile-menu.js`, `js/dark-mode.js`, `js/simulator.js`. Preview simulator: `#previewBox`, `generateSite()` în `simulator.js`.
-- Stil activ principal: `css/style.css` (`css/style.min.css` este derivat/auxiliar dacă nu este referențiat explicit în HTML).
+- Stil activ principal: `css/style.css`.
 - Brand asset activ în header/preload: `img/brand/zypherolab-logo.webp` (fallback `img/brand/zypherolab-logo.png`).
 - Deploy: GitHub Pages, domeniu în `CNAME` → `zypherolab.com`.
 - `_redirects` nu există în repo în starea curentă.

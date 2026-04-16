@@ -425,14 +425,14 @@ function setupNavHighlight() {
     document.getElementById("home"),
     document.getElementById("services"),
     document.getElementById("results"),
-    document.getElementById("simulator")
+    document.getElementById("pricing")
   ].filter(Boolean);
 
   const idToKey = {
     home: "home",
     services: "services",
     results: "results",
-    simulator: "simulator"
+    pricing: "pricing"
   };
 
   const observer = new IntersectionObserver(

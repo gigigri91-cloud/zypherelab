@@ -468,6 +468,22 @@ main > section:not(.hero) {
   display: flex;
   align-items: center;
   background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: -15% -10% 8%;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 18% 24%, rgb(var(--primary-rgb) / 0.18), transparent 48%),
+    radial-gradient(circle at 82% 30%, rgb(var(--accent-rgb) / 0.12), transparent 44%),
+    radial-gradient(circle at 52% 82%, rgb(var(--primary-rgb) / 0.1), transparent 52%);
+  transform: translate3d(0, 0, 0) scale(1);
+  animation: heroAmbientDrift 18s ease-in-out infinite alternate;
 }
 
 .floating-shape {
@@ -513,6 +529,8 @@ main > section:not(.hero) {
   background: radial-gradient(circle, rgb(var(--primary-rgb) / 0.22), transparent 70%);
   filter: blur(2px);
   pointer-events: none;
+  z-index: 0;
+  animation: heroGlowPulse 12s ease-in-out infinite;
 }
 
 .hero-inner {
@@ -533,6 +551,77 @@ main > section:not(.hero) {
   text-align: center;
   position: relative;
   z-index: 1;
+}
+
+.hero .floating-shape {
+  opacity: 0.9;
+  transform: translate3d(0, 0, 0);
+  will-change: transform, opacity;
+}
+
+.hero .floating-shape--circle-1 {
+  animation: heroFloatOne 16s ease-in-out infinite;
+}
+
+.hero .floating-shape--circle-2 {
+  animation: heroFloatTwo 20s ease-in-out infinite;
+}
+
+.hero .floating-shape--circle-3 {
+  animation: heroFloatThree 14s ease-in-out infinite;
+}
+
+@keyframes heroAmbientDrift {
+  0% {
+    transform: translate3d(-1.5%, -1%, 0) scale(1);
+  }
+  100% {
+    transform: translate3d(1.5%, 1.2%, 0) scale(1.03);
+  }
+}
+
+@keyframes heroFloatOne {
+  0%, 100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0.85;
+  }
+  50% {
+    transform: translate3d(14px, -10px, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes heroFloatTwo {
+  0%, 100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translate3d(-16px, 12px, 0);
+    opacity: 0.96;
+  }
+}
+
+@keyframes heroFloatThree {
+  0%, 100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0.78;
+  }
+  50% {
+    transform: translate3d(10px, 14px, 0);
+    opacity: 0.92;
+  }
+}
+
+@keyframes heroGlowPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.06);
+    opacity: 0.92;
+  }
 }
 
 .hero h1 {
@@ -1776,6 +1865,21 @@ body.dark-mode .about-inner {
   border-color: #334155;
 }
 
+body.dark-mode .hero::before {
+  background:
+    radial-gradient(circle at 18% 24%, rgb(var(--primary-rgb) / 0.14), transparent 52%),
+    radial-gradient(circle at 82% 30%, rgb(var(--accent-rgb) / 0.09), transparent 46%),
+    radial-gradient(circle at 52% 82%, rgb(var(--primary-rgb) / 0.08), transparent 56%);
+}
+
+body.dark-mode .hero::after {
+  opacity: 0.72;
+}
+
+body.dark-mode .hero .floating-shape {
+  opacity: 0.72;
+}
+
 .whatsapp,
 .chat-ai {
   position: fixed;
@@ -1906,6 +2010,20 @@ body.dark-mode .about-inner {
     --header-offset: 4.2rem;
   }
 
+  .hero::before {
+    inset: -12% -16% 16%;
+    opacity: 0.7;
+    animation-duration: 22s;
+  }
+
+  .hero::after {
+    opacity: 0.62;
+  }
+
+  .hero .floating-shape {
+    opacity: 0.75;
+  }
+
   .nav-main {
     display: none !important;
   }
@@ -1926,6 +2044,21 @@ body.dark-mode .about-inner {
     gap: 0.5rem;
   }
 
+  .header-inner .brand {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .header-inner > .lang-switch,
+  .header-inner > .dark-mode-toggle {
+    display: none;
+  }
+
+  .hamburger {
+    margin-left: auto;
+    flex: 0 0 auto;
+  }
+
   body.mobile-menu-open {
     overflow: hidden;
   }
@@ -1937,15 +2070,10 @@ body.dark-mode .about-inner {
 
 @media (max-width: 720px) {
   :root {
-    --header-offset: 7.5rem;
+    --header-offset: 5rem;
   }
 
-  .header-inner {
-    flex-wrap: wrap;
-    row-gap: 0.65rem;
-  }
-
-  .lang-switch {
+  .header-inner > .lang-switch {
     order: 2;
     margin-left: auto;
   }
@@ -1990,8 +2118,27 @@ body.dark-mode .about-inner {
     height: 31px;
   }
 
-  .lang-switch {
+  .header-inner > .lang-switch {
     margin-left: 0;
+  }
+}
+
+@media (max-width: 360px) {
+  .header-inner {
+    gap: 0.4rem;
+  }
+
+  .brand-wordmark {
+    font-size: 0.9rem;
+  }
+
+  .brand-wordmark-accent {
+    display: none;
+  }
+
+  .brand-mark-hex {
+    width: 40px;
+    height: 28px;
   }
 }
 
