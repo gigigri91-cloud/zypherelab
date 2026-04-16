@@ -767,11 +767,11 @@
       }
     });
 
-    const wa = document.querySelector("a.whatsapp");
-    if (wa) {
-      const text = t("wa.preset");
-      wa.href = `https://wa.me/${waPhoneDigits()}?text=${encodeURIComponent(text)}`;
-    }
+    const waText = t("wa.preset");
+    const waHref = `https://wa.me/${waPhoneDigits()}?text=${encodeURIComponent(waText)}`;
+    document.querySelectorAll("a[data-wa-link='true']").forEach((waLink) => {
+      waLink.setAttribute("href", waHref);
+    });
 
     document.querySelectorAll("select[data-i18n-options] option").forEach((opt) => {
       const key = opt.getAttribute("data-i18n");

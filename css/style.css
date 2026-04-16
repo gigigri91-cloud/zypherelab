@@ -147,6 +147,7 @@ header {
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
+  position: relative;
 }
 
 .brand {
@@ -217,6 +218,8 @@ header {
   align-items: center;
   justify-content: center;
   flex: 1;
+  position: relative;
+  z-index: 2;
 }
 
 .nav-main a {
@@ -255,6 +258,8 @@ header {
   border: none;
   box-shadow: var(--shadow-md);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+  z-index: 1;
 }
 
 .header-cta:hover {
@@ -788,6 +793,10 @@ main > section:not(.hero) {
   border-top: 1px solid var(--border);
 }
 
+.offer {
+  text-align: center;
+}
+
 .services,
 .portfolio {
   background: var(--bg-primary);
@@ -810,6 +819,7 @@ h2 {
 .offer-list {
   max-width: 60rem;
   margin: 0 auto;
+  padding: 0;
   display: grid;
   gap: 0.7rem;
   color: var(--text-secondary);
@@ -822,6 +832,7 @@ h2 {
   border-radius: 0.8rem;
   padding: 0.85rem 1rem;
   list-style-position: inside;
+  text-align: left;
 }
 
 .cards {
