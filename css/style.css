@@ -802,6 +802,40 @@ main > section:not(.hero) {
   background: var(--bg-primary);
 }
 
+.proof-strip {
+  padding: 3.25rem 6%;
+  border-top: 1px solid var(--border);
+  background: var(--bg-secondary);
+  text-align: center;
+}
+
+.proof-strip-lead {
+  max-width: 52ch;
+  margin: 0 auto 1.2rem;
+  color: var(--text-secondary);
+  font-size: clamp(0.95rem, 2.2vw, 1.05rem);
+}
+
+.proof-strip-list {
+  max-width: 48rem;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.proof-strip-list li {
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  padding: 0.72rem 1rem;
+  text-align: left;
+  color: var(--text-secondary);
+  font-size: 0.94rem;
+  line-height: 1.45;
+}
+
 .about {
   background: var(--bg-secondary);
 }
@@ -1120,6 +1154,28 @@ blockquote {
   text-decoration: underline;
 }
 
+.portfolio-case {
+  list-style: none;
+  margin: 0.85rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.42rem;
+  text-align: left;
+}
+
+.portfolio-case li {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.45;
+}
+
+.portfolio-case-type {
+  font-weight: 600;
+  color: var(--text-main);
+  margin-right: 0.2rem;
+}
+
 .result-metric {
   margin-top: 0.45rem;
   color: var(--primary);
@@ -1200,8 +1256,17 @@ cite {
 
 .generator-card-head h2 {
   text-align: center;
-  margin-bottom: 1.25rem;
+  margin-bottom: 0.65rem;
   font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+}
+
+.generator-funnel-bridge {
+  max-width: 52rem;
+  margin: 0 auto 1.35rem;
+  text-align: center;
+  font-size: 0.94rem;
+  line-height: 1.55;
+  color: var(--text-secondary);
 }
 
 .generator-grid {
@@ -1853,6 +1918,11 @@ body.dark-mode .subscription-card {
   box-shadow: 0 14px 32px rgba(2, 6, 23, 0.45);
 }
 
+body.dark-mode .proof-strip-list li {
+  background: #0f172a;
+  border-color: #334155;
+}
+
 body.dark-mode .pricing-card h3,
 body.dark-mode .subscription-card h3 {
   color: #f8fafc;
@@ -1940,6 +2010,13 @@ body.dark-mode .hero .floating-shape {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+.whatsapp.is-hidden,
+.chat-ai.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+}
+
 .whatsapp:hover,
 .chat-ai:hover {
   transform: scale(1.06);
@@ -1947,7 +2024,7 @@ body.dark-mode .hero .floating-shape {
 
 .whatsapp {
   left: 20px;
-  bottom: 20px;
+  bottom: max(20px, env(safe-area-inset-bottom));
   background: #25d366;
   padding: 15px;
 }
@@ -1960,7 +2037,7 @@ body.dark-mode .hero .floating-shape {
 
 .chat-ai {
   right: 20px;
-  bottom: 20px;
+  bottom: max(20px, env(safe-area-inset-bottom));
   background: var(--gradient-cta);
   padding: 15px;
   box-shadow: var(--shadow-lg);
@@ -2059,16 +2136,17 @@ body.dark-mode .hero .floating-shape {
 
   .hero::before {
     inset: -12% -16% 16%;
-    opacity: 0.86;
-    animation-duration: 18s;
+    opacity: 0.52;
+    animation-duration: 26s;
+    filter: saturate(1);
   }
 
   .hero::after {
-    opacity: 0.76;
+    opacity: 0.44;
   }
 
   .hero .floating-shape {
-    opacity: 0.82;
+    opacity: 0.48;
   }
 
   .nav-main {
@@ -2195,20 +2273,25 @@ body.dark-mode .hero .floating-shape {
   }
 
   .hero .floating-shape {
-    display: block !important;
-    opacity: 0.98 !important;
+    display: block;
+    opacity: 0.36;
+  }
+
+  .hero .floating-shape--circle-3 {
+    display: none;
   }
 
   .hero::before {
-    opacity: 0.96;
-    animation-duration: 13s;
+    opacity: 0.5;
+    animation-duration: 30s;
+    filter: saturate(0.92);
   }
 
   .hero::after {
-    opacity: 0.88;
-    width: min(52vw, 18rem);
-    right: -6%;
-    top: 4%;
+    opacity: 0.38;
+    width: min(46vw, 15rem);
+    right: -8%;
+    top: 6%;
   }
 
   .hero-actions {
@@ -2224,7 +2307,7 @@ body.dark-mode .hero .floating-shape {
   .whatsapp,
   .chat-ai {
     padding: 12px;
-    bottom: 16px;
+    bottom: max(16px, calc(env(safe-area-inset-bottom) + 10px));
   }
 
   .whatsapp {

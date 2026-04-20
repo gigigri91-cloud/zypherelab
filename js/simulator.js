@@ -594,6 +594,48 @@ function setupLangRefreshPreview() {
   });
 }
 
+function setupFloatingActionGuards() {
+  const floatingActions = Array.from(document.querySelectorAll(".whatsapp, .chat-ai"));
+  const contactSection = document.getElementById("contact");
+  const footer = document.querySelector("footer");
+  const watchTargets = [contactSection, footer].filter(Boolean);
+  if (!floatingActions.length || !watchTargets.length) {
+    return;
+  }
+
+  const isMobile = () => window.matchMedia("(max-width: 768px)").matches;
+  const visibilityState = new Map(watchTargets.map((target) => [target, false]));
+
+  const syncFloatingState = () => {
+    if (!isMobile()) {
+      floatingActions.forEach((node) => node.classList.remove("is-hidden"));
+      return;
+    }
+    const shouldHide = Array.from(visibilityState.values()).some(Boolean);
+    floatingActions.forEach((node) => node.classList.toggle("is-hidden", shouldHide));
+  };
+
+  if (!("IntersectionObserver" in window)) {
+    window.addEventListener("resize", syncFloatingState);
+    syncFloatingState();
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        visibilityState.set(entry.target, entry.isIntersecting);
+      });
+      syncFloatingState();
+    },
+    { threshold: 0.08 }
+  );
+
+  watchTargets.forEach((target) => observer.observe(target));
+  window.addEventListener("resize", syncFloatingState);
+  syncFloatingState();
+}
+
 function setupSimulator(generatePreviewButton) {
   setupStylePills();
   setupColorSlider();
@@ -653,6 +695,7 @@ function boot() {
   setupLeadForm();
   setupNavHighlight();
   setupLangRefreshPreview();
+  setupFloatingActionGuards();
   initSimulatorWhenVisible();
 }
 

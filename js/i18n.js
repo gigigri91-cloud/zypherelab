@@ -12,7 +12,7 @@
       meta: {
         title: "ZypheroLab | Website-uri premium care aduc clienți",
         description:
-          "ZypheroLab construiește website-uri premium, rapide și orientate pe conversie pentru business-uri din România. SEO tehnic, UX clar și lead-uri reale.",
+          "ZypheroLab construiește website-uri premium, rapide și orientate pe conversie pentru business-uri din România și clienți internaționali. SEO tehnic, UX clar și lead-uri reale.",
         ogTitle: "ZypheroLab | Website-uri premium pentru creștere",
         ogDescription:
           "Design modern, viteză ridicată și structură orientată pe lead-uri. Optimizat pentru Google și căutări asistate de AI.",
@@ -37,11 +37,11 @@
         title: "Website-uri premium care transformă vizitatorii în clienți",
         subtitle: "Design modern, structură clară și SEO tehnic. Primești un draft funcțional în 3-5 zile lucrătoare.",
         tagline: "Fără haos tehnic. Cu rezultate măsurabile.",
-        cta1: "Ofertă WhatsApp",
-        cta2: "Vezi lucrări",
-        t1: "100% Mobile",
-        t2: "SEO Ready",
-        t3: "Suport Gratuit",
+        cta1: "Cere ofertă",
+        cta2: "WhatsApp rapid",
+        t1: "Răspuns în max. 24h",
+        t2: "Draft în 3-5 zile",
+        t3: "Pachete de la 300€",
         lead: "",
         ctaSim: "Încearcă simulatorul live",
         ctaStart: "Începe acum",
@@ -72,9 +72,17 @@
         li4: "Checklist de optimizare post-lansare",
         cta: "Vreau o ofertă personalizată"
       },
+      proof: {
+        title: "Transparență înainte de contract",
+        lead: "Știi pașii, termenii orientativi și ce primești la schimbul prețului afișat.",
+        b1: "Răspuns la solicitări în max. 24h (zile lucrătoare)",
+        b2: "Livrare tipică: draft funcțional în 3–5 zile (pachet Start)",
+        b3: "Claritate pe scope: brief → structură → build → lansare",
+        b4: "După go-live: checklist scurt + suport conform pachetului"
+      },
       about: {
         title: "Despre mine",
-        intro: "Web designer freelancer din București. Livrez rapid pentru afaceri mici și mijlocii din România.",
+        intro: "Web designer freelancer. Livrez rapid website-uri pentru afaceri mici și mijlocii din România și pentru clienți internaționali.",
         cta: "Hai să discutăm"
       },
       process: {
@@ -89,7 +97,7 @@
         step4desc: "Publicare, monitorizare și 3 luni suport inclus."
       },
       pricing: {
-        title: "Preturi transparente",
+        title: "Prețuri transparente",
         popular: "Cel mai popular",
         start: {
           title: "Pachet Start",
@@ -128,9 +136,9 @@
             title: "Mentenanță",
             price: "50 € / lună",
             f1: "Backup zilnic",
-            f2: "Updates de securitate",
+            f2: "Actualizări de securitate",
             f3: "Monitorizare uptime",
-            f4: "Bug fixes minori",
+            f4: "Remedieri minore de buguri",
             cta: "Abonare"
           },
           support: {
@@ -139,14 +147,14 @@
             f1: "Răspuns în 2 ore",
             f2: "Modificări incluse",
             f3: "Consultanță tehnică",
-            f4: "Prioritate la updates",
+            f4: "Prioritate la actualizări",
             cta: "Abonare"
           },
           content: {
             title: "Conținut + SEO",
             price: "30 € / lună",
             f1: "Modificări text",
-            f2: "Adaugare articole",
+            f2: "Adăugare articole",
             f3: "Actualizare imagini",
             f4: "SEO on-page",
             cta: "Abonare"
@@ -155,6 +163,9 @@
       },
       portfolio: {
         title: "Portofoliu — proiecte web design",
+        labelChallenge: "Provocare:",
+        labelSolution: "Soluție:",
+        labelResult: "Rezultat:",
         c1t: "Landing Restaurant",
         c1p: "Design modern pentru restaurant cu sistem de rezervări integrat. Optimizat pentru mobil.",
         c1m: "",
@@ -164,26 +175,41 @@
         project1: {
           title: "Landing Restaurant",
           desc: "Design modern pentru restaurant cu sistem de rezervări integrat. Optimizat pentru mobil.",
+          challenge: "Site vechi, greu pe mobil; rezervările se pierdeau în telefon.",
+          solution: "Landing cu meniu clar, CTA rezervare și informații ușor de scanat.",
+          result: "Flux de contact unificat; experiență stabilă pe telefon.",
           link: "Detalii la cerere →"
         },
         project2: {
           title: "Site Cabinet Avocat",
           desc: "Prezență online profesională cu formular de programare și SEO local.",
+          challenge: "Clienții nu știau cum se programează; lipsă încredere în canalul online.",
+          solution: "Structură pentru servicii + formular programare + SEO local de bază.",
+          result: "Mesaj profesional și canal clar de înscriere.",
           link: "Detalii la cerere →"
         },
         project3: {
           title: "Redesign E-commerce",
           desc: "Optimizare conversie pentru magazin online. +40% vânzări după redesign.",
+          challenge: "Coș abandonat ridicat; mobile slab; mesaj produs neclar.",
+          solution: "Redesign flux checkout, ierarhie vizuală și pagini produs orientate pe conversie.",
+          result: "Estimare +40% vânzări după lansare (vs. aceeași perioadă anul anterior).",
           link: "Detalii la cerere →"
         },
         project4: {
           title: "Portofoliu Freelancer",
           desc: "Site personal cu galerie de proiecte și formular de contact. Design minimalist.",
+          challenge: "Lucrările erau împrăștiate; contactul era greu de găsit rapid.",
+          solution: "Site minimalist cu galerie proiecte și un singur CTA principal.",
+          result: "Prezentare unitară; mai puține mesaje neclare de la vizitatori.",
           link: "Detalii la cerere →"
         },
         project5: {
           title: "Demo interactiv",
           desc: "Testează simulatorul AI și vezi cum poate arăta website-ul business-ului tău în câteva secunde.",
+          challenge: "Greu de imaginat cum ar arăta site-ul înainte de un brief complet.",
+          solution: "Tip business + culoare + preview instant în pagină (fără backend).",
+          result: "Pornești de la un concept vizibil; apoi refinăm la ofertă personalizată.",
           link: "Încearcă demo →"
         }
       },
@@ -206,6 +232,8 @@
       },
       gen: {
         title: "Generator website AI",
+        funnelBridge:
+          "Etapa dinainte de ofertă: preview direcțional ca punct de plecare (nu e produsul final). După ce îți place direcția, trimiți cererea și aliniem detaliile 1:1.",
         labelName: "Nume business",
         phName: "Introdu numele",
         labelPhone: "Telefon",
@@ -224,8 +252,8 @@
         btnExport: "Exportă HTML",
         previewRegion: "Previzualizare concept site",
         phPreview: "Apasă „Generează preview site” pentru a vedea conceptul.",
-        footText: "Vezi cum arată site-ul în ~30 de secunde — preview AI instant pentru business-ul tău.",
-        footCta: "Vreau acest site",
+        footText: "După preview, completează cererea — folosim ce ai introdus ca referință pentru estimare și următorul pas.",
+        footCta: "Continuă la cerere de ofertă",
         errorName: "Te rugăm să introduci numele business-ului.",
         errorNoPreview: "Generează întâi un preview pentru export.",
         opt: {
@@ -322,7 +350,7 @@
       meta: {
         title: "ZypheroLab | Premium websites that win clients",
         description:
-          "ZypheroLab builds premium, high-performance websites for Romanian businesses. Conversion-focused UX, technical SEO, and measurable lead growth.",
+          "ZypheroLab builds premium, high-performance websites for small and medium businesses in Romania and internationally. Conversion-focused UX, technical SEO, and measurable lead growth.",
         ogTitle: "ZypheroLab | Premium websites for growth",
         ogDescription:
           "Modern design, strong performance, and clear conversion flow. Optimized for Google and AI-assisted search.",
@@ -339,11 +367,11 @@
         title: "Premium Websites That Turn Visitors Into Clients",
         subtitle: "Modern design, clear structure, and technical SEO. You get a functional draft in 3-5 business days.",
         tagline: "No technical chaos. Just measurable growth.",
-        cta1: "WhatsApp Quote",
-        cta2: "View Work",
-        t1: "100% Mobile",
-        t2: "SEO Ready",
-        t3: "Free Support",
+        cta1: "Get a quote",
+        cta2: "Quick WhatsApp chat",
+        t1: "Response in under 24h",
+        t2: "Draft in 3-5 days",
+        t3: "Packages from €300",
         lead: "Fast pages, a clear message, and optimization for Google and AI search — so you get steady leads.",
         ctaSim: "Try Live Simulator",
         ctaStart: "Start now",
@@ -374,9 +402,17 @@
         li4: "Post-launch optimization checklist",
         cta: "I want a custom quote"
       },
+      proof: {
+        title: "Transparency before commitment",
+        lead: "You know the steps, typical timelines, and what you get for the listed price.",
+        b1: "Replies to requests within 24h on business days",
+        b2: "Typical delivery: functional draft in 3–5 days (Starter pack)",
+        b3: "Clear scope path: brief → structure → build → launch",
+        b4: "After go-live: short checklist + support per package"
+      },
       about: {
         title: "About me",
-        intro: "Freelance web designer from Bucharest. Fast delivery for small and medium Romanian businesses.",
+        intro: "Freelance web designer. Fast delivery for small and medium businesses in Romania and abroad.",
         cta: "Let's talk"
       },
       process: {
@@ -457,6 +493,9 @@
       },
       portfolio: {
         title: "Portfolio — web design projects",
+        labelChallenge: "Challenge:",
+        labelSolution: "Solution:",
+        labelResult: "Outcome:",
         c1t: "Restaurant Landing",
         c1p: "Modern design for restaurant with integrated reservation system. Mobile optimized.",
         c1m: "",
@@ -466,26 +505,41 @@
         project1: {
           title: "Restaurant Landing",
           desc: "Modern design for restaurant with integrated reservation system. Mobile optimized.",
+          challenge: "Old site was slow on mobile; reservations were getting lost on the phone.",
+          solution: "Landing with clear menu, reservation CTA, and easy-to-scan details.",
+          result: "One unified contact flow; a stable phone-first experience.",
           link: "Details on request →"
         },
         project2: {
           title: "Law Firm Site",
           desc: "Professional online presence with appointment form and local SEO.",
+          challenge: "Clients did not know how to book; low trust in the online channel.",
+          solution: "Services structure + appointment form + baseline local SEO.",
+          result: "Professional message and a clear intake path.",
           link: "Details on request →"
         },
         project3: {
           title: "E-commerce Redesign",
           desc: "Conversion optimization for online store. +40% sales after redesign.",
+          challenge: "High cart abandonment; weak mobile; unclear product story.",
+          solution: "Checkout flow redesign, visual hierarchy, and conversion-led product pages.",
+          result: "Estimated +40% sales after launch (vs. same period year before).",
           link: "Details on request →"
         },
         project4: {
           title: "Freelancer Portfolio",
           desc: "Personal site with project gallery and contact form. Minimalist design.",
+          challenge: "Work was scattered; contact was hard to find quickly.",
+          solution: "Minimal site with a project gallery and one primary CTA.",
+          result: "Unified presentation; fewer unclear inbound messages.",
           link: "Details on request →"
         },
         project5: {
           title: "Interactive demo",
           desc: "Try the AI simulator and see how your business site could look in seconds.",
+          challenge: "Hard to visualize the site before a full brief is written.",
+          solution: "Business type + accent color + instant in-page preview (no backend).",
+          result: "Start from a visible concept; then refine into a tailored quote.",
           link: "Try demo →"
         }
       },
@@ -508,6 +562,8 @@
       },
       gen: {
         title: "AI website generator",
+        funnelBridge:
+          "Pre-quote step: a directional preview as a starting point (not the final build). When you like the direction, send the request and we align details 1:1.",
         labelName: "Business name",
         phName: "Enter your name",
         labelPhone: "Phone",
@@ -526,8 +582,8 @@
         btnExport: "Export HTML",
         previewRegion: "Live website preview",
         phPreview: "Click “Generate preview” to see the concept.",
-        footText: "See your site in ~30 seconds — an instant AI preview for your business.",
-        footCta: "I want this website",
+        footText: "After the preview, submit the request — we use your inputs as reference for estimation and next steps.",
+        footCta: "Continue to quote request",
         errorName: "Please enter your business name.",
         errorNoPreview: "Generate a preview first before exporting.",
         opt: {
