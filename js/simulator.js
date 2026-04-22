@@ -20,6 +20,13 @@ const PREVIEW_EXPORT_SELECTOR = [
   ".preview-footer"
 ];
 
+function trackEvent(eventName, params) {
+  const analytics = window.ZypheroAnalytics;
+  if (analytics && typeof analytics.track === "function") {
+    analytics.track(eventName, params);
+  }
+}
+
 function tt(path) {
   const i = window.ZypheroI18n;
   if (i && typeof i.t === "function") {
@@ -558,6 +565,11 @@ function setupLeadForm() {
       if (response.ok) {
         form.reset();
         formStatus.textContent = tt("form.success");
+        trackEvent("contact_form_submit", {
+          form_id: "leadForm",
+          method: "formspree",
+          page_lang: document.documentElement.lang || "ro"
+        });
         return;
       }
 
@@ -581,6 +593,39 @@ function setupLeadForm() {
       formStatus.textContent = hasMappedError ? tt("form.error") : tt("form.error");
     } catch {
       formStatus.textContent = tt("form.error");
+    }
+  });
+}
+
+function setupConversionTracking() {
+  document.addEventListener("click", (event) => {
+    const trigger = event.target instanceof Element ? event.target.closest("a, button") : null;
+    if (!trigger) {
+      return;
+    }
+
+    if (trigger.matches("a[data-wa-link='true']")) {
+      trackEvent("whatsapp_click", {
+        source: trigger.className || "link",
+        href: trigger.getAttribute("href") || "",
+        page_lang: document.documentElement.lang || "ro"
+      });
+    }
+
+    if (trigger.matches(".hero-actions a.btn:not(.btn-secondary)")) {
+      trackEvent("primary_cta_click", {
+        cta_target: trigger.getAttribute("href") || "",
+        section: "hero",
+        page_lang: document.documentElement.lang || "ro"
+      });
+    }
+
+    if (trigger.matches("#pricing .btn")) {
+      trackEvent("pricing_cta_click", {
+        cta_target: trigger.getAttribute("href") || "",
+        section: "pricing",
+        page_lang: document.documentElement.lang || "ro"
+      });
     }
   });
 }
@@ -693,6 +738,7 @@ function initSimulatorWhenVisible() {
 function boot() {
   setupRevealOnScroll();
   setupLeadForm();
+  setupConversionTracking();
   setupNavHighlight();
   setupLangRefreshPreview();
   setupFloatingActionGuards();
