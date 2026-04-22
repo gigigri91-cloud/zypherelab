@@ -16,7 +16,7 @@ Implementation (for humans and coding assistants):
 - Visible copy is bilingual: Romanian in `/index.html`, English in `/en/index.html`, with runtime string sync via `js/i18n.js` (including `<title>` and meta when JS runs). Keep static HTML fallbacks aligned with `STRINGS.ro` / `STRINGS.en` for no-JS and first paint.
 
 Canonical URL:
-- https://zypherolab.com/
+- https://zypherolab.com/ (apex only, no `www` — aligns with GSC URL-prefix property and with `canonical` / `sitemap.xml` / `robots.txt`).
 
 Primary sections (main commercial order after hero):
 - Hero: value proposition; primary CTAs to `#contact` (quote) and WhatsApp; trust badges (response time, draft window, entry price).

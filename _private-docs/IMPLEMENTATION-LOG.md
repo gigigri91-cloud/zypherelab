@@ -98,6 +98,12 @@ Scope: website audit P2 only. P1 items (hero CTA hierarchy, trust strip in hero,
 - Nav items for pricing/contact in the scroll spy (still sparse nav).
 - Further simulator UX (reset, share link, non-`alert` export) — see existing Next Steps above.
 
+## GSC / apex (2026-04-21)
+
+- **`robots.txt`:** Removed deprecated `Host:` directive (ignored by Google). Added comment that canonical host is apex without `www`. `Sitemap:` line unchanged.
+- **`llms.txt`:** Clarified under Canonical that all public URLs use apex `https://zypherolab.com/` (no `www`), matching GSC URL-prefix setup.
+- **DNS / GitHub Pages:** Redirect `www` → apex remains a **hosting/DNS** task (not in static files); with property `https://zypherolab.com`, ensure in repo **Pages → Custom domain** apex is primary and optional www redirects in DNS provider if both records exist.
+
 ## Post P1/P2 validation pass (2026-04-20)
 
 ### What was checked
