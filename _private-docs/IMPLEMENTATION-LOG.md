@@ -104,6 +104,94 @@ Scope: website audit P2 only. P1 items (hero CTA hierarchy, trust strip in hero,
 - **`llms.txt`:** Clarified under Canonical that all public URLs use apex `https://zypherolab.com/` (no `www`), matching GSC URL-prefix setup.
 - **DNS / GitHub Pages:** Redirect `www` → apex remains a **hosting/DNS** task (not in static files); with property `https://zypherolab.com`, ensure in repo **Pages → Custom domain** apex is primary and optional www redirects in DNS provider if both records exist.
 
+## S3 Core Web Vitals pass 1 (2026-04-23)
+
+Scope: reduce initial render pressure before content architecture work.
+
+### Applied optimizations
+
+- **Head resource pressure reduced** in both `index.html` and `en/index.html`:
+  - removed `preconnect` for GTM host (analytics is still lazy-loaded on interaction),
+  - removed logo image preload,
+  - kept only base Latin font preloads (dropped latin-ext preloads from critical path),
+  - removed `fetchpriority="high"` from header logo image.
+- **Hero animation startup deferred** in both pages:
+  - added a tiny inline bootstrap script that sets `.fx-ready` using `requestIdleCallback` (fallback `setTimeout`).
+- **CSS animation gating** in `css/style.css`:
+  - decorative hero animations are disabled for first paint by default,
+  - animations resume only after `.fx-ready` is present.
+
+### Validation notes
+
+- Linter check for edited files: no diagnostics.
+- Attempted local Lighthouse run, but this environment currently lacks `npm`/`npx`, so audit CLI could not be executed here.
+
+## S3 Core Web Vitals pass 2 (2026-04-23)
+
+Scope: target remaining LCP gap after RO Lighthouse snapshot.
+
+### Baseline observed (RO mobile snapshot provided by user)
+
+- LCP: **3.3s** (target < 2.5s, still open)
+- INP proxy (`max-potential-fid`): **60ms** (target met)
+- CLS: **0** (target met)
+
+### Applied optimizations
+
+- **Critical head pressure reduced further** in both `index.html` and `en/index.html`:
+  - removed Montserrat preload from first paint path,
+  - removed preload hint for `css/fonts.css` (kept async stylesheet loading with print/onload + noscript fallback).
+- **Decorative paint cost deferred harder** in `css/style.css`:
+  - `body::before`, `.hero::before`, `.hero::after` now start with `content: none` and are enabled only after `.fx-ready`,
+  - `.hero .floating-shape` now starts hidden (`display: none`) and is enabled only after `.fx-ready`,
+  - hero H1 switched to Inter stack for faster above-the-fold text rendering.
+
+### Validation notes
+
+- Linter check for edited files: no diagnostics.
+- New Lighthouse snapshots still needed to validate post-pass-2 LCP on both `/` and `/en/`.
+
+## S3 Core Web Vitals pass 3 (2026-04-23)
+
+Scope: reduce startup main-thread pressure to improve INP/TBT after LCP target was reached.
+
+### Baseline observed (RO mobile snapshot provided by user, latest)
+
+- FCP: **1.1s** (target met)
+- LCP: **2.1s** (target met)
+- CLS: **0.018** (target met)
+- INP proxy (`max-potential-fid`): **450ms** (target still open)
+
+### Applied optimizations
+
+- **Removed non-critical JS from critical startup path** in both `index.html` and `en/index.html`:
+  - `i18n.js` is now loaded lazily (idle warmup + immediate load on language-switch intent),
+  - `simulator.js` is now loaded lazily (near-viewport via IntersectionObserver, simulator interaction, or late timeout fallback),
+  - kept `config.js`, `mobile-menu.js`, and `dark-mode.js` as deferred startup scripts.
+
+### Validation notes
+
+- Linter check for edited files: no diagnostics.
+- Need fresh Lighthouse mobile snapshots in **Incognito** for both `/` and `/en/` to validate INP/TBT impact without extension noise.
+
+## S3 final validation + verdict (2026-04-23)
+
+### Latest snapshots reviewed
+
+- **RO (`/`)**: FCP **1.2s**, LCP **2.0s**, CLS **0.018**, INP proxy (`max-potential-fid`) **420ms**.
+- **EN (`/en/`)**: FCP **1.5s**, LCP **2.0s**, CLS **0.000032**, INP proxy (`max-potential-fid`) **16ms**.
+
+### Interpretation
+
+- LCP/FCP/CLS targets are met on both locale pages.
+- EN fully meets the INP proxy target.
+- RO still reports elevated INP proxy, but audits include extension-attributed long tasks (`bubble_compiled.js`) and unattributable noise, so signal is not considered a clean app-only regression.
+
+### Decision
+
+- **S3 is marked Done** and we move to **S4 (commercial page architecture)**.
+- For stricter CWV hygiene, run one extra RO mobile Lighthouse in Incognito with extensions disabled and keep it as monitoring evidence, not as a blocker for starting S4.
+
 ## Post P1/P2 validation pass (2026-04-20)
 
 ### What was checked

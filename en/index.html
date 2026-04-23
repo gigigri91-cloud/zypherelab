@@ -9,8 +9,6 @@
 <meta name="google-site-verification" content="-THxZHHRE3mQGlULUgCp1KORz4AVxFaa0b4eiRkuZHc">
 <meta name="author" content="ZypheroLab">
 <meta name="theme-color" content="#667eea">
-<link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
-<link rel="preload" href="/img/brand/zypherolab-logo.webp" as="image" type="image/webp">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
 <link rel="icon" href="/favicon-192.png" type="image/png" sizes="192x192">
@@ -34,10 +32,6 @@
 <meta name="twitter:description" content="Fast, SEO-ready websites designed to generate leads.">
 <meta name="twitter:image" content="https://zypherolab.com/img/brand/og-image.png">
 <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/fonts/inter-latin-ext.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/fonts/montserrat-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/fonts/montserrat-latin-ext.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/css/fonts.css" as="style">
 <link rel="stylesheet" href="/css/fonts.css" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="/css/fonts.css"></noscript>
 <link rel="preload" href="/css/style.css" as="style">
@@ -174,6 +168,18 @@
   ]
 }
 </script>
+<script>
+  (function () {
+    var markReady = function () {
+      document.documentElement.classList.add("fx-ready");
+    };
+    if ("requestIdleCallback" in window) {
+      requestIdleCallback(markReady, { timeout: 1200 });
+      return;
+    }
+    window.setTimeout(markReady, 400);
+  })();
+</script>
 </head>
 <body>
 <a class="skip-link" href="#main-content" data-i18n="skip">Skip to content</a>
@@ -184,7 +190,7 @@
       <span class="brand-mark-hex" aria-hidden="true">
         <picture class="brand-mark-img">
           <source srcset="/img/brand/zypherolab-logo.webp" type="image/webp">
-          <img src="/img/brand/zypherolab-logo.png" alt="ZypheroLab logo" width="44" height="44" decoding="async" loading="eager" fetchpriority="high">
+          <img src="/img/brand/zypherolab-logo.png" alt="ZypheroLab logo" width="44" height="44" decoding="async" loading="eager">
         </picture>
       </span>
       <span class="brand-wordmark">Zyphero<span class="brand-wordmark-accent">Lab</span></span>
@@ -671,10 +677,85 @@
 
 <noscript data-i18n="noscript">This site works best with JavaScript enabled.</noscript>
 <script src="/js/config.js" defer></script>
-<script src="/js/i18n.js" defer></script>
 <script src="/js/mobile-menu.js" defer></script>
 <script src="/js/dark-mode.js" defer></script>
-<script src="/js/simulator.js" defer></script>
+<script>
+  (function () {
+    var loaded = {
+      i18n: false,
+      simulator: false
+    };
+
+    function loadScriptOnce(key, src) {
+      if (loaded[key]) {
+        return;
+      }
+      loaded[key] = true;
+      var script = document.createElement("script");
+      script.src = src;
+      script.defer = true;
+      document.head.appendChild(script);
+    }
+
+    function loadI18n() {
+      loadScriptOnce("i18n", "/js/i18n.js");
+    }
+
+    function loadSimulator() {
+      loadI18n();
+      loadScriptOnce("simulator", "/js/simulator.js");
+    }
+
+    function scheduleI18nWarmup() {
+      if ("requestIdleCallback" in window) {
+        requestIdleCallback(loadI18n, { timeout: 1200 });
+        return;
+      }
+      window.setTimeout(loadI18n, 1200);
+    }
+
+    function setupIntentLoaders() {
+      var langSwitch = document.querySelector(".lang-switch");
+      if (langSwitch) {
+        ["pointerdown", "touchstart", "focusin", "keydown"].forEach(function (eventName) {
+          langSwitch.addEventListener(eventName, loadI18n, eventName === "keydown" ? { once: true } : { once: true, passive: true });
+        });
+      }
+
+      var simulatorSection = document.getElementById("simulator");
+      if (!simulatorSection) {
+        return;
+      }
+
+      if ("IntersectionObserver" in window) {
+        var observer = new IntersectionObserver(
+          function (entries, currentObserver) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                loadSimulator();
+                currentObserver.disconnect();
+              }
+            });
+          },
+          {
+            threshold: 0.08,
+            rootMargin: "220px 0px"
+          }
+        );
+        observer.observe(simulatorSection);
+      }
+
+      ["pointerdown", "touchstart", "focusin"].forEach(function (eventName) {
+        simulatorSection.addEventListener(eventName, loadSimulator, { once: true, passive: true });
+      });
+
+      window.setTimeout(loadSimulator, 8000);
+    }
+
+    scheduleI18nWarmup();
+    setupIntentLoaders();
+  })();
+</script>
 <script>
   (function () {
     var gtmLoaded = false;

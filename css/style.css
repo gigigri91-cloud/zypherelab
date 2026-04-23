@@ -78,7 +78,7 @@ body {
 }
 
 body::before {
-  content: "";
+  content: none;
   position: fixed;
   inset: -20% -10% auto;
   height: 65vh;
@@ -87,6 +87,10 @@ body::before {
     radial-gradient(circle at 18% 28%, rgb(var(--primary-rgb) / 0.14), transparent 42%),
     radial-gradient(circle at 82% 0%, rgb(var(--accent-rgb) / 0.11), transparent 38%);
   z-index: 0;
+}
+
+.fx-ready body::before {
+  content: "";
 }
 
 a {
@@ -478,7 +482,7 @@ main > section:not(.hero) {
 }
 
 .hero::before {
-  content: "";
+  content: none;
   position: absolute;
   inset: -20% -14% 2%;
   z-index: 0;
@@ -491,7 +495,7 @@ main > section:not(.hero) {
   background-size: 140% 140%;
   filter: saturate(1.12);
   transform: translate3d(0, 0, 0) scale(1.02);
-  animation: heroAmbientDrift 16s ease-in-out infinite alternate;
+  animation: none;
 }
 
 .floating-shape {
@@ -500,6 +504,7 @@ main > section:not(.hero) {
   filter: blur(2px);
   pointer-events: none;
   z-index: 0;
+  display: none;
 }
 
 .floating-shape--circle-1 {
@@ -527,7 +532,7 @@ main > section:not(.hero) {
 }
 
 .hero::after {
-  content: "";
+  content: none;
   position: absolute;
   right: 2%;
   top: 2%;
@@ -546,7 +551,7 @@ main > section:not(.hero) {
   filter: blur(14px);
   pointer-events: none;
   z-index: 0;
-  animation: heroGlowPulse 20s linear infinite;
+  animation: none;
 }
 
 .hero-inner {
@@ -576,14 +581,40 @@ main > section:not(.hero) {
 }
 
 .hero .floating-shape--circle-1 {
-  animation: heroFloatOne 16s ease-in-out infinite;
+  animation: none;
 }
 
 .hero .floating-shape--circle-2 {
-  animation: heroFloatTwo 20s ease-in-out infinite;
+  animation: none;
 }
 
 .hero .floating-shape--circle-3 {
+  animation: none;
+}
+
+.fx-ready .hero::before {
+  content: "";
+  animation: heroAmbientDrift 16s ease-in-out infinite alternate;
+}
+
+.fx-ready .hero::after {
+  content: "";
+  animation: heroGlowPulse 20s linear infinite;
+}
+
+.fx-ready .hero .floating-shape {
+  display: block;
+}
+
+.fx-ready .hero .floating-shape--circle-1 {
+  animation: heroFloatOne 16s ease-in-out infinite;
+}
+
+.fx-ready .hero .floating-shape--circle-2 {
+  animation: heroFloatTwo 20s ease-in-out infinite;
+}
+
+.fx-ready .hero .floating-shape--circle-3 {
   animation: heroFloatThree 14s ease-in-out infinite;
 }
 
@@ -645,7 +676,7 @@ main > section:not(.hero) {
 }
 
 .hero h1 {
-  font-family: var(--font-display);
+  font-family: "Inter", system-ui, sans-serif;
   font-size: clamp(2.25rem, 5.5vw, 3.5rem);
   font-weight: 700;
   line-height: 1.15;
