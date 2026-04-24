@@ -292,8 +292,8 @@
         <p data-i18n="services.c3p">Testable CTAs, lead-focused forms, and copy that reduces friction.</p>
       </article>
     </div>
-    <p class="offer-lead">See the full service scope on the dedicated page.</p>
-    <a class="btn btn-secondary" href="/en/web-services.html">Explore services</a>
+    <p class="offer-lead" data-i18n="seoLinks.services.lead">See the full service scope on the dedicated page.</p>
+    <a class="btn btn-secondary" href="/en/web-services.html" data-i18n="seoLinks.services.cta">Explore services</a>
   </section>
   <section id="offer" class="offer reveal" aria-labelledby="offer-title">
     <h2 id="offer-title" data-i18n="offer.title">The right offer for a fast launch</h2>
@@ -454,8 +454,8 @@
         <a class="btn" href="#contact" data-i18n="pricing.custom.cta">Get a quote</a>
       </div>
     </div>
-    <p class="offer-lead">Compare all packages on the detailed pricing page.</p>
-    <a class="btn btn-secondary" href="/en/web-pricing.html">View detailed pricing</a>
+    <p class="offer-lead" data-i18n="seoLinks.pricing.lead">Compare all packages on the detailed pricing page.</p>
+    <a class="btn btn-secondary" href="/en/web-pricing.html" data-i18n="seoLinks.pricing.cta">View detailed pricing</a>
   </section>
   <section id="subscriptions" class="subscriptions reveal" aria-labelledby="subscriptions-title">
     <h2 id="subscriptions-title" data-i18n="pricing.subscription.title">Monthly Subscriptions</h2>
@@ -658,8 +658,8 @@
       <button class="btn" type="submit" data-i18n="contact.submit">Send request</button>
     </form>
     <p id="formStatus" class="form-status" aria-live="polite"></p>
-    <p class="offer-lead">Need a broader scope? Use the dedicated commercial contact page.</p>
-    <a class="btn btn-secondary" href="/en/contact.html">Contact page</a>
+    <p class="offer-lead" data-i18n="seoLinks.contact.lead">Need a broader scope? Use the dedicated commercial contact page.</p>
+    <a class="btn btn-secondary" href="/en/contact.html" data-i18n="seoLinks.contact.cta">Contact page</a>
   </section>
 </main>
 
@@ -703,21 +703,25 @@
       document.head.appendChild(script);
     }
 
+    function loadStyleOnce(key, href) {
+      if (loaded[key]) {
+        return;
+      }
+      loaded[key] = true;
+      var link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.href = href;
+      document.head.appendChild(link);
+    }
+
     function loadI18n() {
       loadScriptOnce("i18n", "/js/i18n.js");
     }
 
     function loadSimulator() {
       loadI18n();
+      loadStyleOnce("simulatorCss", "/css/simulator.css");
       loadScriptOnce("simulator", "/js/simulator.js");
-    }
-
-    function scheduleI18nWarmup() {
-      if ("requestIdleCallback" in window) {
-        requestIdleCallback(loadI18n, { timeout: 1200 });
-        return;
-      }
-      window.setTimeout(loadI18n, 1200);
     }
 
     function setupIntentLoaders() {
@@ -754,11 +758,11 @@
       ["pointerdown", "touchstart", "focusin"].forEach(function (eventName) {
         simulatorSection.addEventListener(eventName, loadSimulator, { once: true, passive: true });
       });
-
-      window.setTimeout(loadSimulator, 8000);
+      if (window.location.hash === "#simulator") {
+        loadSimulator();
+      }
     }
 
-    scheduleI18nWarmup();
     setupIntentLoaders();
   })();
 </script>
@@ -766,7 +770,7 @@
   (function () {
     var gtmLoaded = false;
     var fallbackTimer = null;
-    var triggerEvents = ['pointerdown', 'keydown', 'touchstart', 'scroll'];
+    var triggerEvents = ['pointerdown', 'keydown', 'touchstart'];
 
     function removeTriggers() {
       triggerEvents.forEach(function (eventName) {
@@ -807,7 +811,7 @@
     });
     document.addEventListener('visibilitychange', handleVisibilityChange, { once: true });
     window.addEventListener('load', function () {
-      fallbackTimer = window.setTimeout(loadGTM, 20000);
+      fallbackTimer = window.setTimeout(loadGTM, 45000);
     }, { once: true });
   })();
 </script>

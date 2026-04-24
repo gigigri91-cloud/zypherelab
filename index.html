@@ -306,8 +306,8 @@
         <p data-i18n="services.c3p">CTA-uri testabile, formular orientat pe lead-uri și mesaje care reduc fricțiunea.</p>
       </article>
     </div>
-    <p class="offer-lead">Vezi detalii complete in pagina dedicata de servicii.</p>
-    <a class="btn btn-secondary" href="/servicii-web.html">Exploreaza servicii</a>
+    <p class="offer-lead" data-i18n="seoLinks.services.lead">Vezi detalii complete in pagina dedicata de servicii.</p>
+    <a class="btn btn-secondary" href="/servicii-web.html" data-i18n="seoLinks.services.cta">Exploreaza servicii</a>
   </section>
   <section id="offer" class="offer reveal" aria-labelledby="offer-title">
     <h2 id="offer-title" data-i18n="offer.title">Oferta potrivită pentru lansare rapidă</h2>
@@ -468,8 +468,8 @@
         <a class="btn" href="#contact" data-i18n="pricing.custom.cta">Cere ofertă</a>
       </div>
     </div>
-    <p class="offer-lead">Compara pachetele in pagina completa de preturi.</p>
-    <a class="btn btn-secondary" href="/preturi-web.html">Vezi preturi detaliate</a>
+    <p class="offer-lead" data-i18n="seoLinks.pricing.lead">Compara pachetele in pagina completa de preturi.</p>
+    <a class="btn btn-secondary" href="/preturi-web.html" data-i18n="seoLinks.pricing.cta">Vezi preturi detaliate</a>
   </section>
   <section id="subscriptions" class="subscriptions reveal" aria-labelledby="subscriptions-title">
     <h2 id="subscriptions-title" data-i18n="pricing.subscription.title">Abonamente lunare</h2>
@@ -672,8 +672,8 @@
       <button class="btn" type="submit" data-i18n="contact.submit">Trimite cererea</button>
     </form>
     <p id="formStatus" class="form-status" aria-live="polite"></p>
-    <p class="offer-lead">Ai nevoie de cerinte mai avansate? Vezi pagina completa de contact comercial.</p>
-    <a class="btn btn-secondary" href="/contact.html">Pagina de contact</a>
+    <p class="offer-lead" data-i18n="seoLinks.contact.lead">Ai nevoie de cerinte mai avansate? Vezi pagina completa de contact comercial.</p>
+    <a class="btn btn-secondary" href="/contact.html" data-i18n="seoLinks.contact.cta">Pagina de contact</a>
   </section>
 </main>
 
@@ -717,21 +717,25 @@
       document.head.appendChild(script);
     }
 
+    function loadStyleOnce(key, href) {
+      if (loaded[key]) {
+        return;
+      }
+      loaded[key] = true;
+      var link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.href = href;
+      document.head.appendChild(link);
+    }
+
     function loadI18n() {
       loadScriptOnce("i18n", "/js/i18n.js");
     }
 
     function loadSimulator() {
       loadI18n();
+      loadStyleOnce("simulatorCss", "/css/simulator.css");
       loadScriptOnce("simulator", "/js/simulator.js");
-    }
-
-    function scheduleI18nWarmup() {
-      if ("requestIdleCallback" in window) {
-        requestIdleCallback(loadI18n, { timeout: 1200 });
-        return;
-      }
-      window.setTimeout(loadI18n, 1200);
     }
 
     function setupIntentLoaders() {
@@ -768,11 +772,11 @@
       ["pointerdown", "touchstart", "focusin"].forEach(function (eventName) {
         simulatorSection.addEventListener(eventName, loadSimulator, { once: true, passive: true });
       });
-
-      window.setTimeout(loadSimulator, 8000);
+      if (window.location.hash === "#simulator") {
+        loadSimulator();
+      }
     }
 
-    scheduleI18nWarmup();
     setupIntentLoaders();
   })();
 </script>
@@ -780,7 +784,7 @@
   (function () {
     var gtmLoaded = false;
     var fallbackTimer = null;
-    var triggerEvents = ['pointerdown', 'keydown', 'touchstart', 'scroll'];
+    var triggerEvents = ['pointerdown', 'keydown', 'touchstart'];
 
     function removeTriggers() {
       triggerEvents.forEach(function (eventName) {
@@ -821,7 +825,7 @@
     });
     document.addEventListener('visibilitychange', handleVisibilityChange, { once: true });
     window.addEventListener('load', function () {
-      fallbackTimer = window.setTimeout(loadGTM, 20000);
+      fallbackTimer = window.setTimeout(loadGTM, 45000);
     }, { once: true });
   })();
 </script>

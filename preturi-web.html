@@ -11,13 +11,59 @@
   <meta property="og:description" content="Compara pachetele Start, Growth si Custom pentru website-uri orientate pe conversie.">
   <meta property="og:url" content="https://zypherolab.com/preturi-web.html">
   <meta property="og:image" content="https://zypherolab.com/img/brand/og-image.png">
+  <meta property="og:locale" content="ro_RO">
+  <meta property="og:locale:alternate" content="en_US">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Preturi Web | ZypheroLab">
   <meta name="twitter:description" content="Preturi clare pentru proiecte web cu obiective comerciale.">
   <link rel="canonical" href="https://zypherolab.com/preturi-web.html">
   <link rel="alternate" hreflang="ro" href="https://zypherolab.com/preturi-web.html">
   <link rel="alternate" hreflang="en" href="https://zypherolab.com/en/web-pricing.html">
+  <link rel="alternate" hreflang="x-default" href="https://zypherolab.com/preturi-web.html">
   <link rel="stylesheet" href="/css/style.css">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "name": "Preturi Web",
+          "url": "https://zypherolab.com/preturi-web.html",
+          "description": "Preturi ZypheroLab pentru pachete website: Start, Growth si proiecte custom, cu scop comercial clar si implementare rapida.",
+          "inLanguage": "ro"
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Care este pretul minim pentru lansare?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Pachetul Start incepe de la 300 EUR pentru o pagina comerciala completa, gata de promovare."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Cand aleg pachetul Growth?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Pachetul Growth este potrivit cand ai nevoie de website multi-pagina, SEO tehnic avansat si raportare KPI."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Exista costuri recurente obligatorii?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Nu exista costuri ascunse obligatorii; abonamentele de mentenanta sau optimizare sunt optionale."
+              }
+            }
+          ]
+        }
+      ]
+    }
+  </script>
 </head>
 <body>
   <a class="skip-link" href="#main-content">Sari la continut</a>
@@ -59,21 +105,65 @@
         <a class="btn btn-secondary" href="/studii-de-caz.html">Vezi studii de caz</a>
       </div>
     </section>
+    <section class="faq reveal" aria-labelledby="faq-title">
+      <h2 id="faq-title">Intrebari frecvente despre preturi</h2>
+      <div class="cards">
+        <article class="card">
+          <h3>Care este pretul minim pentru lansare?</h3>
+          <p>Pachetul Start incepe de la 300 EUR pentru o pagina comerciala completa, gata de promovare.</p>
+        </article>
+        <article class="card">
+          <h3>Cand aleg pachetul Growth?</h3>
+          <p>Pachetul Growth este potrivit cand ai nevoie de website multi-pagina, SEO tehnic avansat si raportare KPI.</p>
+        </article>
+        <article class="card">
+          <h3>Exista costuri recurente obligatorii?</h3>
+          <p>Nu exista costuri ascunse obligatorii; abonamentele de mentenanta sau optimizare sunt optionale.</p>
+        </article>
+      </div>
+    </section>
   </main>
   <footer><p><strong>ZypheroLab</strong> — Website-uri de crestere pentru business-uri locale.</p></footer>
   <script src="/js/config.js" defer></script>
   <script src="/js/dark-mode.js" defer></script>
   <script>
     (function () {
-      var s = document.createElement("script");
-      s.async = true;
-      s.src = "https://www.googletagmanager.com/gtag/js?id=G-JRPX0T1X3S";
-      document.head.appendChild(s);
-      window.dataLayer = window.dataLayer || [];
-      function gtag() { dataLayer.push(arguments); }
-      window.gtag = gtag;
-      gtag("js", new Date());
-      gtag("config", "G-JRPX0T1X3S");
+      var gtmLoaded = false;
+      var fallbackTimer = null;
+      var triggerEvents = ["pointerdown", "keydown", "touchstart"];
+      function removeTriggers() {
+        triggerEvents.forEach(function (eventName) {
+          window.removeEventListener(eventName, loadGTM, true);
+        });
+        document.removeEventListener("visibilitychange", handleVisibilityChange);
+      }
+      function handleVisibilityChange() {
+        if (document.visibilityState === "hidden") {
+          loadGTM();
+        }
+      }
+      function loadGTM() {
+        if (gtmLoaded) return;
+        gtmLoaded = true;
+        removeTriggers();
+        if (fallbackTimer) clearTimeout(fallbackTimer);
+        var s = document.createElement("script");
+        s.async = true;
+        s.src = "https://www.googletagmanager.com/gtag/js?id=G-JRPX0T1X3S";
+        document.head.appendChild(s);
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        window.gtag = gtag;
+        gtag("js", new Date());
+        gtag("config", "G-JRPX0T1X3S");
+      }
+      triggerEvents.forEach(function (eventName) {
+        window.addEventListener(eventName, loadGTM, { once: true, passive: true, capture: true });
+      });
+      document.addEventListener("visibilitychange", handleVisibilityChange, { once: true });
+      window.addEventListener("load", function () {
+        fallbackTimer = window.setTimeout(loadGTM, 45000);
+      }, { once: true });
     })();
   </script>
 </body>

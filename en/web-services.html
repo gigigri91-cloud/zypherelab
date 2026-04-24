@@ -11,10 +11,59 @@
   <meta property="og:description" content="Conversion websites, technical SEO, and iteration sprints for growth.">
   <meta property="og:url" content="https://zypherolab.com/en/web-services.html">
   <meta property="og:image" content="https://zypherolab.com/img/brand/og-image.png">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="ro_RO">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Web Services | ZypheroLab">
+  <meta name="twitter:description" content="Conversion websites, technical SEO, and iteration sprints for growth.">
   <link rel="canonical" href="https://zypherolab.com/en/web-services.html">
   <link rel="alternate" hreflang="en" href="https://zypherolab.com/en/web-services.html">
   <link rel="alternate" hreflang="ro" href="https://zypherolab.com/servicii-web.html">
+  <link rel="alternate" hreflang="x-default" href="https://zypherolab.com/en/web-services.html">
   <link rel="stylesheet" href="/css/style.css">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "name": "Web Services",
+          "url": "https://zypherolab.com/en/web-services.html",
+          "description": "ZypheroLab web services: conversion-focused websites, technical SEO, and growth support for local and international businesses.",
+          "inLanguage": "en"
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What is included in the baseline service package?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The baseline package includes commercial page structure, conversion copy, mobile-first implementation, and technical SEO setup."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How fast can we see the first working version?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "For a standard scope, the first functional version is usually delivered in 3-5 business days."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How do you track post-launch results?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "We track traffic, CTR, and lead KPIs, then prioritize monthly optimization sprints on high-potential pages."
+              }
+            }
+          ]
+        }
+      ]
+    }
+  </script>
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
@@ -43,21 +92,65 @@
         <a class="btn btn-secondary" href="/en/case-studies.html">See case studies</a>
       </div>
     </section>
+    <section class="faq reveal" aria-labelledby="faq-title">
+      <h2 id="faq-title">Frequently asked questions about services</h2>
+      <div class="cards">
+        <article class="card">
+          <h3>What is included in the baseline service package?</h3>
+          <p>The baseline package includes commercial page structure, conversion copy, mobile-first implementation, and technical SEO setup.</p>
+        </article>
+        <article class="card">
+          <h3>How fast can we see the first working version?</h3>
+          <p>For a standard scope, the first functional version is usually delivered in 3-5 business days.</p>
+        </article>
+        <article class="card">
+          <h3>How do you track post-launch results?</h3>
+          <p>We track traffic, CTR, and lead KPIs, then prioritize monthly optimization sprints on high-potential pages.</p>
+        </article>
+      </div>
+    </section>
   </main>
   <footer><p><strong>ZypheroLab</strong> — Growth websites for local businesses.</p></footer>
   <script src="/js/config.js" defer></script>
   <script src="/js/dark-mode.js" defer></script>
   <script>
     (function () {
-      var s = document.createElement("script");
-      s.async = true;
-      s.src = "https://www.googletagmanager.com/gtag/js?id=G-JRPX0T1X3S";
-      document.head.appendChild(s);
-      window.dataLayer = window.dataLayer || [];
-      function gtag() { dataLayer.push(arguments); }
-      window.gtag = gtag;
-      gtag("js", new Date());
-      gtag("config", "G-JRPX0T1X3S");
+      var gtmLoaded = false;
+      var fallbackTimer = null;
+      var triggerEvents = ["pointerdown", "keydown", "touchstart"];
+      function removeTriggers() {
+        triggerEvents.forEach(function (eventName) {
+          window.removeEventListener(eventName, loadGTM, true);
+        });
+        document.removeEventListener("visibilitychange", handleVisibilityChange);
+      }
+      function handleVisibilityChange() {
+        if (document.visibilityState === "hidden") {
+          loadGTM();
+        }
+      }
+      function loadGTM() {
+        if (gtmLoaded) return;
+        gtmLoaded = true;
+        removeTriggers();
+        if (fallbackTimer) clearTimeout(fallbackTimer);
+        var s = document.createElement("script");
+        s.async = true;
+        s.src = "https://www.googletagmanager.com/gtag/js?id=G-JRPX0T1X3S";
+        document.head.appendChild(s);
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        window.gtag = gtag;
+        gtag("js", new Date());
+        gtag("config", "G-JRPX0T1X3S");
+      }
+      triggerEvents.forEach(function (eventName) {
+        window.addEventListener(eventName, loadGTM, { once: true, passive: true, capture: true });
+      });
+      document.addEventListener("visibilitychange", handleVisibilityChange, { once: true });
+      window.addEventListener("load", function () {
+        fallbackTimer = window.setTimeout(loadGTM, 45000);
+      }, { once: true });
     })();
   </script>
 </body>

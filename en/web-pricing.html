@@ -11,10 +11,59 @@
   <meta property="og:description" content="Transparent Starter, Growth and Custom pricing for lead-focused websites.">
   <meta property="og:url" content="https://zypherolab.com/en/web-pricing.html">
   <meta property="og:image" content="https://zypherolab.com/img/brand/og-image.png">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="ro_RO">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Web Pricing | ZypheroLab">
+  <meta name="twitter:description" content="Transparent Starter, Growth and Custom pricing for lead-focused websites.">
   <link rel="canonical" href="https://zypherolab.com/en/web-pricing.html">
   <link rel="alternate" hreflang="en" href="https://zypherolab.com/en/web-pricing.html">
   <link rel="alternate" hreflang="ro" href="https://zypherolab.com/preturi-web.html">
+  <link rel="alternate" hreflang="x-default" href="https://zypherolab.com/en/web-pricing.html">
   <link rel="stylesheet" href="/css/style.css">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "name": "Web Pricing",
+          "url": "https://zypherolab.com/en/web-pricing.html",
+          "description": "Transparent ZypheroLab website pricing: Starter, Growth, and Custom packages for conversion-focused web projects.",
+          "inLanguage": "en"
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What is the minimum launch budget?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The Starter package begins at EUR 300 for a complete commercial landing page ready for promotion."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "When should we choose the Growth package?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Growth fits when you need a multi-page website, advanced technical SEO, and recurring KPI reporting."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Are there mandatory recurring fees?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "There are no hidden mandatory recurring fees; maintenance and optimization subscriptions are optional."
+              }
+            }
+          ]
+        }
+      ]
+    }
+  </script>
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
@@ -32,21 +81,65 @@
         <a class="btn btn-secondary" href="/en/case-studies.html">View case studies</a>
       </div>
     </section>
+    <section class="faq reveal" aria-labelledby="faq-title">
+      <h2 id="faq-title">Frequently asked questions about pricing</h2>
+      <div class="cards">
+        <article class="card">
+          <h3>What is the minimum launch budget?</h3>
+          <p>The Starter package begins at EUR 300 for a complete commercial landing page ready for promotion.</p>
+        </article>
+        <article class="card">
+          <h3>When should we choose the Growth package?</h3>
+          <p>Growth fits when you need a multi-page website, advanced technical SEO, and recurring KPI reporting.</p>
+        </article>
+        <article class="card">
+          <h3>Are there mandatory recurring fees?</h3>
+          <p>There are no hidden mandatory recurring fees; maintenance and optimization subscriptions are optional.</p>
+        </article>
+      </div>
+    </section>
   </main>
   <footer><p><strong>ZypheroLab</strong> — Growth websites for local businesses.</p></footer>
   <script src="/js/config.js" defer></script>
   <script src="/js/dark-mode.js" defer></script>
   <script>
     (function () {
-      var s = document.createElement("script");
-      s.async = true;
-      s.src = "https://www.googletagmanager.com/gtag/js?id=G-JRPX0T1X3S";
-      document.head.appendChild(s);
-      window.dataLayer = window.dataLayer || [];
-      function gtag() { dataLayer.push(arguments); }
-      window.gtag = gtag;
-      gtag("js", new Date());
-      gtag("config", "G-JRPX0T1X3S");
+      var gtmLoaded = false;
+      var fallbackTimer = null;
+      var triggerEvents = ["pointerdown", "keydown", "touchstart"];
+      function removeTriggers() {
+        triggerEvents.forEach(function (eventName) {
+          window.removeEventListener(eventName, loadGTM, true);
+        });
+        document.removeEventListener("visibilitychange", handleVisibilityChange);
+      }
+      function handleVisibilityChange() {
+        if (document.visibilityState === "hidden") {
+          loadGTM();
+        }
+      }
+      function loadGTM() {
+        if (gtmLoaded) return;
+        gtmLoaded = true;
+        removeTriggers();
+        if (fallbackTimer) clearTimeout(fallbackTimer);
+        var s = document.createElement("script");
+        s.async = true;
+        s.src = "https://www.googletagmanager.com/gtag/js?id=G-JRPX0T1X3S";
+        document.head.appendChild(s);
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        window.gtag = gtag;
+        gtag("js", new Date());
+        gtag("config", "G-JRPX0T1X3S");
+      }
+      triggerEvents.forEach(function (eventName) {
+        window.addEventListener(eventName, loadGTM, { once: true, passive: true, capture: true });
+      });
+      document.addEventListener("visibilitychange", handleVisibilityChange, { once: true });
+      window.addEventListener("load", function () {
+        fallbackTimer = window.setTimeout(loadGTM, 45000);
+      }, { once: true });
     })();
   </script>
 </body>

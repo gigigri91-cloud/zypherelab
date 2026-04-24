@@ -63,6 +63,20 @@
         c3t: "Conversie",
         c3p: "CTA-uri testabile, formular orientat pe lead-uri și mesaje care reduc fricțiunea."
       },
+      seoLinks: {
+        services: {
+          lead: "Vezi detalii complete in pagina dedicata de servicii.",
+          cta: "Exploreaza servicii"
+        },
+        pricing: {
+          lead: "Compara pachetele in pagina completa de preturi.",
+          cta: "Vezi preturi detaliate"
+        },
+        contact: {
+          lead: "Ai nevoie de cerinte mai avansate? Vezi pagina completa de contact comercial.",
+          cta: "Pagina de contact"
+        }
+      },
       offer: {
         title: "Oferta potrivită pentru lansare rapidă",
         lead: "Pachet Start: landing page strategic + formular lead + setup SEO + analytics de bază.",
@@ -392,6 +406,20 @@
         c2p: "Meta, schema, FAQs, and clear copy for classic and AI-assisted search.",
         c3t: "Conversion",
         c3p: "Testable CTAs, lead-focused forms, and copy that reduces friction."
+      },
+      seoLinks: {
+        services: {
+          lead: "See the full service scope on the dedicated page.",
+          cta: "Explore services"
+        },
+        pricing: {
+          lead: "Compare all packages on the detailed pricing page.",
+          cta: "View detailed pricing"
+        },
+        contact: {
+          lead: "Need a broader scope? Use the dedicated commercial contact page.",
+          cta: "Contact page"
+        }
       },
       offer: {
         title: "The right offer for a fast launch",

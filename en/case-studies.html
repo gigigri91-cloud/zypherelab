@@ -11,10 +11,59 @@
   <meta property="og:description" content="Commercial case studies with challenge, solution and measurable outcome.">
   <meta property="og:url" content="https://zypherolab.com/en/case-studies.html">
   <meta property="og:image" content="https://zypherolab.com/img/brand/og-image.png">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="ro_RO">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Case Studies | ZypheroLab">
+  <meta name="twitter:description" content="Commercial case studies with challenge, solution and measurable outcome.">
   <link rel="canonical" href="https://zypherolab.com/en/case-studies.html">
   <link rel="alternate" hreflang="en" href="https://zypherolab.com/en/case-studies.html">
   <link rel="alternate" hreflang="ro" href="https://zypherolab.com/studii-de-caz.html">
+  <link rel="alternate" hreflang="x-default" href="https://zypherolab.com/en/case-studies.html">
   <link rel="stylesheet" href="/css/style.css">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "name": "Case Studies",
+          "url": "https://zypherolab.com/en/case-studies.html",
+          "description": "ZypheroLab case studies: challenge, solution, and outcome across conversion-oriented website projects.",
+          "inLanguage": "en"
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Which outcomes do you track in case studies?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "We track funnel clarity, page speed, contact rate, and the quality of incoming leads."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What industries are covered by your examples?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Examples cover local services, hospitality, legal practices, and businesses with regional or international audiences."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can this approach be adapted to another business model?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, the conversion structure and SEO methodology are adapted to your goals, market, and business maturity."
+              }
+            }
+          ]
+        }
+      ]
+    }
+  </script>
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
@@ -31,21 +80,65 @@
         <a class="btn btn-secondary" href="/en/contact.html">Discuss your project</a>
       </div>
     </section>
+    <section class="faq reveal" aria-labelledby="faq-title">
+      <h2 id="faq-title">Frequently asked questions about case studies</h2>
+      <div class="cards">
+        <article class="card">
+          <h3>Which outcomes do you track in case studies?</h3>
+          <p>We track funnel clarity, page speed, contact rate, and the quality of incoming leads.</p>
+        </article>
+        <article class="card">
+          <h3>What industries are covered by your examples?</h3>
+          <p>Examples cover local services, hospitality, legal practices, and businesses with regional or international audiences.</p>
+        </article>
+        <article class="card">
+          <h3>Can this approach be adapted to another business model?</h3>
+          <p>Yes, the conversion structure and SEO methodology are adapted to your goals, market, and business maturity.</p>
+        </article>
+      </div>
+    </section>
   </main>
   <footer><p><strong>ZypheroLab</strong> — Growth websites for local businesses.</p></footer>
   <script src="/js/config.js" defer></script>
   <script src="/js/dark-mode.js" defer></script>
   <script>
     (function () {
-      var s = document.createElement("script");
-      s.async = true;
-      s.src = "https://www.googletagmanager.com/gtag/js?id=G-JRPX0T1X3S";
-      document.head.appendChild(s);
-      window.dataLayer = window.dataLayer || [];
-      function gtag() { dataLayer.push(arguments); }
-      window.gtag = gtag;
-      gtag("js", new Date());
-      gtag("config", "G-JRPX0T1X3S");
+      var gtmLoaded = false;
+      var fallbackTimer = null;
+      var triggerEvents = ["pointerdown", "keydown", "touchstart"];
+      function removeTriggers() {
+        triggerEvents.forEach(function (eventName) {
+          window.removeEventListener(eventName, loadGTM, true);
+        });
+        document.removeEventListener("visibilitychange", handleVisibilityChange);
+      }
+      function handleVisibilityChange() {
+        if (document.visibilityState === "hidden") {
+          loadGTM();
+        }
+      }
+      function loadGTM() {
+        if (gtmLoaded) return;
+        gtmLoaded = true;
+        removeTriggers();
+        if (fallbackTimer) clearTimeout(fallbackTimer);
+        var s = document.createElement("script");
+        s.async = true;
+        s.src = "https://www.googletagmanager.com/gtag/js?id=G-JRPX0T1X3S";
+        document.head.appendChild(s);
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        window.gtag = gtag;
+        gtag("js", new Date());
+        gtag("config", "G-JRPX0T1X3S");
+      }
+      triggerEvents.forEach(function (eventName) {
+        window.addEventListener(eventName, loadGTM, { once: true, passive: true, capture: true });
+      });
+      document.addEventListener("visibilitychange", handleVisibilityChange, { once: true });
+      window.addEventListener("load", function () {
+        fallbackTimer = window.setTimeout(loadGTM, 45000);
+      }, { once: true });
     })();
   </script>
 </body>
