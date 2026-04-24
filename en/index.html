@@ -766,54 +766,6 @@
     setupIntentLoaders();
   })();
 </script>
-<script>
-  (function () {
-    var gtmLoaded = false;
-    var fallbackTimer = null;
-    var triggerEvents = ['pointerdown', 'keydown', 'touchstart'];
-
-    function removeTriggers() {
-      triggerEvents.forEach(function (eventName) {
-        window.removeEventListener(eventName, loadGTM, true);
-      });
-      document.removeEventListener('visibilitychange', handleVisibilityChange);
-    }
-
-    function handleVisibilityChange() {
-      if (document.visibilityState === 'hidden') {
-        loadGTM();
-      }
-    }
-
-    function loadGTM() {
-      if (gtmLoaded) {
-        return;
-      }
-      gtmLoaded = true;
-      removeTriggers();
-      if (fallbackTimer) {
-        clearTimeout(fallbackTimer);
-      }
-
-      var s = document.createElement('script');
-      s.async = true;
-      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-JRPX0T1X3S';
-      document.head.appendChild(s);
-      window.dataLayer = window.dataLayer || [];
-      function gtag() { dataLayer.push(arguments); }
-      window.gtag = gtag;
-      gtag('js', new Date());
-      gtag('config', 'G-JRPX0T1X3S');
-    }
-
-    triggerEvents.forEach(function (eventName) {
-      window.addEventListener(eventName, loadGTM, { once: true, passive: true, capture: true });
-    });
-    document.addEventListener('visibilitychange', handleVisibilityChange, { once: true });
-    window.addEventListener('load', function () {
-      fallbackTimer = window.setTimeout(loadGTM, 45000);
-    }, { once: true });
-  })();
-</script>
+<script src="/js/analytics-loader.js?v=20260424d" defer></script>
 </body>
 </html>
